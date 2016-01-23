@@ -102,6 +102,12 @@ public class Cell implements Serializable {
 			}
 			return "mirroir";
 		}
+		if (type.equals(CELL_CHECKPOINT)) {
+			if (hasLaser()) {
+				return "checkpoint_actif";
+			}
+			return "checkpoint";
+		}
 		
 		return null;
 	}
