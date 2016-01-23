@@ -12,11 +12,10 @@ public class Cell {
 	public static final int E = 1;
 	public static final int S = 2;
 	public static final int W = 3;
-	
-	
 
-	String			type;
-	int				angle;
+	private String type;
+	private int angle;
+	private Integer laserOrigin = null;
 
 	public Cell(String type) {
 		super();
@@ -43,6 +42,14 @@ public class Cell {
 
 	public void setAngle(int angle) {
 		this.angle = angle;
+	}
+
+	public Integer getLaserOrigin() {
+		return laserOrigin;
+	}
+
+	public void setLaserOrigin(Integer laserOrigin) {
+		this.laserOrigin = laserOrigin;
 	}
 
 }
