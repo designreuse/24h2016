@@ -4,15 +4,40 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/resources/inspinia/template_basic.xhtml">
 	<ui:param name="selectedMenu" value="userboard" />
+	<ui:param name="b" value="#{userDashboardView}" />
 	<ui:define name="title">#{config.application} - #{message.header_dashboard} #{message.user}</ui:define>
 
 	<ui:define name="content">
 		<h:form id="FormContent">
+
+			<p></p>
+			<p></p>
+			<p:dataList value="#{b.list}" var="var" type="none">
+				<div class="ligne">
+					<p:dataList value="#{var}" var="var2" type="none">
+						<span class="case">
+							<ui:fragment rendered="#{var2.type == 'lstart'}">
+								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" /> 
+							</ui:fragment>
+							<ui:fragment rendered="#{var2.type == 'wall'}">
+								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mur.png" /> 
+							</ui:fragment>
+							<ui:fragment rendered="#{var2.type == 'wall'}">
+								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mur.png" /> 
+							</ui:fragment>
+						 </span>
+					</p:dataList>
+				</div>
+			</p:dataList>
+			<p></p>
+			<p></p>
+
 			<div class="ligne">
-				<span class="case"> </span><span class="case"><img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" /> </span><span class="case"><img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser.png" /> </span><span class="case rotate90"><img
-					src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mirroir.png" /> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span
+				<span class="case"> </span><span class="case"><img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" /> </span><span class="case"><img
+					src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser.png" /> </span><span class="case rotate90"><img
+					src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mirroir.png" /> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span
 					class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span
-					class="case"> </span><span class="case"> </span><span class="case"></span>
+					class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"></span>
 			</div>
 			<div class="clearfix"></div>
 			<div class="ligne">
