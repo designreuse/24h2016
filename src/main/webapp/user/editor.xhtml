@@ -28,7 +28,7 @@
 						<div class="ligne">
 							<p:dataList value="#{var}" var="cell" type="none" id="cases" rowIndexVar="colonne">
 								<p:commandLink action="#{b.rotateCell(ligne,colonne)}" update="@form">
-									<p:outputPanel styleClass="case rotate#{b.getOrientation(cell)}" id="drop" layout="inline">
+									<p:outputPanel styleClass="case rotate#{b.getOrientation(cell)} colonne_#{colonne} ligne_#{ligne}" id="drop" layout="inline">
 										<ui:fragment rendered="#{b.getImage(cell) != null}">
 											<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
 										</ui:fragment>
@@ -40,7 +40,7 @@
 									<f:param name="colonne" value="#{colonne}" />
 									<p:ajax listener="#{b.dropObject}" update="@form" />
 								</p:droppable>
-								<p:draggable for="drop" revert="true" opacity="0.5" helper="clone" />
+								<p:draggable for="drop" opacity="0.5" helper="clone" />
 
 							</p:dataList>
 						</div>
@@ -68,7 +68,7 @@
 					</p:outputPanel>
 					<p:draggable for="wall" revert="true" opacity="0.5" helper="clone" />
 
-					<p:droppable for="sac" tolerance="pointer" datasource="FormContent:ligne:cases">
+					<p:droppable for="sac" tolerance="pointer">
 						<p:ajax listener="#{b.releaseObject}" update="@form" />
 					</p:droppable>
 					
@@ -85,6 +85,31 @@
 			<p></p>
 			<p></p>
 		</h:form>
+		<script>
+            //<![CDATA[
+            PrimeFaces.widget.Droppable.prototype.bindDropListener = function() {
+                var _self = this;
+                this.cfg.drop = function(event, ui) {
+                    if (_self.cfg.onDrop) {
+                        _self.cfg.onDrop.call(_self, event, ui);
+                    }
+                    if (_self.cfg.behaviors) {
+                        var dropBehavior = _self.cfg.behaviors['drop'];
+                        if (dropBehavior) {
+                            var ext = {
+                                params: [
+                                    {name: 'class', value: ui.draggable.attr('class')},
+                                    {name: 'dragId', value:  ui.draggable.attr('id')}
+                                ]
+                            };
+                            console.log(ui.draggable);
+                            dropBehavior.call(_self, ext);
+                        }
+                    }
+                };
+            }
+            // ]]>
+        </script>
 	</ui:define>
 </ui:composition>
 </html>
