@@ -104,8 +104,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		}
 	}
 	
-	
-	
 	private void rebuildLaser() {
 		complete = laserBuilder.compute(board);
 	}
