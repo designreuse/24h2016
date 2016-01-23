@@ -78,7 +78,7 @@ public class LaserBuilder {
 			if(direction==Cell.W) return Cell.N;
 		}
 		if(angle==Cell.E) {
-			if(direction==Cell.N) return Cell.W;
+			if(direction==Cell.N) return Cell.E;
 			if(direction==Cell.E) return Cell.UNDEFINED;
 			if(direction==Cell.S) return Cell.UNDEFINED;
 			if(direction==Cell.W) return Cell.S;
