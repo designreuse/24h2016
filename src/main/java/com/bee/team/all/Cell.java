@@ -69,7 +69,7 @@ public class Cell implements Serializable {
 	}
 	
 	public boolean hasLaser() {
-		return laserOrigin==UNDEFINED;
+		return laserOrigin!=UNDEFINED;
 	}
 	
 	

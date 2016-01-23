@@ -65,6 +65,7 @@ public class LaserBuilder implements Serializable {
 	private int findNextDirection(String type, int direction, int angle) {
 
 		if (type.equals(Cell.CELL_EMPTY)) return direction;
+		if (type.equals(Cell.CELL_CHECKPOINT)) return direction;
 		if (type.equals(Cell.CELL_LASER_END)) return direction;
 		if (type.equals(Cell.CELL_LASER_START)) return Cell.UNDEFINED;
 		if (type.equals(Cell.CELL_WALL)) return Cell.UNDEFINED;
