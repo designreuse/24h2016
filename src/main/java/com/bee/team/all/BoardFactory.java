@@ -21,7 +21,7 @@ public class BoardFactory {
 
 		cells[2][3] = new Cell(Cell.CELL_WALL);
 
-		cells[9][7] = new Cell(Cell.CELL_MIROR);
+		cells[9][7] = new Cell(Cell.CELL_MIRROR);
 		cells[9][7].setAngle(Cell.W);
 
 		Point startPoint = newPoint(3, 9);
