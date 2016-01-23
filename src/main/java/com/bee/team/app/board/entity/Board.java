@@ -111,6 +111,14 @@ public class Board extends BaseEntity implements Serializable {
 			}
 		laser.getPath().clear();
 	}
+	
+	public boolean checkPointsReached() {
+		for (Cell[] line : cells)
+			for (Cell cell : line) {
+				if(cell.isCheckpoint() && !cell.hasLaser()) return false;
+			}
+		return true;
+	}
 
 	@Override
 	public int hashCode() {
