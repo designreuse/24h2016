@@ -7,8 +7,9 @@ public class LaserBuilder {
 	
 
 	
-	public void compute(Laser laser, Board board) {
+	public void compute(Board board) {
 		
+		Laser laser = board.getLaser();
 		List<Point> path = laser.getPath();
 		Point start = laser.getStart();
 		int direction = laser.getStartDirection();

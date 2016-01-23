@@ -12,7 +12,7 @@ public class LaserBuilderTest {
 		System.out.println("start point: "+laser.getStart());
 		System.out.println("start direction: "+laser.getStartDirection());
 		
-		new LaserBuilder().compute(laser, board);
+		new LaserBuilder().compute(board);
 		
 		System.out.println("path-length: "+laser.getPath().size());
 		System.out.println(laser);
