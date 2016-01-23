@@ -37,6 +37,9 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
 		} else if (level.equals("2")) {
 			board = BoardFactory.create(BoardFactory.DEBUG_WITH_LASER);
+		} else if (level.equals("3")) {
+			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER_2);
+			new LaserBuilder().compute(board);
 		} else {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
 			new LaserBuilder().compute(board);
@@ -59,7 +62,18 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			return "";
 		}
 		if (cell.getType().equals(Cell.CELL_LASER_END)) {
-			return String.valueOf(cell.getLaserOrigin());
+			if (cell.getLaserOrigin() == Cell.N) {
+				return String.valueOf(Cell.S);
+			}
+			if (cell.getLaserOrigin() == Cell.S) {
+				return String.valueOf(Cell.N);
+			}
+			if (cell.getLaserOrigin() == Cell.E) {
+				return String.valueOf(Cell.W);
+			}
+			if (cell.getLaserOrigin() == Cell.W) {
+				return String.valueOf(Cell.E);
+			}
 		}
 		return String.valueOf(cell.getAngle());
 	}
