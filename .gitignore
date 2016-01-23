@@ -10,3 +10,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/JsfMessages_en.properties
+/JsfMessages_fr.properties
+/application.properties
+/applicationContext.xml
+/com/
+/logback.xml
+/messages.properties
+/messages_en.properties
+/messages_fr.properties
+.classpath
+.project
