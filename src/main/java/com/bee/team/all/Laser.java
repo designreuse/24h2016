@@ -34,4 +34,12 @@ public class Laser {
 	public int getStartDirection() {
 		return startDirection;
 	}
+	
+	public String toString() {
+		StringBuffer b = new StringBuffer();
+		for(Point p:path) {
+			b.append(p);
+		}
+		return b.toString();
+	}
 }
