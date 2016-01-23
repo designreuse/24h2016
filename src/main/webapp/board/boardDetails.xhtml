@@ -33,7 +33,7 @@
 					<p:dataList value="#{b.list}" var="var" type="none">
 						<div class="ligne">
 							<p:dataList value="#{var}" var="cell" type="none">
-								<span class="case rotate#{cell.angle}"> <ui:fragment rendered="#{b.getImage(cell) != null}">
+								<span class="case rotate#{b.getOrientation(cell)}"> <ui:fragment rendered="#{b.getImage(cell) != null}">
 										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
 									</ui:fragment>
 								</span>

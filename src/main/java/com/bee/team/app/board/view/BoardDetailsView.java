@@ -54,6 +54,16 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		}
 	}
 
+	public String getOrientation(Cell cell) {
+		if (cell.getType().equals(Cell.CELL_EMPTY) || cell.getType().equals(Cell.CELL_WALL)) {
+			return "";
+		}
+		if (cell.getType().equals(Cell.CELL_LASER_END)) {
+			return String.valueOf(cell.getLaserOrigin());
+		}
+		return String.valueOf(cell.getAngle());
+	}
+	
 	public String getImage(Cell cell) {
 		return cell.getImage();
 	}
