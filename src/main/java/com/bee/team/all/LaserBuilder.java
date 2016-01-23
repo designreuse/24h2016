@@ -32,7 +32,7 @@ public class LaserBuilder {
 		int nextDirection = findNextDirection(type,direction,angle);
 		
 		path.add(nextPoint);
-		nextCell.setLaserOrigin(-nextDirection);
+		nextCell.setLaserOrigin(nextDirection);
 		
 		if(type.equals(Cell.CELL_LASER_END)) return true;
 		if(nextDirection==Cell.UNDEFINED) return false;
