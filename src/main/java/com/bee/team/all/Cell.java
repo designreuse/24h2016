@@ -4,9 +4,12 @@ import java.io.Serializable;
 
 public class Cell implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	public static final String CELL_EMPTY       = "empty";
 	public static final String CELL_WALL        = "wall";
 	public static final String CELL_MIRROR       = "mirror";
+	public static final String CELL_CHECKPOINT   = "checkpoint";
 	public static final String CELL_LASER_START = "lstart";
 	public static final String CELL_LASER_END   = "lend";
 
@@ -19,7 +22,9 @@ public class Cell implements Serializable {
 	private String type = CELL_EMPTY;
 	private int angle = UNDEFINED;
 	private int laserOrigin = UNDEFINED;
-
+	
+	private boolean fixed = true;
+	
 	
 	public Cell(String type) {
 		super();
@@ -50,6 +55,10 @@ public class Cell implements Serializable {
 	public boolean isWall() {
 		return type.equals(CELL_WALL);
 	}
+
+	public boolean isCheckpoint() {
+		return type.equals(CELL_CHECKPOINT);
+	}
 	
 	public boolean isLaserStart() {
 		return type.equals(CELL_LASER_START);
@@ -57,6 +66,10 @@ public class Cell implements Serializable {
 	
 	public boolean isLaserEnd() {
 		return type.equals(CELL_LASER_END);
+	}
+	
+	public boolean hasLaser() {
+		return laserOrigin==UNDEFINED;
 	}
 	
 	
@@ -118,9 +131,18 @@ public class Cell implements Serializable {
 	public void setLaserOrigin(int laserOrigin) {
 		this.laserOrigin = laserOrigin;
 	}
+	
+	public boolean isFixed() {
+		return fixed;
+	}
 
+	public void setFixed(boolean fixed){
+		this.fixed = fixed;
+		
+	}
 	
 	public void rotate() {
 		angle = (angle+1)%4;
 	}
+
 }

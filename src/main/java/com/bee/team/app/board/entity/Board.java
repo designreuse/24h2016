@@ -11,11 +11,13 @@ import com.bee.team.base.BaseEntity;
 
 public class Board extends BaseEntity implements Serializable {
 
-	private String		boardId;
-	private String		level;
-	private String		params;
-	private Laser		laser;
-	private Cell[][]	cells;
+	private static final long serialVersionUID = 1L;
+
+	private String boardId;
+	private String level;
+	private String params;
+	private Laser laser;
+	private Cell[][] cells;
 
 	public Laser getLaser() {
 		return laser;
@@ -34,8 +36,10 @@ public class Board extends BaseEntity implements Serializable {
 	}
 
 	public Cell getCellFromPoint(Point p) {
-		if(p.getRow()>=cells.length || p.getRow()<0) return null;
-		if(p.getColumn()>=cells[0].length|| p.getColumn()<0) return null;
+		if (p.getRow() >= cells.length || p.getRow() < 0)
+			return null;
+		if (p.getColumn() >= cells[0].length || p.getColumn() < 0)
+			return null;
 		return cells[p.getRow()][p.getColumn()];
 	}
 
@@ -70,12 +74,21 @@ public class Board extends BaseEntity implements Serializable {
 	public void setParams(String params) {
 		this.params = params;
 	}
-	
+
 	public void resetLaser() {
-		for(Cell[] line:cells) for(Cell cell:line) {
-			cell.setLaserOrigin(Cell.UNDEFINED);
-		}
+		for (Cell[] line : cells)
+			for (Cell cell : line) {
+				cell.setLaserOrigin(Cell.UNDEFINED);
+			}
 		laser.getPath().clear();
+	}
+	
+	public boolean checkPointsReached() {
+		for (Cell[] line : cells)
+			for (Cell cell : line) {
+				if(cell.isCheckpoint() && !cell.hasLaser()) return false;
+			}
+		return true;
 	}
 
 	@Override
@@ -85,8 +98,11 @@ public class Board extends BaseEntity implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) { return true; }
-		if (!(obj instanceof Board)) return false;
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Board))
+			return false;
 		return new EqualsBuilder().append(boardId, ((Board) obj).getBoardId()).isEquals();
 	}
 
@@ -94,4 +110,5 @@ public class Board extends BaseEntity implements Serializable {
 	public String toString() {
 		return new ToStringBuilder(this).append(boardId).append(level).toString();
 	}
+
 }
