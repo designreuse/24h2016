@@ -70,6 +70,13 @@ public class Board extends BaseEntity implements Serializable {
 	public void setParams(String params) {
 		this.params = params;
 	}
+	
+	public void resetLaser() {
+		for(Cell[] line:cells) for(Cell cell:line) {
+			cell.setLaserOrigin(Cell.UNDEFINED);
+		}
+		laser.getPath().clear();
+	}
 
 	@Override
 	public int hashCode() {
