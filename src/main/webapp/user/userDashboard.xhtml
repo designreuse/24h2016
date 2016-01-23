@@ -19,11 +19,17 @@
 							<ui:fragment rendered="#{cell.type == 'lstart'}">
 								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" /> 
 							</ui:fragment>
+							<ui:fragment rendered="#{cell.laserOrigin == -1 and cell.type == 'lend'}">
+								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/end.png" /> 
+							</ui:fragment>
 							<ui:fragment rendered="#{cell.type == 'wall'}">
 								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mur.png" /> 
 							</ui:fragment>
-							<ui:fragment rendered="#{cell.laserOrigin != -1}">
+							<ui:fragment rendered="#{cell.laserOrigin == 0 or cell.laserOrigin == 2}">
 								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser_v.png" /> 
+							</ui:fragment>
+							<ui:fragment rendered="#{cell.laserOrigin == 1 or cell.laserOrigin == 3}">
+								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser_h.png" /> 
 							</ui:fragment>
 						 </span>
 					</p:dataList>

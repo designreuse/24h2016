@@ -5,9 +5,7 @@ import org.apache.commons.lang3.NotImplementedException;
 public class BoardFactory {
 
 	public static Board create(final String level) {
-		if ("DEBUG".equals(level)) {
-			return createDebugBoard();
-		}
+		if ("DEBUG".equals(level)) { return createDebugBoard(); }
 		throw new NotImplementedException("Unknonw level");
 	}
 
@@ -21,7 +19,7 @@ public class BoardFactory {
 
 		cells[2][3] = new Cell(Cell.CELL_WALL);
 
-		Point startPoint = new Point(3, 2);
+		Point startPoint = newPoint(9, 3);
 		cells[startPoint.getY()][startPoint.getX()] = new Cell(Cell.CELL_LASER_START, Cell.E);
 
 		cells[9][4].setLaserOrigin(Cell.W);
@@ -37,7 +35,7 @@ public class BoardFactory {
 		cells[4][7].setLaserOrigin(Cell.S);
 		cells[3][7].setLaserOrigin(Cell.S);
 
-		Point endPoint = newPoint(7, 2);
+		Point endPoint = newPoint(2, 7);
 		cells[endPoint.getY()][endPoint.getX()] = new Cell(Cell.CELL_LASER_END, Cell.UNDEFINED, Cell.S);
 
 		Laser laser = new Laser(startPoint, endPoint, Cell.E);
