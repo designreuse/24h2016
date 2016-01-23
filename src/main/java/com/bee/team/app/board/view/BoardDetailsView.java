@@ -9,6 +9,7 @@ import javax.faces.bean.ViewScoped;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.bee.team.all.BoardFactory;
 import com.bee.team.all.Cell;
+import com.bee.team.all.LaserBuilder;
 import com.bee.team.app.board.entity.Board;
 import com.bee.team.app.board.service.BoardService;
 import com.bee.team.base.BaseView;
@@ -30,8 +31,16 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	public void init() {
 		initBean();
 		// userTmp = boardService.findBoardById(getUser(), getParam("boardId"));
-
-		Board board = BoardFactory.create("DEBUG");
+		String level = getParam("boardId");
+		Board board = null;
+		if (level.equals("1")) {
+			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
+		} else if (level.equals("2")) {
+			board = BoardFactory.create(BoardFactory.DEBUG_WITH_LASER);
+		} else {
+			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
+			new LaserBuilder().compute(board);
+		}
 
 		Cell[][] cells = board.getCells();
 
@@ -43,6 +52,10 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			}
 			list.add(l1);
 		}
+	}
+
+	public String getImage(Cell cell) {
+		return cell.getImage();
 	}
 
 	public Board getUserTmp() {

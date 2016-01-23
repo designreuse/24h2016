@@ -37,6 +37,50 @@ public class Cell {
 		this.laserOrigin = laserOrigin;
 	}
 
+	public boolean isEmpty() {
+		return this.type.equals(CELL_EMPTY);
+	}
+	
+	public boolean isLaserStart() {
+		return this.type.equals(CELL_LASER_START);
+	}
+	
+	public String getImage() {
+		if (type.equals(CELL_WALL)) {
+			return "mur";
+		}
+		if (type.equals(CELL_EMPTY)) {
+			if (laserOrigin == UNDEFINED) {
+					return null;
+			} 
+			if (laserOrigin == N || laserOrigin == S) {
+				return "laser_v";
+			}
+			return "laser_h";
+		}
+		if (type.equals(CELL_LASER_START)) {
+			return "start";
+		}
+		if (type.equals(CELL_LASER_END)) {
+			if (laserOrigin != UNDEFINED) {
+				return "end";
+			}
+			return "end_point";
+		}
+		if (type.equals(CELL_MIRROR)) {
+			if (laserOrigin != UNDEFINED) {
+				return "mirroir_laser";
+			}
+			return "mirroir";
+		}
+		
+		return null;
+	}
+	
+	public String orientation() {
+		return "";
+	}
+	
 	public String getType() {
 		return type;
 	}
