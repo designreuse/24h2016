@@ -18,6 +18,27 @@
 				</ui:include>
 			</ui:insert>
 			<div id="page-wrapper" class="gray-bg">
+				<div class="row border-bottom">
+					<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+					<div class="navbar-header">
+						<a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i></a>
+					</div>
+					<h:form id="FormTopNav">
+						<ul class="nav navbar-top-links navbar-right">
+							<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#" aria-expanded="true"><i class="fa fa-user m-r-sm"></i>#{headerView.user.firstName}<b
+									class="caret"></b> </a>
+								<ul class="dropdown-menu dropdown-alerts">
+									<li class="divider"></li>
+									<li><h:link outcome="pretty:viewHelp">
+											<i class="fa fa-question-circle m-r-sm"></i>
+											<h:outputText value="#{message.help}" />
+										</h:link></li>
+									<li><a href="#{facesContext.externalContext.requestContextPath}/logout"> <i class="fa fa-sign-out m-r-sm"></i> <h:outputText value="#{message.header_logout}" />
+									</a></li>
+								</ul></li>
+						</ul>
+					</h:form> </nav>
+				</div>
 				<ui:insert name="content">
 				</ui:insert>
 				<ui:include src="footer.xhtml" />
