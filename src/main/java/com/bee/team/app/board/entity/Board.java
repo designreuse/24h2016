@@ -34,6 +34,8 @@ public class Board extends BaseEntity implements Serializable {
 	}
 
 	public Cell getCellFromPoint(Point p) {
+		if(p.getX()>=cells.length || p.getX()<0) return null;
+		if(p.getY()>=cells[0].length|| p.getY()<0) return null;
 		return cells[p.getX()][p.getY()];
 	}
 

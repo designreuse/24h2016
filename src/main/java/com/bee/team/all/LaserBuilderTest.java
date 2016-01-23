@@ -10,6 +10,7 @@ public class LaserBuilderTest {
 		Laser laser = board.getLaser();
 		new LaserBuilder().compute(laser, board);
 		
+		System.out.println("path-length: "+laser.getPath().size());
 		System.out.println(laser);
 	}
 

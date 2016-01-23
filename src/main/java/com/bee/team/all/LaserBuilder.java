@@ -23,6 +23,8 @@ public class LaserBuilder {
 		
 		Point nextPoint = findNextPoint(point,direction);
 		Cell nextCell = board.getCellFromPoint(nextPoint);
+		if(nextCell==null) return;
+		
 		String type = nextCell.getType();
 		int angle = nextCell.getAngle();
 		
