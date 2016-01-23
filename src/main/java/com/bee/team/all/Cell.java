@@ -38,12 +38,26 @@ public class Cell {
 	}
 
 	public boolean isEmpty() {
-		return this.type.equals(CELL_EMPTY);
+		return type.equals(CELL_EMPTY);
+	}
+
+	public boolean isMirror() {
+		return type.equals(CELL_MIRROR);
+	}
+
+	public boolean isWall() {
+		return type.equals(CELL_WALL);
 	}
 	
 	public boolean isLaserStart() {
-		return this.type.equals(CELL_LASER_START);
+		return type.equals(CELL_LASER_START);
 	}
+	
+	public boolean isLaserEnd() {
+		return type.equals(CELL_LASER_END);
+	}
+	
+	
 	
 	public String getImage() {
 		if (type.equals(CELL_WALL)) {
@@ -77,9 +91,7 @@ public class Cell {
 		return null;
 	}
 	
-	public String orientation() {
-		return "";
-	}
+	
 	
 	public String getType() {
 		return type;

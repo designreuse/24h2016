@@ -97,4 +97,11 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	public void setList(List<List<Cell>> list) {
 		this.list = list;
 	}
+	
+	public void rotateCell(int ligne, int colonne) {
+		Cell cell = list.get(ligne).get(colonne);
+		if(cell.isMirror()) {
+			System.out.println("je tourne le miroir: " + ligne + " " + colonne);
+		}
+	}
 }

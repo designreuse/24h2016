@@ -30,13 +30,14 @@
 						<h:outputText value="LEVEL : " />
 					</div>
 
-					<p:dataList value="#{b.list}" var="var" type="none">
+					<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
 						<div class="ligne">
-							<p:dataList value="#{var}" var="cell" type="none">
-								<span class="case rotate#{b.getOrientation(cell)}"> <ui:fragment rendered="#{b.getImage(cell) != null}">
+							<p:dataList value="#{var}" var="cell" type="none" rowIndexVar="colonne">
+								<p:commandLink class="case rotate#{b.getOrientation(cell)}" action="#{b.rotateCell(ligne,colonne)}">
+									<ui:fragment rendered="#{b.getImage(cell) != null}">
 										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
 									</ui:fragment>
-								</span>
+								</p:commandLink>
 							</p:dataList>
 						</div>
 					</p:dataList>
