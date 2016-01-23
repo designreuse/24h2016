@@ -1,11 +1,19 @@
 package com.bee.team.all;
 
 public class Cell {
-	static String	CELL_EMPTY			= "empty";
-	static String	CELL_WALL			= "wall";
-	static String	CELL_MIROR			= "miror";
-	static String	CELL_LASER_START	= "lstart";
-	static String	CELL_LASER_END		= "lend";
+	
+	public static final String	CELL_EMPTY			= "empty";
+	public static final String	CELL_WALL			= "wall";
+	public static final String	CELL_MIROR			= "miror";
+	public static final String	CELL_LASER_START	= "lstart";
+	public static final String	CELL_LASER_END		= "lend";
+
+	public static final int N = 0;
+	public static final int E = 1;
+	public static final int S = 2;
+	public static final int W = 3;
+	
+	
 
 	String			type;
 	int				angle;
