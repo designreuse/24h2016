@@ -100,7 +100,7 @@ public class BoardDetailsView extends BaseView implements Serializable {
 
 	public void rotateCell(int ligne, int colonne) {
 		Cell cell = list.get(ligne).get(colonne);
-		if (cell.isMirror()) {
+		if (cell.isMirror() && !cell.isFixed()) {
 			cell.rotate();
 			rebuildLaser();
 		}
