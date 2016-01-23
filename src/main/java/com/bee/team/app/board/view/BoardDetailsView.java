@@ -7,7 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.bee.team.all.BoardFactory;
 import com.bee.team.all.Cell;
 import com.bee.team.all.LaserBuilder;
 import com.bee.team.app.board.entity.Board;
@@ -37,7 +36,7 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		String level = getParam("boardId");
 
 		board = boardService.findBoardById(null, level);
-		rebuildLaser();
+		updateState();
 		
 
 		if (board != null) {
@@ -88,7 +87,7 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		Cell cell = list.get(ligne).get(colonne);
 		if (cell.isMirror() && !cell.isFixed()) {
 			cell.rotate();
-			rebuildLaser();
+			updateState();
 		}
 	}
 
@@ -96,10 +95,14 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		return board;
 	}
 
-	private void rebuildLaser() {
-		complete = laserBuilder.compute(board);
+	private void updateState() {
+		boolean endReached = laserBuilder.compute(board);
+		boolean checkPointsReached = board.checkPointsReached();
+		
+		complete = endReached && checkPointsReached;
 	}
 
+	
 	public boolean isNotFind() {
 		return notFind;
 	}

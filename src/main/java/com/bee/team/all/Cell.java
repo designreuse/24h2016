@@ -68,6 +68,10 @@ public class Cell implements Serializable {
 		return type.equals(CELL_LASER_END);
 	}
 	
+	public boolean hasLaser() {
+		return laserOrigin==UNDEFINED;
+	}
+	
 	
 	
 	public String getImage() {
