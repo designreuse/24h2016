@@ -41,7 +41,10 @@ insert into tenant (tenant_id, name) values ("1","Tenant1");
 
 CREATE TABLE IF NOT EXISTS board (
         `board_id` bigint(20) NOT NULL auto_increment,
-        `level` varchar(100) default '',
+        `level_number` bigint(20) default 0,
+        `level_name` varchar(100) default '',
+        `width` bigint(20) default 0,
+        `height` bigint(20) default 0,
         `params` TEXT,
         PRIMARY KEY  (board_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

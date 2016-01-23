@@ -3,11 +3,13 @@ package com.bee.team.app.board.view;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import com.bee.team.all.BoardFactory;
+
 import com.bee.team.all.Cell;
 import com.bee.team.all.LaserBuilder;
 import com.bee.team.app.board.entity.Board;
@@ -20,15 +22,17 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 @URLMapping(id = "viewBoardDetails", pattern = "/board/#{/\\\\d+/boardId}", viewId = "/faces/board/boardDetails.xhtml")
 public class BoardDetailsView extends BaseView implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	@Autowired
-	private transient BoardService	boardService;
+	private transient BoardService boardService;
 
-	private Board					board;
-	private LaserBuilder			laserBuilder	= new LaserBuilder();
+	private Board board;
+	private LaserBuilder laserBuilder = new LaserBuilder();
 
-	private boolean					complete;
-	private List<List<Cell>>		list;
-	public boolean					notFind;
+	private boolean complete;
+	private List<List<Cell>> list;
+	public boolean notFind;
 
 	@PostConstruct
 	public void init() {
@@ -38,7 +42,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 
 		board = boardService.findBoardById(null, level);
 		rebuildLaser();
-		
 
 		if (board != null) {
 			Cell[][] cells = board.getCells();
@@ -58,12 +61,22 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	}
 
 	public String getOrientation(Cell cell) {
-		if (cell.getType().equals(Cell.CELL_EMPTY) || cell.getType().equals(Cell.CELL_WALL)) { return ""; }
+		if (cell.getType().equals(Cell.CELL_EMPTY) || cell.getType().equals(Cell.CELL_WALL)) {
+			return "";
+		}
 		if (cell.getType().equals(Cell.CELL_LASER_END)) {
-			if (cell.getLaserOrigin() == Cell.N) { return String.valueOf(Cell.S); }
-			if (cell.getLaserOrigin() == Cell.S) { return String.valueOf(Cell.N); }
-			if (cell.getLaserOrigin() == Cell.E) { return String.valueOf(Cell.W); }
-			if (cell.getLaserOrigin() == Cell.W) { return String.valueOf(Cell.E); }
+			if (cell.getLaserOrigin() == Cell.N) {
+				return String.valueOf(Cell.S);
+			}
+			if (cell.getLaserOrigin() == Cell.S) {
+				return String.valueOf(Cell.N);
+			}
+			if (cell.getLaserOrigin() == Cell.E) {
+				return String.valueOf(Cell.W);
+			}
+			if (cell.getLaserOrigin() == Cell.W) {
+				return String.valueOf(Cell.E);
+			}
 		}
 		return String.valueOf(cell.getAngle());
 	}
@@ -107,4 +120,5 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	public void setNotFind(boolean notFind) {
 		this.notFind = notFind;
 	}
+
 }
