@@ -38,3 +38,10 @@ CREATE TABLE IF NOT EXISTS user (
 
 insert into user (user_id, tenant_id, first_name, last_name, login, password) values ("1","1","Guillaume","Admin","admin","admin");
 insert into tenant (tenant_id, name) values ("1","Tenant1");
+
+CREATE TABLE IF NOT EXISTS board (
+        `board_id` bigint(20) NOT NULL auto_increment,
+        `level` varchar(100) default '',
+        `params` TEXT,
+        PRIMARY KEY  (board_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
