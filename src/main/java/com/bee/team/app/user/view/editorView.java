@@ -2,9 +2,12 @@ package com.bee.team.app.user.view;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import org.apache.commons.lang3.StringUtils;
 import org.primefaces.event.DragDropEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.bee.team.all.BoardFactory;
@@ -60,19 +63,62 @@ public class editorView extends BaseView {
 	}
 
 	public void releaseObject(DragDropEvent ddEvent) {
-
+		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		String left = params.get("class");
+		String[] sClass = left.split(" ");
+		int col = 0;
+		int ligne = 0;
+		for (String s : sClass) {
+			if (StringUtils.startsWith(s, "colonne_")) {
+				String c = s.replace("colonne_", "");
+				col = Integer.valueOf(c);
+			}
+			if (StringUtils.startsWith(s, "ligne_")) {
+				String c = s.replace("ligne_", "");
+				ligne = Integer.valueOf(c);
+			}
+		}
+		Cell c = list.get(ligne).get(col);
+		c.setType(Cell.CELL_EMPTY);
+		c.setAngle(-1);
+		System.out.println("drop");
 	}
 
 	public void dropObject(DragDropEvent ddEvent) {
-		String id = ddEvent.getDragId();
-		id = id.replaceAll("FormContent:", "");
+		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String ligne = getParam("ligne");
 		String colonne = getParam("colonne");
+		String left = params.get("class");
+		String[] sClass = left.split(" ");
+		int colTmp = -1;
+		int ligneTmp = 0;
+		for (String s : sClass) {
+			if (StringUtils.startsWith(s, "colonne_")) {
+				String c = s.replace("colonne_", "");
+				colTmp = Integer.valueOf(c);
+			}
+			if (StringUtils.startsWith(s, "ligne_")) {
+				String c = s.replace("ligne_", "");
+				ligneTmp = Integer.valueOf(c);
+			}
+		}
 		int x = Integer.valueOf(ligne);
 		int y = Integer.valueOf(colonne);
-		Cell c = list.get(x).get(y);
-		c.setType(id);
-		c.setAngle(0);
+		String id = params.get("dragId");
+		id = id.replaceAll("FormContent:", "");
+		if (colTmp == -1) {
+			Cell newCell = list.get(x).get(y);
+			newCell.setType(id);
+			newCell.setAngle(0);
+		} else {
+			Cell c = list.get(ligneTmp).get(colTmp);
+			Cell newCell = list.get(x).get(y);
+			newCell.setType(c.getType());
+			newCell.setAngle(c.getAngle());
+			c.setType(Cell.CELL_EMPTY);
+			c.setAngle(-1);
+		}
+
 	}
 
 	public String getOrientation(Cell cell) {
@@ -91,6 +137,7 @@ public class editorView extends BaseView {
 	}
 
 	public void rotateCell(int ligne, int colonne) {
+		System.out.println("rotate");
 		Cell cell = list.get(ligne).get(colonne);
 		cell.rotate();
 	}
