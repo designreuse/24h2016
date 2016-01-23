@@ -38,7 +38,8 @@ public class editorView extends BaseView {
 
 	private boolean			complete;
 	private Board			board;
-	private String			level;
+	private String			levelNumber;
+	private String			levelName;
 
 	@PostConstruct
 	public void init() {
@@ -47,10 +48,12 @@ public class editorView extends BaseView {
 
 	@URLAction(mappingId = "viewEditor", onPostback = false)
 	public void viewUserDashboardOnLoad() {
+		refresh();
+	}
+	
+	private void refresh() {
 		board = BoardFactory.create("EMPTY_BOARD");
-
 		cells = board.getCells();
-
 		list = new ArrayList<List<Cell>>();
 		for (Cell[] cells2 : cells) {
 			List<Cell> l1 = new ArrayList<Cell>();
@@ -59,7 +62,6 @@ public class editorView extends BaseView {
 			}
 			list.add(l1);
 		}
-
 	}
 
 	public void releaseObject(DragDropEvent ddEvent) {
@@ -168,7 +170,15 @@ public class editorView extends BaseView {
 
 	}
 
-	public void save() {
+	public String save() {
+		if (StringUtils.isEmpty(levelName)) {
+			Jsf.error("Le nom est obligatoire");
+			return "";
+		}
+		if (StringUtils.isEmpty(levelName)) {
+			Jsf.error("Le numéro est obligatoire");
+			return "";
+		}
 		Point laserStart = null;
 		Point laserEnd = null;
 		int direction = 0;
@@ -186,14 +196,17 @@ public class editorView extends BaseView {
 		}
 		if (laserStart == null || laserEnd == null) {
 			Jsf.error("Un point de depart et d'arrivee est obligatoire");
-			return;
+			return "";
 		}
 		Laser l = new Laser(laserStart, laserEnd, direction);
 		board.setLaser(l);
-		board.setLevelName(level);
+		board.setLevelName(levelName);
 		boardService.createBoard(null, board);
-		rebuildLaser();
-
+		Jsf.info("Le niveau a été créé.");
+		levelName = "";
+		levelNumber = "";
+		refresh();
+		return "";
 	}
 
 	private void rebuildLaser() {
@@ -224,12 +237,20 @@ public class editorView extends BaseView {
 		this.cell = cell;
 	}
 
-	public String getLevel() {
-		return level;
+	public String getLevelNumber() {
+		return levelNumber;
 	}
 
-	public void setLevel(String level) {
-		this.level = level;
+	public void setLevelNumber(String levelNumber) {
+		this.levelNumber = levelNumber;
+	}
+
+	public String getLevelName() {
+		return levelName;
+	}
+
+	public void setLevelName(String levelName) {
+		this.levelName = levelName;
 	}
 
 }
