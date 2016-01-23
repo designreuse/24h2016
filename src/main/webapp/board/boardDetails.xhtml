@@ -15,28 +15,17 @@
 						<h:outputText value="LEVEL #{b.board.level}" />
 					</h1>
 				</div>
-				<div class="content-button col-lg-2">
-					<h:link outcome="pretty:viewBoardList" styleClass="btn btn-white pull-right">
-						<i class="fa fa-arrow-left m-r-xs"></i>
-						<h:outputText value="#{message.back}" />
-					</h:link>
-				</div>
 			</div>
 		</h:form>
-		
-		<h:form id="FormContent">
+
+		<h:form id="FormContent" rendered="#{not b.notFind}">
 			<div class="wrapper wrapper-content">
 				<div class="ibox">
 					<div class="ibox-content">
-						<div>
-						</div>
-	
 						<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
 							<div class="ligne">
 								<p:dataList value="#{var}" var="cell" type="none" rowIndexVar="colonne">
-									<p:commandLink class="case rotate#{b.getOrientation(cell)}"
-										action="#{b.rotateCell(ligne,colonne)}"
-										update="@form">
+									<p:commandLink class="case rotate#{b.getOrientation(cell)}" action="#{b.rotateCell(ligne,colonne)}" update="@form">
 										<ui:fragment rendered="#{b.getImage(cell) != null}">
 											<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
 										</ui:fragment>
@@ -47,19 +36,32 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<h:panelGroup rendered="#{b.isComplete()}">
-				<h1>LEVEL COMPLETED!!</h1>
-				<h:link outcome="pretty:viewBoardDetails">
-					<f:param name="boardId" value="#{b.board.level+1}" />
-					<h:outputText value="Suivant" />
-				</h:link>
+				<div class="wrapper">
+					<div class="ibox">
+						<div class="ibox-content">
+							<h1>LEVEL COMPLETED!!</h1>
+							<h:link outcome="pretty:viewBoardDetails" styleClass="btn btn-primary">
+								<f:param name="boardId" value="#{b.board.level+1}" />
+								<h:outputText value="Suivant" />
+							</h:link>
+						</div>
+					</div>
+				</div>
 			</h:panelGroup>
 		</h:form>
-		
-		
-		
-		
+
+		<h:panelGroup rendered="#{b.notFind}">
+			<div class="wrapper wrapper-content">
+				<div class="ibox">
+					<div class="ibox-content">
+						<h1>Ce level n'existe pas</h1>
+					</div>
+				</div>
+			</div>
+		</h:panelGroup>
+
 	</ui:define>
 </ui:composition>
 </html>
