@@ -28,7 +28,7 @@ public class BoardFactory {
 		cells[9][5].setLaserOrigin(Cell.W);
 		cells[9][6].setLaserOrigin(Cell.W);
 
-		cells[9][7] = new Cell(Cell.CELL_MIROR, Cell.W, Cell.W);
+		cells[9][7] = new Cell(Cell.CELL_MIRROR, Cell.W, Cell.W);
 
 		cells[8][7].setLaserOrigin(Cell.S);
 		cells[7][7].setLaserOrigin(Cell.S);
@@ -36,7 +36,7 @@ public class BoardFactory {
 		cells[5][7].setLaserOrigin(Cell.S);
 
 		Point endPoint = new Point(2, 7);
-		cells[endPoint.getY()][endPoint.getX()] = new Cell(Cell.CELL_LASER_END, Cell.N, Cell.S);
+		cells[endPoint.getY()][endPoint.getX()] = new Cell(Cell.CELL_LASER_END, Cell.UNDEFINED, Cell.S);
 
 		Laser laser = new Laser(startPoint, endPoint, Cell.E);
 
