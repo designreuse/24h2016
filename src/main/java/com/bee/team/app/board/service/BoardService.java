@@ -14,8 +14,8 @@ import com.bee.team.app.user.entity.User;
 public class BoardService extends BaseService {
 
 	@Autowired
-	BoardDAO	boardDAO;
-	
+	private BoardDAO boardDAO;
+
 	public Board findBoardById(User currentUser, String boardId) {
 		return boardDAO.findBoardById(boardId);
 	}
@@ -33,11 +33,10 @@ public class BoardService extends BaseService {
 	public void updateBoard(User currentUser, Board board) {
 		boardDAO.updateBoard(board);
 	}
-	
+
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 	public void deleteBoard(User currentUser, String boardId) {
 		boardDAO.deleteBoard(boardId);
 	}
-	
-	
+
 }
