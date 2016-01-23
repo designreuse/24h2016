@@ -25,7 +25,7 @@ public class Board {
 		Point startPoint = new Point();
 		startPoint.setX(3);
 		startPoint.setY(9);
-		laser = new Laser(new Point());	
+		laser = new Laser(new Point(),new Point(),0);
 		cells[startPoint.getY()][startPoint.getX()] = new Cell(Cell.CELL_LASER_START);
 		cells[startPoint.getY()][startPoint.getX()].setAngle(Cell.E);
 
