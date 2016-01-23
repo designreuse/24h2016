@@ -21,3 +21,5 @@ hs_err_pid*
 /messages_fr.properties
 .classpath
 .project
+.settings/*
+bin/*
