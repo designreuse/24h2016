@@ -28,11 +28,11 @@ public class BoardDAO extends BaseDAO<Board> {
 	List<String> fieldList = Arrays.asList("board_id", "level_number", "level_name", "width", "height", "params");
 
 	public Board findBoardById(String boardId) {
-		return getOne("select " + fields() + " from board where level = ? ", new BoardMapper(), boardId);
+		return getOne("select " + fields() + " from board where board_id = ? ", new BoardMapper(), boardId);
 	}
 
 	public List<Board> findAllBoard() {
-		return getList("select " + fields() + " from board ", new BoardMapper());
+		return getList("select " + fields() + " from board", new BoardMapper());
 	}
 
 	public void createBoard(Board board) {
