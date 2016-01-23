@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/resources/inspinia/template_basic.xhtml">
+	<ui:param name="selectedMenu" value="userboard" />
+	<ui:param name="b" value="#{editorView}" />
+	<ui:define name="title">#{config.application} - #{message.header_dashboard} #{message.user}</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="FormTitle">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h1>
+						<h:outputText value="#{message.editor}" />
+					</h1>
+				</div>
+			</div>
+		</h:form>
+		<h:form id="FormContent">
+			<p></p>
+			<p></p>
+			<div class="row">
+
+				<div class="col-xs-6">
+
+					<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
+						<div class="ligne">
+							<p:dataList value="#{var}" var="cell" type="none" id="cases" rowIndexVar="colonne">
+								<p:outputPanel styleClass="case rotate#{cell.angle}" id="drop" layout="inline">
+									<ui:fragment rendered="#{cell.type == 'lstart'}">
+										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" />
+									</ui:fragment>
+									<ui:fragment rendered="#{cell.laserOrigin == -1 and cell.type == 'lend'}">
+										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/end_point.png" />
+									</ui:fragment>
+									<ui:fragment rendered="#{cell.type == 'wall'}">
+										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mur.png" />
+									</ui:fragment>
+									<ui:fragment rendered="#{cell.laserOrigin == 0 or cell.laserOrigin == 2}">
+										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser_v.png" />
+									</ui:fragment>
+									<ui:fragment rendered="#{cell.laserOrigin == 1 or cell.laserOrigin == 3}">
+										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser_h.png" />
+									</ui:fragment>
+								</p:outputPanel>
+
+								<p:droppable for="drop" tolerance="pointer">
+									<f:param name="ligne" value="#{ligne}" />
+									<f:param name="colonne" value="#{colonne}" />
+									<p:ajax listener="#{b.dropObject}" update="@form" />
+								</p:droppable>
+								<p:draggable for="drop" revert="true" opacity="0.5" helper="clone" />
+
+							</p:dataList>
+						</div>
+					</p:dataList>
+
+				</div>
+
+				<p:outputPanel class="col-xs-6" id="sac">
+					<p:outputPanel styleClass="case" id="lstart" layout="inline">
+						<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" />
+					</p:outputPanel>
+					<p:draggable for="lstart" revert="true" opacity="0.5" helper="clone" />
+					<p:outputPanel styleClass="case" id="lend" layout="inline">
+						<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/end_point.png" />
+					</p:outputPanel>
+					<p:draggable for="lend" revert="true" opacity="0.5" helper="clone" />
+					<p:droppable for="sac" tolerance="pointer">
+						<f:param name="ligne" value="#{ligne}" />
+						<f:param name="colonne" value="#{colonne}" />
+						<p:ajax listener="#{b.dropObject}" update="@form" />
+					</p:droppable>
+				</p:outputPanel>
+
+
+
+			</div>
+
+			<p></p>
+			<p></p>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
