@@ -1,16 +1,16 @@
 package com.bee.team.all;
 
 public class Point {
-	
+
 	private int row;
 	private int column;
-	
+
 	public Point() {
 	}
-	
-	public Point(int x, int y) {
-		this.row = x;
-		this.column = y;
+
+	public Point(int row, int column) {
+		this.row = row;
+		this.column = column;
 	}
 
 	public int getRow() {
@@ -30,6 +30,7 @@ public class Point {
 	}
 
 	public String toString() {
-		return "["+row+","+column+"]";
+		return "[" + row + "," + column + "]";
 	}
+
 }
