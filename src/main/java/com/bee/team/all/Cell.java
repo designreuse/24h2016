@@ -2,11 +2,11 @@ package com.bee.team.all;
 
 public class Cell {
 	
-	public static final String	CELL_EMPTY			= "empty";
-	public static final String	CELL_WALL			= "wall";
-	public static final String	CELL_MIROR			= "miror";
-	public static final String	CELL_LASER_START	= "lstart";
-	public static final String	CELL_LASER_END		= "lend";
+	public static final String CELL_EMPTY       = "empty";
+	public static final String CELL_WALL        = "wall";
+	public static final String CELL_MIROR       = "miror";
+	public static final String CELL_LASER_START = "lstart";
+	public static final String CELL_LASER_END   = "lend";
 
 	public static final int N = 0;
 	public static final int E = 1;
@@ -26,6 +26,13 @@ public class Cell {
 		super();
 		this.type = type;
 		this.angle = angle;
+	}
+
+	public Cell(String type, int angle, Integer laserOrigin) {
+		super();
+		this.type = type;
+		this.angle = angle;
+		this.laserOrigin = laserOrigin;
 	}
 
 	public String getType() {
