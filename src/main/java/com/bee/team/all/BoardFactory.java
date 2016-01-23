@@ -23,26 +23,16 @@ public class BoardFactory {
 		throw new NotImplementedException("Unknonw level");
 	}
 
-	private static Cell[][] createEmptyCells() {
-		Cell[][] cells = new Cell[10][10];
-		for (int x = 0; x < 10; x++) {
-			for (int y = 0; y < 10; y++) {
-				cells[y][x] = new Cell(Cell.CELL_EMPTY);
-			}
-		}
-		return cells;
-	}
-
 	private static Board createEmptyBoard() {
 		Board board = new Board();
-		board.setCells(createEmptyCells());
+		board.setCells(Board.initCells(10, 10));
 		return board;
 	}
 
 	private static Board createDebugBoard(boolean withLaserDrawn, int levelId) {
 
 		if (levelId == 1) {
-			Cell[][] cells = createEmptyCells();
+			Cell[][] cells = Board.initCells(10, 10);
 
 			cells[2][3] = new Cell(Cell.CELL_WALL);
 
@@ -75,7 +65,7 @@ public class BoardFactory {
 			board.setLaser(laser);
 			return board;
 		} else if (levelId == 2) {
-			Cell[][] cells = createEmptyCells();
+			Cell[][] cells = Board.initCells(10, 10);
 
 			cells[2][3] = new Cell(Cell.CELL_WALL);
 			cells[9][7] = new Cell(Cell.CELL_WALL);

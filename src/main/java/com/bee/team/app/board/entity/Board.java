@@ -14,8 +14,13 @@ public class Board extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String boardId;
-	private String level;
 	private String params;
+
+	private int levelNumber;
+	private String levelName;
+	private int width;
+	private int height;
+
 	private Laser laser;
 	private Cell[][] cells;
 
@@ -59,12 +64,20 @@ public class Board extends BaseEntity implements Serializable {
 		this.boardId = boardId;
 	}
 
-	public String getLevel() {
-		return level;
+	public String getLevelName() {
+		return levelName;
 	}
 
-	public void setLevel(String level) {
-		this.level = level;
+	public void setLevelName(String levelName) {
+		this.levelName = levelName;
+	}
+
+	public int getLevelNumber() {
+		return levelNumber;
+	}
+
+	public void setLevelNumber(int levelNumber) {
+		this.levelNumber = levelNumber;
 	}
 
 	public String getParams() {
@@ -73,6 +86,32 @@ public class Board extends BaseEntity implements Serializable {
 
 	public void setParams(String params) {
 		this.params = params;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public static Cell[][] initCells(final int height, final int width) {
+		Cell[][] cells = new Cell[height][width];
+		for (int row = 0; row < height; row++) {
+			for (int column = 0; column < width; column++) {
+				cells[row][column] = new Cell(Cell.CELL_EMPTY);
+			}
+		}
+		return cells;
 	}
 
 	public void resetLaser() {
@@ -108,7 +147,8 @@ public class Board extends BaseEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append(boardId).append(level).toString();
+		return new ToStringBuilder(this).append(boardId).append(levelNumber)
+				.append(levelName).append(width).append(height).toString();
 	}
 
 }

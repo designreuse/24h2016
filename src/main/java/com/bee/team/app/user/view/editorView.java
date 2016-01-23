@@ -190,7 +190,7 @@ public class editorView extends BaseView {
 		}
 		Laser l = new Laser(laserStart, laserEnd, direction);
 		board.setLaser(l);
-		board.setLevel(level);
+		board.setLevelName(level);
 		boardService.createBoard(null, board);
 		rebuildLaser();
 
