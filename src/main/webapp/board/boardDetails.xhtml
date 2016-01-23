@@ -22,17 +22,40 @@
 			<div class="wrapper wrapper-content">
 				<div class="ibox">
 					<div class="ibox-content">
-						<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
-							<div class="ligne">
-								<p:dataList value="#{var}" var="cell" type="none" rowIndexVar="colonne">
-									<p:commandLink class="case rotate#{b.getOrientation(cell)}" action="#{b.rotateCell(ligne,colonne)}" update="@form">
-										<ui:fragment rendered="#{b.getImage(cell) != null}">
-											<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
-										</ui:fragment>
-									</p:commandLink>
+						<div class="row">
+							<div class="col-xs-6">
+								<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
+									<div class="ligne">
+										<p:dataList value="#{var}" var="cell" type="none" rowIndexVar="colonne">
+											<p:commandLink class="case rotate#{b.getOrientation(cell)} colonne_#{colonne} ligne_#{ligne}" action="#{b.rotateCell(ligne,colonne)}" id="drop" update="@form">
+												<ui:fragment rendered="#{b.getImage(cell) != null}">
+													<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
+												</ui:fragment>
+											</p:commandLink>
+
+											<p:droppable for="drop" tolerance="pointer">
+												<f:param name="ligne" value="#{ligne}" />
+												<f:param name="colonne" value="#{colonne}" />
+												<p:ajax listener="#{b.dropObject}" update="@form" />
+											</p:droppable>
+											<p:draggable for="drop" opacity="0.5" helper="clone" />
+										</p:dataList>
+									</div>
 								</p:dataList>
 							</div>
-						</p:dataList>
+
+
+							<p:outputPanel class="col-xs-6" id="sac">
+								<p:outputPanel styleClass="case" id="mirror" layout="inline">
+									<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mirroir.png" />
+								</p:outputPanel>
+								<p:draggable for="mirror" revert="true" opacity="0.5" helper="clone" />
+
+								<p:droppable for="sac" tolerance="pointer">
+									<p:ajax listener="#{b.releaseObject}" update="@form" />
+								</p:droppable>
+							</p:outputPanel>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -61,6 +84,35 @@
 				</div>
 			</div>
 		</h:panelGroup>
+
+		<script>
+			//<![CDATA[
+			PrimeFaces.widget.Droppable.prototype.bindDropListener = function() {
+				var _self = this;
+				this.cfg.drop = function(event, ui) {
+					if (_self.cfg.onDrop) {
+						_self.cfg.onDrop.call(_self, event, ui);
+					}
+					if (_self.cfg.behaviors) {
+						var dropBehavior = _self.cfg.behaviors['drop'];
+						if (dropBehavior) {
+							var ext = {
+								params : [ {
+									name : 'class',
+									value : ui.draggable.attr('class')
+								}, {
+									name : 'dragId',
+									value : ui.draggable.attr('id')
+								} ]
+							};
+							console.log(ui.draggable);
+							dropBehavior.call(_self, ext);
+						}
+					}
+				};
+			}
+			// ]]>
+		</script>
 
 	</ui:define>
 </ui:composition>
