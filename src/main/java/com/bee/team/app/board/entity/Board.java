@@ -104,14 +104,13 @@ public class Board extends BaseEntity implements Serializable {
 		this.height = height;
 	}
 
-	public static Cell[][] initCells(final int height, final int width) {
-		Cell[][] cells = new Cell[height][width];
+	public void resetCells(final int height, final int width) {
+		cells = new Cell[height][width];
 		for (int row = 0; row < height; row++) {
 			for (int column = 0; column < width; column++) {
 				cells[row][column] = new Cell(Cell.CELL_EMPTY);
 			}
 		}
-		return cells;
 	}
 
 	public void resetLaser() {

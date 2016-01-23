@@ -1,6 +1,7 @@
 package com.bee.team.all;
 
 import org.apache.commons.lang3.NotImplementedException;
+
 import com.bee.team.app.board.entity.Board;
 
 public class BoardFactory {
@@ -12,7 +13,7 @@ public class BoardFactory {
 
 	public static Board create(final String level) {
 		if (EMPTY_BOARD.equals(level)) {
-			return createEmptyBoard();
+			return createEmptyBoard(10, 10);
 		} else if (DEBUG_NO_LASER.equals(level)) {
 			return createDebugBoard(false, 1);
 		} else if (DEBUG_NO_LASER_2.equals(level)) {
@@ -23,17 +24,18 @@ public class BoardFactory {
 		throw new NotImplementedException("Unknonw level");
 	}
 
-	private static Board createEmptyBoard() {
+	public static Board createEmptyBoard(final int heigth, final int width) {
 		Board board = new Board();
-		board.setCells(Board.initCells(10, 10));
+		board.resetCells(heigth, width);
 		return board;
 	}
 
 	private static Board createDebugBoard(boolean withLaserDrawn, int levelId) {
+		Board board = new Board();
+		board.resetCells(10, 10);
+		Cell[][] cells = board.getCells();
 
 		if (levelId == 1) {
-			Cell[][] cells = Board.initCells(10, 10);
-
 			cells[2][3] = new Cell(Cell.CELL_WALL);
 
 			Point startPoint = new Point(9, 3);
@@ -59,14 +61,9 @@ public class BoardFactory {
 					withLaserDrawn ? Cell.S : Cell.UNDEFINED);
 
 			Laser laser = new Laser(startPoint, endPoint, Cell.E);
-
-			Board board = new Board();
-			board.setCells(cells);
 			board.setLaser(laser);
 			return board;
 		} else if (levelId == 2) {
-			Cell[][] cells = Board.initCells(10, 10);
-
 			cells[2][3] = new Cell(Cell.CELL_WALL);
 			cells[9][7] = new Cell(Cell.CELL_WALL);
 
@@ -81,9 +78,6 @@ public class BoardFactory {
 			cells[endPoint.getRow()][endPoint.getColumn()] = new Cell(Cell.CELL_LASER_END, Cell.UNDEFINED);
 
 			Laser laser = new Laser(startPoint, endPoint, Cell.E);
-
-			Board board = new Board();
-			board.setCells(cells);
 			board.setLaser(laser);
 			return board;
 		}
