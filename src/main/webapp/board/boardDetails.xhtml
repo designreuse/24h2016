@@ -23,27 +23,32 @@
 				</div>
 			</div>
 		</h:form>
-		<div class="wrapper wrapper-content">
-			<div class="ibox">
-				<div class="ibox-content">
-					<div>
-						<h:outputText value="LEVEL : " />
-					</div>
-
-					<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
-						<div class="ligne">
-							<p:dataList value="#{var}" var="cell" type="none" rowIndexVar="colonne">
-								<p:commandLink class="case rotate#{b.getOrientation(cell)}" action="#{b.rotateCell(ligne,colonne)}">
-									<ui:fragment rendered="#{b.getImage(cell) != null}">
-										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
-									</ui:fragment>
-								</p:commandLink>
-							</p:dataList>
+		
+		<h:form id="FormContent">
+			<div class="wrapper wrapper-content">
+				<div class="ibox">
+					<div class="ibox-content">
+						<div>
+							<h:outputText value="LEVEL : " />
 						</div>
-					</p:dataList>
+	
+						<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
+							<div class="ligne">
+								<p:dataList value="#{var}" var="cell" type="none" rowIndexVar="colonne">
+									<p:commandLink class="case rotate#{b.getOrientation(cell)}"
+										action="#{b.rotateCell(ligne,colonne)}"
+										update="@form">
+										<ui:fragment rendered="#{b.getImage(cell) != null}">
+											<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
+										</ui:fragment>
+									</p:commandLink>
+								</p:dataList>
+							</div>
+						</p:dataList>
+					</div>
 				</div>
 			</div>
-		</div>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

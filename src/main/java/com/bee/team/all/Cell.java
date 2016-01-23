@@ -117,4 +117,8 @@ public class Cell {
 		this.laserOrigin = laserOrigin;
 	}
 
+	
+	public void rotate() {
+		angle = (angle+1)%4;
+	}
 }

@@ -21,28 +21,29 @@ import com.ocpsoft.pretty.faces.annotation.URLMapping;
 public class BoardDetailsView extends BaseView implements Serializable {
 
 	@Autowired
-	private transient BoardService	boardService;
+	private transient BoardService boardService;
 
-	private Board					userTmp;
-
-	List<List<Cell>>				list;
+	private Board board;
+	private LaserBuilder laserBuilder = new LaserBuilder();
+	
+	private boolean complete;
+	private List<List<Cell>> list;
 
 	@PostConstruct
 	public void init() {
 		initBean();
 		// userTmp = boardService.findBoardById(getUser(), getParam("boardId"));
 		String level = getParam("boardId");
-		Board board = null;
 		if (level.equals("1")) {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
 		} else if (level.equals("2")) {
 			board = BoardFactory.create(BoardFactory.DEBUG_WITH_LASER);
 		} else if (level.equals("3")) {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER_2);
-			new LaserBuilder().compute(board);
+			rebuildLaser();
 		} else {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
-			new LaserBuilder().compute(board);
+			rebuildLaser();
 		}
 
 		Cell[][] cells = board.getCells();
@@ -82,14 +83,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		return cell.getImage();
 	}
 
-	public Board getUserTmp() {
-		return userTmp;
-	}
-
-	public void setUserTmp(Board userTmp) {
-		this.userTmp = userTmp;
-	}
-
 	public List<List<Cell>> getList() {
 		return list;
 	}
@@ -98,10 +91,22 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		this.list = list;
 	}
 	
+	public boolean isComplete() {
+		return complete;
+	}
+	
+	
 	public void rotateCell(int ligne, int colonne) {
 		Cell cell = list.get(ligne).get(colonne);
 		if(cell.isMirror()) {
-			System.out.println("je tourne le miroir: " + ligne + " " + colonne);
+			cell.rotate();
+			rebuildLaser();
 		}
+	}
+	
+	
+	
+	private void rebuildLaser() {
+		complete = laserBuilder.compute(board);
 	}
 }
