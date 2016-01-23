@@ -12,7 +12,7 @@
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-10">
 					<h1>
-						<h:outputText value="LEVEL #{b.board.level}" />
+						<h:outputText value="LEVEL #{b.board.levelName}" />
 					</h1>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 						<div class="ibox-content">
 							<h1>LEVEL COMPLETED!!</h1>
 							<h:link outcome="pretty:viewBoardDetails" styleClass="btn btn-primary">
-								<f:param name="boardId" value="#{b.board.level+1}" />
+								<f:param name="boardId" value="#{b.board.levelNumber+1}" />
 								<h:outputText value="Suivant" />
 							</h:link>
 						</div>
