@@ -21,25 +21,29 @@ public class BoardFactory {
 
 		cells[2][3] = new Cell(Cell.CELL_WALL);
 
-		Point startPoint = new Point();
-		startPoint.setX(3);
-		startPoint.setY(9);
-		Point endPoint = new Point();
-		endPoint.setX(3);
-		endPoint.setY(9);
-//		Laser laser = new Laser();
-
-		cells[startPoint.getY()][startPoint.getX()] = new Cell(Cell.CELL_LASER_START);
-		cells[startPoint.getY()][startPoint.getX()].setAngle(Cell.E);
-
 		cells[9][7] = new Cell(Cell.CELL_MIROR);
 		cells[9][7].setAngle(Cell.W);
 
-		cells[2][7] = new Cell(Cell.CELL_LASER_END);
+		Point startPoint = newPoint(3, 9);
+		cells[startPoint.getY()][startPoint.getX()] = new Cell(Cell.CELL_LASER_START);
+		cells[startPoint.getY()][startPoint.getX()].setAngle(Cell.E);
+
+		Point endPoint = newPoint(2, 7);
+		cells[endPoint.getY()][endPoint.getX()] = new Cell(Cell.CELL_LASER_END);
+
+		Laser laser = new Laser(startPoint, endPoint, Cell.E);
 
 		Board board = new Board();
 		board.setCells(cells);
+		board.setLaser(laser);
 		return board;
+	}
+
+	private static Point newPoint(int x, int y) {
+		Point point = new Point();
+		point.setX(x);
+		point.setY(y);
+		return point;
 	}
 
 }
