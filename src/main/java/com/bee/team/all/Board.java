@@ -20,4 +20,7 @@ public class Board {
 		this.cells = cells;
 	}
 
+	public Cell getCellFromPoint(Point p) {
+		return cells[p.getX()][p.getY()];
+	}
 }
