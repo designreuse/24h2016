@@ -1,6 +1,8 @@
 package com.bee.team.all;
 
-public class Cell {
+import java.io.Serializable;
+
+public class Cell implements Serializable {
 	
 	public static final String CELL_EMPTY       = "empty";
 	public static final String CELL_WALL        = "wall";

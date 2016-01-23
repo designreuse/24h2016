@@ -44,10 +44,12 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER_2);
 			board.setLevel("3");
 			rebuildLaser();
-		} else {
+		} else if (level.equals("4")) {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
 			board.setLevel("4");
 			rebuildLaser();
+		} else {
+			board = boardService.findBoardById(null, level);
 		}
 
 		Cell[][] cells = board.getCells();

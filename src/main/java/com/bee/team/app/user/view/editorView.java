@@ -6,12 +6,14 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import org.primefaces.event.DragDropEvent;
+import org.springframework.beans.factory.annotation.Autowired;
 import com.bee.team.all.BoardFactory;
 import com.bee.team.all.Cell;
 import com.bee.team.all.Laser;
 import com.bee.team.all.LaserBuilder;
 import com.bee.team.all.Point;
 import com.bee.team.app.board.entity.Board;
+import com.bee.team.app.board.service.BoardService;
 import com.bee.team.base.BaseView;
 import com.bee.team.jsf.Jsf;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
@@ -23,6 +25,8 @@ import com.ocpsoft.pretty.faces.annotation.URLMappings;
 @URLMappings(mappings = { @URLMapping(id = "viewEditor", pattern = "/editor", viewId = "/faces/user/editor.xhtml") })
 public class editorView extends BaseView {
 
+	@Autowired
+	transient BoardService	boardService;
 	Cell[][]				cells;
 	List<List<Cell>>		list;
 	Cell					cell;
@@ -31,6 +35,7 @@ public class editorView extends BaseView {
 
 	private boolean			complete;
 	private Board			board;
+	private String			level;
 
 	@PostConstruct
 	public void init() {
@@ -116,6 +121,34 @@ public class editorView extends BaseView {
 
 	}
 
+	public void save() {
+		Point laserStart = null;
+		Point laserEnd = null;
+		int direction = 0;
+		for (int i = 0; i < 10; i++) {
+			for (int y = 0; y < 10; y++) {
+				Cell c = cells[i][y];
+				if (c.isLaserStart()) {
+					laserStart = new Point(i, y);
+					direction = c.getAngle();
+				}
+				if (c.isLaserEnd()) {
+					laserEnd = new Point(i, y);
+				}
+			}
+		}
+		if (laserStart == null || laserEnd == null) {
+			Jsf.error("Un point de depart et d'arrivee est obligatoire");
+			return;
+		}
+		Laser l = new Laser(laserStart, laserEnd, direction);
+		board.setLaser(l);
+		board.setLevel(level);
+		boardService.createBoard(null, board);
+		rebuildLaser();
+
+	}
+
 	private void rebuildLaser() {
 		complete = laserBuilder.compute(board);
 	}
@@ -142,6 +175,14 @@ public class editorView extends BaseView {
 
 	public void setCell(Cell cell) {
 		this.cell = cell;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
 	}
 
 }

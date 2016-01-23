@@ -1,9 +1,11 @@
 package com.bee.team.all;
 
-public class Point {
+import java.io.Serializable;
 
-	private int row;
-	private int column;
+public class Point implements Serializable {
+
+	private int	row;
+	private int	column;
 
 	public Point() {
 	}

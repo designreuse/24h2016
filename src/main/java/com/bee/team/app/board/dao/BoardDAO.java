@@ -28,7 +28,7 @@ public class BoardDAO extends BaseDAO<Board> {
 	List<String> fieldList = Arrays.asList("board_id", "level", "params");
 
 	public Board findBoardById(String boardId) {
-		return getOne("select " + fields() + " from board where board_id = ? ", new BoardMapper(), boardId);
+		return getOne("select " + fields() + " from board where level = ? ", new BoardMapper(), boardId);
 	}
 
 	public List<Board> findAllBoard() {

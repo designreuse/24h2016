@@ -1,8 +1,9 @@
 package com.bee.team.all;
 
+import java.io.Serializable;
 import com.bee.team.app.user.entity.User;
 
-public class Game {
+public class Game implements Serializable {
 	User	user;
 	int		level;
 	int		topLevel;
