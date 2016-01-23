@@ -5,30 +5,30 @@
 	<ui:param name="b" value="#{headerView}" />
 	<h:form id="FormHeader">
 		<nav class="navbar-default navbar-static-side" role="navigation">
-		<div class="sidebar-collapse">
-			<ul class="nav metismenu" id="side-menu">
-				<li class="nav-header">
-					<div class="dropdown profile-element">
-						<a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Puzzle</strong>
+			<div class="sidebar-collapse">
+				<ul class="nav metismenu" id="side-menu">
+					<li class="nav-header">
+						<div class="dropdown profile-element">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Puzzle</strong>
+								</span>
 							</span>
-						</span>
-						</a>
-					</div>
-					<div class="logo-element">Puzzle+</div>
-				</li>
+							</a>
+						</div>
+						<div class="logo-element">Puzzle+</div>
+					</li>
 
-				<li class="active"><h:link outcome="pretty:viewBoard">
-						<f:param name="boardId" value="1" />
-						<i class="fa fa-cog"></i>
-						<span class="nav-label"><h:outputText value="Level 1" /></span>
-					</h:link></li>
-				<li class="active"><h:link outcome="pretty:viewBoard">
-						<f:param name="boardId" value="2" />
-						<i class="fa fa-cog"></i>
-						<span class="nav-label"><h:outputText value="Level 2" /></span>
-					</h:link></li>
-			</ul>
-		</div>
+					<li class="active"><h:link outcome="pretty:viewBoardDetails">
+							<f:param name="boardId" value="1" />
+							<i class="fa fa-cog"></i>
+							<span class="nav-label"><h:outputText value="Level 1" /></span>
+						</h:link></li>
+					<li class="active"><h:link outcome="pretty:viewBoardDetails">
+							<f:param name="boardId" value="2" />
+							<i class="fa fa-cog"></i>
+							<span class="nav-label"><h:outputText value="Level 2" /></span>
+						</h:link></li>
+				</ul>
+			</div>
 		</nav>
 	</h:form>
 </ui:composition>
