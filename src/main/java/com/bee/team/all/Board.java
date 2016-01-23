@@ -1,111 +1,38 @@
 package com.bee.team.all;
 
-public class Board {
-	Laser		laser;
-	Cell[][]	cells;
+import org.apache.commons.lang3.StringUtils;
 
-	public void load() {
+public class Board {
+	private Laser laser;
+	private Cell[][] cells;
+
+	public void load(final String level) {
+		if (StringUtils.isBlank(level)) {
+			loadDebugMap();
+		}
+	}
+
+	private void loadDebugMap() {
 		cells = new Cell[10][10];
-		cells[0][0] = new Cell(Cell.CELL_EMPTY);
-		cells[0][1] = new Cell(Cell.CELL_EMPTY);
-		cells[0][2] = new Cell(Cell.CELL_EMPTY);
-		cells[0][3] = new Cell(Cell.CELL_EMPTY);
-		cells[0][4] = new Cell(Cell.CELL_EMPTY);
-		cells[0][5] = new Cell(Cell.CELL_EMPTY);
-		cells[0][6] = new Cell(Cell.CELL_EMPTY);
-		cells[0][7] = new Cell(Cell.CELL_EMPTY);
-		cells[0][8] = new Cell(Cell.CELL_EMPTY);
-		cells[0][9] = new Cell(Cell.CELL_EMPTY);
-		cells[1][0] = new Cell(Cell.CELL_EMPTY);
-		cells[1][1] = new Cell(Cell.CELL_EMPTY);
-		cells[1][2] = new Cell(Cell.CELL_EMPTY);
-		cells[1][3] = new Cell(Cell.CELL_EMPTY);
-		cells[1][4] = new Cell(Cell.CELL_EMPTY);
-		cells[1][5] = new Cell(Cell.CELL_EMPTY);
-		cells[1][6] = new Cell(Cell.CELL_EMPTY);
-		cells[1][7] = new Cell(Cell.CELL_EMPTY);
-		cells[1][8] = new Cell(Cell.CELL_EMPTY);
-		cells[1][9] = new Cell(Cell.CELL_EMPTY);
-		cells[2][0] = new Cell(Cell.CELL_EMPTY);
-		cells[2][1] = new Cell(Cell.CELL_EMPTY);
-		cells[2][2] = new Cell(Cell.CELL_EMPTY);
-		cells[2][3] = new Cell(Cell.CELL_EMPTY);
-		cells[2][4] = new Cell(Cell.CELL_EMPTY);
-		cells[2][5] = new Cell(Cell.CELL_EMPTY);
-		cells[2][6] = new Cell(Cell.CELL_EMPTY);
-		cells[2][7] = new Cell(Cell.CELL_EMPTY);
-		cells[2][8] = new Cell(Cell.CELL_EMPTY);
-		cells[2][9] = new Cell(Cell.CELL_EMPTY);
-		cells[3][0] = new Cell(Cell.CELL_EMPTY);
-		cells[3][1] = new Cell(Cell.CELL_EMPTY);
-		cells[3][2] = new Cell(Cell.CELL_EMPTY);
-		cells[3][3] = new Cell(Cell.CELL_EMPTY);
-		cells[3][4] = new Cell(Cell.CELL_EMPTY);
-		cells[3][5] = new Cell(Cell.CELL_EMPTY);
-		cells[3][6] = new Cell(Cell.CELL_EMPTY);
-		cells[3][7] = new Cell(Cell.CELL_EMPTY);
-		cells[3][8] = new Cell(Cell.CELL_EMPTY);
-		cells[3][9] = new Cell(Cell.CELL_EMPTY);
-		cells[4][0] = new Cell(Cell.CELL_EMPTY);
-		cells[4][1] = new Cell(Cell.CELL_EMPTY);
-		cells[4][2] = new Cell(Cell.CELL_EMPTY);
-		cells[4][3] = new Cell(Cell.CELL_EMPTY);
-		cells[4][4] = new Cell(Cell.CELL_EMPTY);
-		cells[4][5] = new Cell(Cell.CELL_EMPTY);
-		cells[4][6] = new Cell(Cell.CELL_EMPTY);
-		cells[4][7] = new Cell(Cell.CELL_EMPTY);
-		cells[4][8] = new Cell(Cell.CELL_EMPTY);
-		cells[4][9] = new Cell(Cell.CELL_EMPTY);
-		cells[5][0] = new Cell(Cell.CELL_EMPTY);
-		cells[5][1] = new Cell(Cell.CELL_EMPTY);
-		cells[5][2] = new Cell(Cell.CELL_EMPTY);
-		cells[5][3] = new Cell(Cell.CELL_EMPTY);
-		cells[5][4] = new Cell(Cell.CELL_EMPTY);
-		cells[5][5] = new Cell(Cell.CELL_EMPTY);
-		cells[5][6] = new Cell(Cell.CELL_EMPTY);
-		cells[5][7] = new Cell(Cell.CELL_EMPTY);
-		cells[5][8] = new Cell(Cell.CELL_EMPTY);
-		cells[5][9] = new Cell(Cell.CELL_EMPTY);
-		cells[6][0] = new Cell(Cell.CELL_EMPTY);
-		cells[6][1] = new Cell(Cell.CELL_EMPTY);
-		cells[6][2] = new Cell(Cell.CELL_EMPTY);
-		cells[6][3] = new Cell(Cell.CELL_EMPTY);
-		cells[6][4] = new Cell(Cell.CELL_EMPTY);
-		cells[6][5] = new Cell(Cell.CELL_EMPTY);
-		cells[6][6] = new Cell(Cell.CELL_EMPTY);
-		cells[6][7] = new Cell(Cell.CELL_EMPTY);
-		cells[6][8] = new Cell(Cell.CELL_EMPTY);
-		cells[6][9] = new Cell(Cell.CELL_EMPTY);
-		cells[7][0] = new Cell(Cell.CELL_EMPTY);
-		cells[7][1] = new Cell(Cell.CELL_EMPTY);
-		cells[7][2] = new Cell(Cell.CELL_EMPTY);
-		cells[7][3] = new Cell(Cell.CELL_EMPTY);
-		cells[7][4] = new Cell(Cell.CELL_EMPTY);
-		cells[7][5] = new Cell(Cell.CELL_EMPTY);
-		cells[7][6] = new Cell(Cell.CELL_EMPTY);
-		cells[7][7] = new Cell(Cell.CELL_EMPTY);
-		cells[7][8] = new Cell(Cell.CELL_EMPTY);
-		cells[7][9] = new Cell(Cell.CELL_EMPTY);
-		cells[8][0] = new Cell(Cell.CELL_EMPTY);
-		cells[8][1] = new Cell(Cell.CELL_EMPTY);
-		cells[8][2] = new Cell(Cell.CELL_EMPTY);
-		cells[8][3] = new Cell(Cell.CELL_EMPTY);
-		cells[8][4] = new Cell(Cell.CELL_EMPTY);
-		cells[8][5] = new Cell(Cell.CELL_EMPTY);
-		cells[8][6] = new Cell(Cell.CELL_EMPTY);
-		cells[8][7] = new Cell(Cell.CELL_EMPTY);
-		cells[8][8] = new Cell(Cell.CELL_EMPTY);
-		cells[8][9] = new Cell(Cell.CELL_EMPTY);
-		cells[9][0] = new Cell(Cell.CELL_EMPTY);
-		cells[9][1] = new Cell(Cell.CELL_EMPTY);
-		cells[9][2] = new Cell(Cell.CELL_EMPTY);
-		cells[9][3] = new Cell(Cell.CELL_EMPTY);
-		cells[9][4] = new Cell(Cell.CELL_EMPTY);
-		cells[9][5] = new Cell(Cell.CELL_EMPTY);
-		cells[9][6] = new Cell(Cell.CELL_EMPTY);
-		cells[9][7] = new Cell(Cell.CELL_EMPTY);
-		cells[9][8] = new Cell(Cell.CELL_EMPTY);
-		cells[9][9] = new Cell(Cell.CELL_EMPTY);
+		for (int x = 0; x < 10; x++) {
+			for (int y = 0; y < 10; y++) {
+				cells[y][x] = new Cell(Cell.CELL_EMPTY);
+			}
+		}
+
+		cells[2][3] = new Cell(Cell.CELL_WALL);
+
+		Point startPoint = new Point();
+		startPoint.setX(3);
+		startPoint.setY(9);
+		laser = new Laser(new Point());	
+		cells[startPoint.getY()][startPoint.getX()] = new Cell(Cell.CELL_LASER_START);
+		cells[startPoint.getY()][startPoint.getX()].setAngle(Cell.E);
+
+		cells[9][7] = new Cell(Cell.CELL_MIROR);
+		cells[9][7].setAngle(Cell.W);
+
+		cells[2][7] = new Cell(Cell.CELL_LASER_END);
 	}
 
 	public Laser getLaser() {
