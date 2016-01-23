@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Laser implements Serializable {
 
-	private List<Point>	path;
+	private static final long serialVersionUID = 1L;
 
-	private int			startDirection;
-	private Point		start;
-	private Point		end;
+	private List<Point> path;
+	private int startDirection;
+	private Point start;
+	private Point end;
 
 	public Laser(Point start, Point end, int startDirection) {
-
 		this.start = start;
 		this.end = end;
 		this.startDirection = startDirection;
@@ -43,4 +43,5 @@ public class Laser implements Serializable {
 		}
 		return b.toString();
 	}
+
 }

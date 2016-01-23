@@ -6,6 +6,8 @@ import com.bee.team.app.board.entity.Board;
 
 public class LaserBuilder implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	public boolean compute(Board board) {
 
 		Laser laser = board.getLaser();

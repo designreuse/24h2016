@@ -4,9 +4,12 @@ import java.io.Serializable;
 import com.bee.team.app.user.entity.User;
 
 public class Game implements Serializable {
-	User	user;
-	int		level;
-	int		topLevel;
+
+	private static final long serialVersionUID = 1L;
+
+	User user;
+	int level;
+	int topLevel;
 
 	public User getUser() {
 		return user;
