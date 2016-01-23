@@ -3,12 +3,11 @@ package com.bee.team.app.board.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Arrays;
-
 import java.util.List;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import com.bee.team.base.BaseDAO;
 import com.bee.team.app.board.entity.Board;
+import com.bee.team.base.BaseDAO;
 import com.gs.collections.impl.list.mutable.FastList;
 
 @Repository

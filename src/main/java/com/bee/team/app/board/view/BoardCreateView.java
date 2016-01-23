@@ -5,9 +5,9 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.bee.team.base.BaseView;
 import com.bee.team.app.board.entity.Board;
 import com.bee.team.app.board.service.BoardService;
+import com.bee.team.base.BaseView;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 
 @RequestScoped
