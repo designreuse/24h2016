@@ -1,0 +1,225 @@
+.ui-fileupload{
+	.ui-fileupload-buttonbar{
+		background:none;
+		border:none;
+	}
+	.ui-fileupload-content{
+		border:none;
+	}
+	
+	.ui-fileupload-choose{
+		.btn;
+		padding: 1px 5px;
+		font-size: 12px;
+		border-color:@skin-primary-color !important;
+		line-height: 1.5; .label-success !important; .btn-outline !important;
+		color: @skin-primary-color !important;
+		font-weight:normal;
+		background: none !important;
+		text-shadow: none !important;
+		text-transform: initial;
+	}
+	
+	.ui-fileupload-choose.ui-state-default{
+		transition:none !important;
+	}
+	.ui-fileupload-choose.ui-state-focus{
+		box-shadow:none !important;
+	}
+	
+	.ui-fileupload-choose.ui-state-hover{
+		transition:none !important;
+		border-color:@skin-primary-color !important;
+		color: white !important;
+		background: @skin-primary-color !important;
+		.ui-icon-plusthick{
+			color:white !important;
+		}
+	}
+	
+	.ui-fileupload-upload{
+		.btn;
+		padding: 1px 5px;
+		font-size: 12px;
+		border-color:@skin-primary-color !important;
+		line-height: 1.5; .label-success !important; .btn-outline !important;
+		color: @skin-primary-color !important;
+		font-weight:normal;
+		background: none !important;
+		text-shadow: none !important;
+		text-transform:none;
+	}
+	.ui-fileupload-upload.ui-state-default{
+		transition:none !important;
+	}
+	
+	.ui-fileupload-upload.ui-state-hover{
+		transition:none !important;
+		border-color:@skin-primary-color !important;
+		color: white !important;
+		background: @skin-primary-color !important;
+		.ui-icon-arrowreturnthick-1-n{
+			color:white !important;
+		}
+	}
+	
+	.ui-fileupload-cancel{
+		.btn;
+		padding: 1px 5px;
+		font-size: 12px;
+		border-color:@skin-primary-color !important;
+		line-height: 1.5; .label-success !important; .btn-outline !important;
+		color: @skin-primary-color !important;
+		font-weight:normal;
+		background: none !important;
+		text-shadow: none !important;
+		text-transform:none;
+	}
+	.ui-fileupload-cancel.ui-state-default{
+		transition:none !important;
+	}
+	
+	.ui-fileupload-cancel.ui-state-hover{
+		transition:none !important;
+		border-color:@skin-primary-color !important;
+		color: white !important;
+		background: @skin-primary-color !important;
+		.ui-icon-cancel{
+			color:white !important;
+		}
+	}
+	.ui-icon-plusthick{
+		background:none;
+		left:0;
+		text-indent:0;
+		color:@skin-primary-color;
+		.font-awesome;
+		&:after{
+  			content: "\f067";	
+  		}
+	}
+	
+	.ui-icon-arrowreturnthick-1-n{
+		background:none;
+		left:0;
+		text-indent:0;
+		color:@skin-primary-color;
+		.font-awesome;
+		&:after{
+  			content: "\f093";	
+  		}
+	}
+	.ui-fileupload-cancel{
+		background:none !important;
+		text-shadow:none !important;
+		font-weight:normal !important;
+		.btn !important;
+	}
+	.ui-icon-cancel
+	{
+		left:0;
+		background:none;
+		text-indent:0;
+		color:@skin-primary-color;
+		.font-awesome;
+		&:after{
+  			content: "\f05e";	
+  		}
+	}
+	
+	.ui-icon-close{
+		background:none;
+		text-indent:0;
+		color:@skin-primary-color;
+		.font-awesome;
+		&:after{
+  			content: "\f00d";	
+  		}
+	}
+	
+	.ui-button-text{
+	    line-height: inherit;
+	    padding:0;
+	    padding-left:15px;
+    }
+	    
+    .ui-progressbar{
+        height: 20px;
+	    overflow: hidden;
+	    box-shadow:none;
+	    background-color: #f5f5f5;
+		border:none;
+		border-radius: 4px;
+	}
+		
+    .ui-progressbar-value{
+	    border-radius:0;
+	    background:none;
+	    height: 110% !important;
+	   	.progress-bar;
+	   	.progress-bar-success;
+	}
+}
+
+.fileinput-button{
+    overflow: visible !important;
+}
+
+.fileupload-buttonbar .ui-button input{
+    top: -150px !important;
+}
+
+.filechooserUser .ui-fileupload-buttonbar,.filechooser .ui-fileupload-buttonbar{
+	background: none;
+    border: none;
+}
+
+.filechooser .ui-icon-plusthick{
+	color:@skin-primary-color;
+}
+.filechooserUser .ui-icon-plusthick,.primary-color-icon .ui-icon-plusthick,.primary-color-icon .ui-icon-arrowreturnthick-1-n,.primary-color-icon .ui-icon-cancel,.primary-color-icon .ui-icon-close{
+	color:@skin-primary-color;
+}
+
+.primary-color-icon .ui-state-disabled .ui-icon-arrowreturnthick-1-n{
+	color:#676a6c;
+}
+
+.filechooserDoc .ui-state-disabled.ui-fileupload-upload{
+	color:#676a6c !important;
+	border-color:#676a6c !important;
+}
+
+.primary-color-icon .ui-state-disabled .ui-icon-cancel{
+	color:#676a6c;
+}
+
+.filechooserDoc .ui-state-disabled.ui-fileupload-cancel{
+	color:#676a6c !important;
+	border-color:#676a6c !important;
+}
+.filechooserUser .ui-button-text{
+	padding:0;
+	padding-left: 10px;
+}
+
+.filechooser .ui-fileupload-content,.filechooserUser .ui-fileupload-content{
+	display:none;
+}
+.filechooserDoc.ui-fileupload-content{
+	display:block;
+}
+
+.filechooserDoc .ui-button-icon-only .ui-button-text{
+	padding:0;
+
+}
+.ui-state-hover .ui-icon-close{
+	color:white !important;
+
+}
+
+.filechooserDoc .ui-button-icon-only .ui-icon{
+	top: 0;
+    margin-top: 0;
+}

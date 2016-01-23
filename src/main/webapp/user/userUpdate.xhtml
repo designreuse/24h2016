@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="/resources/inspinia/template_basic.xhtml">
+	<ui:param name="selectedMenu" value="user" />
+	<ui:param name="b" value="#{userUpdateView}" />
+	<ui:define name="content">
+		<h:form id="FormTitle">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h1>
+						<h:outputText value="#{message.user_update}" />
+					</h1>
+				</div>
+				<div class="content-button col-lg-2">
+					<div class="btn-group pull-right">
+						<h:link outcome="pretty:viewUserList" styleClass="btn btn-white">
+							<i class="fa fa-arrow-left m-r-xs"></i>
+							<h:outputText value="#{message.back}" />
+						</h:link>
+					</div>
+				</div>
+			</div>
+		</h:form>
+		<h:form id="FormContent">
+			<div class="wrapper wrapper-content">
+				<div class="ibox">
+					<div class="ibox-content">
+						<div class="row">
+							<div class="col-lg-12">
+								<p:messages closable="true" />
+							</div>
+						</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label> <h:outputText value="#{message.user_first_name} : " /><h:outputText styleClass="requiredField" value=" *" />
+										</label>
+										<h:inputText value="#{b.userTmp.firstName}" required="true" label="#{message.user_first_name}" styleClass="form-control" />
+									</div>
+								</div>
+							</div>
+						
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label> <h:outputText value="#{message.user_last_name} : " /><h:outputText styleClass="requiredField" value=" *" />
+										</label>
+										<h:inputText value="#{b.userTmp.lastName}" required="true" label="#{message.user_last_name}" styleClass="form-control" />
+									</div>
+								</div>
+							</div>
+						
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label> <h:outputText value="#{message.user_login} : " />
+										</label>
+										<h:inputText value="#{b.userTmp.login}"  label="#{message.user_login}" styleClass="form-control" />
+									</div>
+								</div>
+							</div>
+						
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label> <h:outputText value="#{message.user_password} : " />
+										</label>
+										<h:inputText value="#{b.userTmp.password}"  label="#{message.user_password}" styleClass="form-control" />
+									</div>
+								</div>
+							</div>
+						
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="submit-btns-zone pull-right">
+									<h:link outcome="pretty:viewUserList" styleClass="btn btn-white">
+										<h:outputText value="#{message.cancel}" />
+									</h:link>
+									<h:commandLink action="#{b.updateUser}" styleClass="btn btn-primary">
+										<h:outputText value="#{message.save}" />
+									</h:commandLink>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

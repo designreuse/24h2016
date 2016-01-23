@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+	<application>
+		<message-bundle>JsfMessages</message-bundle>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+	<lifecycle>
+		<phase-listener>com.bee.team.jsf.AkelioPhaseListener</phase-listener>
+		<phase-listener>com.ocpsoft.pretty.faces.event.MultiPageMessagesSupport</phase-listener>
+	</lifecycle>
+	<factory>
+		<exception-handler-factory>com.bee.team.jsf.AkelioExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+	<navigation-rule>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/error/error.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>notAuthorized</from-outcome>
+			<to-view-id>/error/notAuthorized.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>objectNotFound</from-outcome>
+			<to-view-id>/error/notFound.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

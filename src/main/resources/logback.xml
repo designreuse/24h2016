@@ -1,0 +1,18 @@
+<configuration>
+
+	<contextName>noa</contextName>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d %-5level [%40.40logger{40} - %-15.15M] --- %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.bee.team" level="DEBUG" />
+	<logger name="org.springframework" level="INFO" />
+	<logger name="ro.isdc.wro" level="INFO" />
+
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

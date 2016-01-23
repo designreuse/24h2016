@@ -1,0 +1,259 @@
+.ui-datatable thead th, .ui-datatable tfoot td {
+	text-align: left;
+}
+
+.ui-datatable-tablewrapper {
+	overflow: hidden;
+}
+
+.std-datatable {
+	tbody{
+		border:none !important;
+	}
+	
+	.ui-widget-header{
+		background-color: transparent !important;
+		background-image: none;
+	}
+	.ui-datatable-even{
+		background: #f9f9f9;
+	}
+	
+	.ui-datatable-odd{
+		background: #fff;
+	}
+	
+	
+	thead{
+		border:none;
+		border-bottom:4px solid #e9eef1 !important;
+		background-color: transparent !important;
+		text-transform: initial !important;
+	}
+	
+	.ui-widget-header thead{
+		border:none;
+	}
+	thead th {
+		padding:5px;
+			background-color: transparent !important;
+		
+	}
+	
+	thead tr th{
+		background-color: transparent !important;
+	}
+	
+	.ui-state-highlight{
+		text-shadow: none;
+		color: #4F4F4F;
+	}
+	
+	.ui-datatable-data td{
+		border:none !important;
+		border-top: 1px solid #e9eef1 !important;
+	}
+	.ui-datatable-data tr{
+		border:none !important;
+	}
+
+	.ui-state-default {
+		border: none;
+		font-weight:normal;
+	}
+	
+	.ui-state-active{
+		font-weight: bold;
+		color: #676a6c;
+	}
+	.columncheckbox {
+		text-align: center; width: 40px;
+	}
+	.ui-datatable-scrollable-body  .columncheckbox {
+		padding-right: 44px !important;
+	}
+	.ui-datatable-data td {
+		border: none;
+		height: 25px;
+	}
+	.columncenter {
+		text-align: center;
+	}
+	.column200 {
+		width:200px;
+	}
+	.ui-widget-content{
+		border-color: #e9eef1;
+	}
+	.ui-dt-c{
+		overflow: visible !important;
+	}
+	.ui-sortable-column-icon {
+		right:0px;
+		left:inherit;
+	}
+	.ui-datatable-scrollable-header{
+		padding-right:17px;
+		.ui-datatable-scrollable-header-box{
+			width: 100%;
+		}
+	}
+	.masked-header{
+		background:none;
+		text-align: left;
+		font-weight:100;
+		border-top: none;
+	}
+}
+
+.datatable-noheader{
+	thead{
+		border: none;}
+	
+	thead th{
+	padding:0px;}
+}
+
+.datatable-nostyle{
+	.ui-widget-content{
+		border: none  !important;
+	}
+	.ui-widget-content .ui-datatable-odd{
+		background: none;
+	}
+	.ui-datatable-data td {
+		border: none !important;
+	}
+	.ui-datatable-data tr {
+		border: none !important;
+	}
+	.columncenter {
+		text-align: center !important;
+	}
+	.ui-state-default{
+		border: none  !important;
+		background: none  !important;
+	}
+	.columncenter {
+		text-align: center;
+	}
+}
+
+#userListCard .std-datagrid {
+	.ui-datagrid-column{
+		width:31%;
+	}
+}
+
+.std-panel{
+	padding: 0px;
+	border: none;
+	
+	.ui-panel-titlebar{
+		.title4;
+		.border-radius(0);
+		.ui-panel-titlebar-icon{
+			.btn;
+			margin:0px;
+			padding:0px;
+			span{
+				margin-left:-2px;
+				margin-top:-2px;
+			}
+		}
+		
+		.ui-panel-titlebar-icon.ui-state-hover{
+			  color: @grayDark;
+			  text-decoration: none;
+			  background-color: darken(@white, 10%);
+			  *background-color: darken(@white, 15%); /* Buttons in IE7 don't get borders, so darken on hover */
+			  background-position: 0 -15px;
+			  .transition(background-position .1s linear);
+		}
+	}
+	.ui-panel-content{
+		.box-widget;
+	}
+}
+
+//For all - imposible to define style class
+.ui-menu.ui-menu-dynamic {
+	#gradient > .vertical(#f9fafc, #e2e6eb);
+	
+	.ui-widget-header{
+		.border-radius(0);
+		#gradient > .vertical(#f9fafc, #e2e6eb);
+		border:1px #cdcdcd solid;
+		font-weight: bold;
+	    height: 24px;
+	    padding-top: 6px;
+	    text-indent: 10px;
+	}
+	
+	.ui-menuitem-link.ui-state-hover{
+		#gradient > .vertical(@white, #e2e6eb);
+		.border-radius(0);
+	}
+}
+
+
+.panelgrid-noborder{
+	tr,td {
+		border:none;
+	}
+}
+
+.fileContent .std-datatable .ui-state-highlight{
+	background-color: #e8ecef;
+}
+.ui-paginator-pages .ui-state-default{
+	.btn;
+	.btn-white !important;
+}
+
+.table-bottom-hack .ui-datatable-scrollable-header-box thead{
+		border:none !important;
+	}
+.table-bottom-hack td{
+	padding: 4px 4px !important;
+}	
+	
+.ui-datatable-scrollable-body td{
+		padding: 4px 0px !important;
+	
+}
+
+.table td{
+	padding:5px;
+}
+table .ui-chkbox,.ui-chkbox-box{
+	margin: 0px auto;
+	height: 16px;
+	display:block !important;
+}
+.table-project tr,.table-project td{
+	overflow:visible !important;
+}
+
+.tasklist{
+	background-color:#eee !important;
+	height:30px;
+}
+
+th.ui-state-focus{
+	box-shadow:none !important;
+}
+
+.std-datatable tr:hover td{
+	background-color: darken(#f9f9f9, 5%);
+}
+
+.std-datatable.table-select .ui-state-highlight,.std-datatable.table-select .ui-state-highlight:hover td,.std-datatable.table-select .ui-state-hover td{
+	background:none !important;
+	background-color:@skin-primary-color !important;
+	color:white !important;
+}
+
+.table-hover a:hover{
+	color :inherit !important;
+}

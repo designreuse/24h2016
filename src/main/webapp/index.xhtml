@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://primefaces.org/ui">
+
+<f:view locale="#{authenticationView.localeSelected}">
+	<f:loadBundle basename="messages" var="message" />
+	<f:loadBundle basename="application" var="config" />
+	<h:head>
+		<title>#{config.application}</title>
+		<h:outputScript library="primefaces" name="jquery/jquery.js" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="fr" />
+		<link href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="icon" href="#{facesContext.externalContext.requestContextPath}/images/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="#{facesContext.externalContext.requestContextPath}/images/favicon.ico" type="image/x-icon" />
+		<link href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+		<c:if test="#{initParam['spring.profiles.active'] == 'prod'}">
+			<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/css/skinblue.css" />
+		</c:if>
+		<c:if test="#{initParam['spring.profiles.active'] == 'dev'}">
+			<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/wro/skinblue.css" />
+		</c:if>
+	</h:head>
+	<h:body styleClass="skin-acollab">
+		<div class="row m-t-lg">
+			<div class="col-lg-4 col-lg-offset-4">
+				<div class="ibox-content">
+					<div>
+						<h:form id="FormLogin" styleClass="m-t">
+							<ui:debug />
+							<div>
+								<div class="logo text-center"></div>
+							</div>
+							<div id="login_error_message" class="m-t-xs m-b-xs">
+								<p:messages closable="true" />
+								<c:if test="#{param.url != null}">
+									<c:if test="#{(param.url != 'faces/index.xhtml') and (param.url != '')}">
+										<br />
+										<h:outputText value="#{message.index_must_login}" styleClass="text-error" />
+									</c:if>
+								</c:if>
+								<c:if test="#{param.session != null}">
+									<br />
+									<h:outputText value="#{message.index_session_expired}" styleClass="text-error" />
+									<br />
+									<h:outputText value="#{message.index_login_again}" styleClass="text-error" />
+								</c:if>
+								<c:if test="#{authenticationView.expired}">
+									<p class="text-center">
+										<h:outputText value="#{message.index_session_expired}" styleClass="text-error" />
+									</p>
+								</c:if>
+							</div>
+							<div class="form-group m-t-xs">
+								<h:inputText id="login" styleClass="form-control" value="#{authenticationView.login}" tabindex="1" />
+								<p:watermark for="login" value="#{message.login}"></p:watermark>
+							</div>
+							<div class="form-group">
+								<h:inputSecret styleClass="form-control" value="#{authenticationView.password}" id="password" tabindex="2" />
+								<p:watermark for="password" value="#{message.password}"></p:watermark>
+							</div>
+							<h:commandLink id="submit" styleClass="login-btn btn btn-primary block full-width m-b" action="#{authenticationView.loginAction}" tabindex="4">
+								<f:param name="url" value="#{param.url}" />
+								<h:outputText value="#{message.login_action}"></h:outputText>
+							</h:commandLink>
+							<div class="text-center">
+								<h:outputText value="#{message.password_forget}"></h:outputText>
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery('#FormLogin\:login').focus();
+			});
+
+			jQuery(document).keypress(function(e) {
+				if (e.which == 13) {
+					jQuery('#FormLogin\:submit').click();
+				}
+			});
+		</script>
+	</h:body>
+</f:view>
+</html>

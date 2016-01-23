@@ -1,0 +1,100 @@
+.formulaire {
+	font-family: Arial;
+	color: #545758;
+	font-size: 1em;
+	text-shadow: 0.07em 0 #d3d6d6;
+	
+	input, .ui-inputfield  {
+		margin-bottom: 0px !important;
+		background-color: #ffffff;
+		.box-shadow(~"inset 0px 1px 1px 0px rgba(0,0,0,.1)");
+	}
+		
+	input:focus, .ui-inputfield.ui-state-focus {
+		border-color: #78b5d5 !important;
+		.box-shadow(~"none");
+	}
+	
+	textarea:focus, .ui-inputfield.ui-state-focus {
+		border-color: #78b5d5 !important;
+		.box-shadow(~"none");
+	}
+	
+	.ui-selectonemenu {
+		
+		.ui-inputfield{
+			#gradient > .vertical(#f9fbfb, #e8ecee);
+			.box-shadow(0 0 0px rgba(0,0,0,0));
+		}
+		.ui-selectonemenu-trigger{
+			#gradient > .vertical(#f9fbfb, #e8ecee);
+			border-left: none;
+			padding-top: 2px;
+		}
+		.ui-state-default{
+			.box-shadow(0 0 0px rgba(0,0,0,0));
+		}
+	}
+	
+	.ui-state-focus, .ui-state-hover {
+		.box-shadow(0 0 0px rgba(0,0,0,0));
+		border-color: #78b5d5 !important;
+	}
+}
+
+.ui-selectonemenu-items{
+	background-color: #fafbfc !important;
+	padding: 0px 0px 0px 0px !important;
+	margin: 0px 0px 0px 0px !important;
+}
+
+.ui-selectonemenu-list-item.ui-state-highlight{
+	background: #3399ff !important;
+	text-shadow: 0.07em 0 #d3d6d6 !important;
+	border-radius: 0px !important;
+}
+
+.requiredField {
+	color: red;
+}
+
+.submit-btns-zone {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	.btn{
+		margin-right: 6px;
+	}
+}
+
+.component-label{
+	margin-top: 15px;
+}
+
+.component{
+	margin-top: 5px;
+}
+
+.card-container{
+	.user_card; 
+	.clearfix;
+	max-width: 874px;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 20px;
+	
+	.submit-btns-zone{
+		margin-bottom: 0px;
+	}
+}
+
+.card-button{
+	max-width: 874px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.checkbox-primary input[type="checkbox"]:checked + label::before,
+.checkbox-primary input[type="radio"]:checked + label::before {
+  background-color: @skin-primary-color;
+  border-color: @skin-primary-color;
+}

@@ -1,0 +1,279 @@
+@pageLeftPadding: 14px;
+@pageRightPadding: 14px;
+
+@btnFontSize: 11px;
+@btnLineHeight: 18px;
+
+@mainActiveColor: #3fade7;
+@mainBackgroundColor: @white;
+@panelsBackgroundColor: #e4ebf4;
+@panelsBorderColor: #acbbc5;
+
+@titleColor: #545758;
+
+@leftPanelWidth: 200px;
+@rightPanelWidth: 200px;
+
+//Navbar
+@navbarBorderColor: #252525;
+@navbarSearchButtonBackground: #1690d1;
+@navbarSearchButtonBackgroundLight: #30b1f6;
+
+//Navbar-menu (second line)
+@navbarMenuBackgroundBackground: #474b4e;
+@navbarMenuBackgroundBackgroundLight: #626668;
+@navbarMenuHeight: 65px;
+@navbarMenuDividerBackground: url("../img/menu-separator.png");
+@navbarMenuLinkColor: @white;
+@navbarMenuLinkBackgroundHover: #3a3d40;
+@navbarMenuLinkColorHover: @mainActiveColor;
+@navbarMenuLinkBackgroundActive: @navbarMenuLinkBackgroundHover;
+@navbarMenuLinkColorActive: @navbarMenuLinkColorHover;
+
+//Buttons
+@mainButtonBorderColor: #0476b4;
+@grayButtonBorderColor: #a1adb4;
+
+//Sidebar
+@sidebarTitle: #718cb0;
+@sidebarSelectedColor: #c7d3e3;
+@sidebarSelectedColorGradient: #DBE2EA;
+
+//Dashboard
+@forumColor:#eebcff;
+@blogColor:#ffe7a6;
+@calendarColor:#ffbb9a;
+@projectColor:#aef6a9;
+@wikiColor:#c8defa;
+@docColor:#cfd0ff;
+@commentColor:#bcf0ff;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Variables.less
+// Variables to customize the look and feel of Bootstrap
+// -----------------------------------------------------
+
+
+// GLOBAL VALUES
+// --------------------------------------------------
+
+
+// Grays
+// -------------------------
+@black:                 #000;
+@grayDarker:            #222;
+@grayDark:              #333;
+@grayLight:             #999;
+@grayLighter:           #eee;
+@white:                 #fff;
+
+// Accent colors
+// -------------------------
+@blueDark:              #0064cd;
+@green:                 #46a546;
+@orange:                #f89406;
+@pink:                  #c3325f;
+@purple:                #7a43b6;
+
+// Scaffolding
+// -------------------------
+@bodyBackground:        @white;
+@textColor:             @grayDark;
+
+
+// Links
+// -------------------------
+@linkColor:             #08c;
+@linkColorHover:        darken(@linkColor, 15%);
+
+
+// Typography
+// -------------------------
+@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+@monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
+
+@baseFontSize:          13px;
+@baseFontFamily:        @sansFontFamily;
+@baseLineHeight:        18px;
+@altFontFamily:         @serifFontFamily;
+
+@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsColor:         inherit; // empty to use BS default, @textColor
+
+
+// Tables
+// -------------------------
+@tableBackground:                   transparent; // overall background-color
+@tableBackgroundAccent:             #f9f9f9; // for striping
+@tableBackgroundHover:              #f5f5f5; // for hover
+@tableBorder:                       #ddd; // table and cell border
+
+
+// Buttons
+// -------------------------
+@btnBackground:                     #f0f3f5;
+@btnBackgroundHighlight:            darken(@white, 10%);
+@btnBorder:                         #a1adb4;
+
+@btnPrimaryBackground:              #2eaef3;
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
+
+@btnSuccessBackground:              #62c462;
+@btnSuccessBackgroundHighlight:     #51a351;
+
+@btnWarningBackground:              lighten(@orange, 15%);
+@btnWarningBackgroundHighlight:     @orange;
+
+@btnDangerBackground:               #ee5f5b;
+@btnDangerBackgroundHighlight:      #bd362f;
+
+@btnInverseBackground:              @gray;
+@btnInverseBackgroundHighlight:     @grayDarker;
+
+
+// Forms
+// -------------------------
+@inputBackground:               @white;
+@inputBorder:                   #ccc;
+@inputBorderRadius:             3px;
+@inputDisabledBackground:       @grayLighter;
+@formActionsBackground:         #f5f5f5;
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @white;
+@dropdownBorder:                rgba(0,0,0,.2);
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkBackgroundHover:   @linkColor;
+
+
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1020;
+@zindexFixedNavbar:       1030;
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+
+// Sprite icons path
+// -------------------------
+@iconSpritePath:          "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+@iconBlueSpritePath:      "../img/glyphicons-halflings-blue.png";
+
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @grayLight;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                @grayLighter;
+
+
+// Navbar
+// -------------------------
+@navbarHeight:                    46px;
+@navbarBackground:                @grayDarker;
+@navbarBackgroundHighlight:       @grayDark;
+@navbarBackgroundImage:			  url("../img/header-bg.png");
+
+@navbarText:                      @grayLight;
+@navbarLinkColor:                 @grayLight;
+@navbarLinkColorHover:            @white;
+@navbarLinkColorActive:           @navbarLinkColorHover;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      @navbarBackground;
+
+@navbarSearchBackground:          #244f79;
+@navbarSearchBackgroundFocus:     @white;
+@navbarSearchBorder:              #20476d;
+@navbarSearchPlaceholderColor:    #ccc;
+@navbarBrandColor:                @navbarLinkColor;
+
+
+// Hero unit
+// -------------------------
+@heroUnitBackground:              @grayLighter;
+@heroUnitHeadingColor:            inherit;
+@heroUnitLeadColor:               inherit;
+
+
+// Form states and alerts
+// -------------------------
+@warningText:             #c09853;
+@warningBackground:       #fcf8e3;
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorText:               #b94a48;
+@errorBackground:         #f2dede;
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             #468847;
+@successBackground:       #dff0d8;
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                #3a87ad;
+@infoBackground:          #d9edf7;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+
+// GRID
+// --------------------------------------------------
+
+// Default 940px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         14px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    6.382978723%;
+@fluidGridGutterWidth:    2.127659574%;

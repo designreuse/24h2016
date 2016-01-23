@@ -1,0 +1,163 @@
+.messagetext{
+	h1,h2,h3,h4,h5,h6 {
+		font-weight: bold; margin: 0 0 0.25em 0;
+	}
+	h1 {
+		font-size: 200%
+	} 
+	h2 {
+		font-size: 166.67%
+	} 
+	h3 {
+		font-size: 150%
+	} 
+	h4 {
+		font-size: 133.33%
+	}
+	h5 {
+		font-size: 116.67%
+	}
+	h6 {
+		font-size: 116.67%; font-style: italic
+	}
+	p {
+		line-height: 1.5em; margin: 0 0 1em 0;
+	}
+	cite,blockquote {
+		font-style: italic
+	}
+	blockquote {
+		margin: 0 0 1em 1.5em
+	}
+	strong,b {
+		font-weight: bold
+	}
+	em,i {
+		font-style: italic
+	}
+	
+	table {
+		border-width: 1px;
+		border-color: gray;
+		background-color: white;
+	}
+	table th {
+		border-width: 1px;
+		padding: 1px;
+		border-style: inset;
+		border-color: gray;
+		background-color: white;
+		-moz-border-radius: ;
+	}
+	table td {
+		border-width: 1px;
+		padding: 1px;
+		border-style: inset;
+		border-color: gray;
+		background-color: white;
+		-moz-border-radius: ;
+	}
+	a { 
+		color: #08C;
+		text-decoration: none;
+	}
+	a:visited { 
+		color: #08C;
+	}
+	a:hover { 
+		color: #08C;
+		text-decoration: underline;
+	}
+	a:active { 
+	}
+	
+	span.newLink a {
+		color: red;
+	}
+	span.newLink a:hover {
+		color: red;
+	}
+}
+
+.blog-table {
+	width: 100%;
+	margin: 10px 0;
+}
+
+.title-message {
+	font-size: 1.3em;
+	font-weight: bold;
+	color: @titleColor;
+}
+
+.date-message {
+	margin: 8px 0;
+	color: #707577;
+	font-size: 0.9em;
+}
+
+.text-primary {
+  color: @skin-primary-color;
+}
+.text-primary a{
+  color: @skin-primary-color;
+}
+.text-primary-hover:hover{
+  color: @skin-primary-color;
+}
+
+//LABEL
+
+.label-xxs{
+	font-size:8px;
+}
+
+//Label avec seulement bordure en primary
+.label-success-outline,.badge-success {
+  background-color: #FFFFFF;
+  color: @skin-primary-color !important;
+  border:1px solid;
+}
+//Label avec seulement bordure en primary hover (background plein)
+.label-success-outline:hover {
+  background-color: #FFFFFF !important;
+  color: @skin-primary-color !important;
+  border:1px solid @skin-primary-color !important;
+}
+
+//Texte small
+.text-small{
+	font-size:12px;
+}
+
+.h5{
+	font-weight: 600;
+}
+
+.h2{
+	font-size:20px;
+	font-weight: 100;
+	margin:0;
+}
+
+.text-size-14{
+	font-size:13px !important;
+}
+
+small{
+	font-size:90% !important;
+}
+
+.text-a a{
+	color: #4f4f4f !important;
+}
+
+.form-control:focus, .single-line:focus {
+  border-color: @skin-primary-color !important;
+  box-shadow:none !important;
+}
+.form-control.ui-state-default{
+	box-shadow:none !important;
+	  background-color: #FFFFFF;
+	
+}

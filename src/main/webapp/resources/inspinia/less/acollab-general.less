@@ -1,0 +1,718 @@
+*{
+	transition :none !important;
+	outline:none !important;
+}
+.main-padding {
+	padding: 10px;
+}
+
+.ui-state-default { 
+	.box-shadow (~"none");
+}
+
+.command-link{
+	color: #545758;
+	font-family: @sansFontFamily;
+	font-size: 10pt;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	line-height: 18px;
+	&:hover{
+		color: @black;
+		text-decoration:none;
+	}
+}
+
+.command-link-blue{
+	color: #0088CC !important;
+	font-family: @sansFontFamily;
+	font-size: 1em;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	line-height: 18px;
+	
+	span{
+		vertical-align: text-bottom;
+	}
+}
+
+.small-command-link{
+	color: #545758;
+	font-family: @sansFontFamily;
+	font-size: 8pt;
+	font-style: italic;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+	line-height: 12px;
+	&:hover{
+		color: @black;
+		text-decoration:none;
+	}
+	
+	span{
+		vertical-align: text-bottom;
+	}
+}
+
+.sub{
+	font-style:italic;
+	font-size: 8pt;
+	line-height: 14px;
+	color: #999999;
+}
+
+#permalink{display:none;margin-right: 10px;margin-top: 2px;}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-size: 1em;	
+}
+
+.ui-widget {
+	font-size: 1em;
+}
+
+.ui-widget-content {
+	color: none;
+}
+
+.margin-right5 {
+	margin-right: 5px
+}
+
+.margin-button {
+	margin-right: 10px;
+	margin-left: 5px
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: Arial,sans-serif;
+	font-size: 1em;
+}
+
+.nostyle-input, .nostyle-input:hover,.nostyle-input:focus {
+	border:none !important;
+	border-color: transparent !important;
+	background:none !important;
+	background-color: transparent !important;
+	.box-shadow(~"none !important");
+}
+
+.fault-input {
+	padding:3px;
+	background-color: #fafbfc;
+	.box-shadow(~"inset 0px 1px 1px 0px rgba(0,0,0,.1)");
+	.border-radius(3px);
+}
+
+.fault-input-focus {
+	border: 1px solid #78b5d5;
+}
+
+.textColorBlue {
+	color: #2286bd;
+}
+
+.padding-right20{
+	padding-right : 20px;
+}
+
+.selectonemenu{
+	.ui-selectonemenu {
+		width: 174px !important;
+			
+		.ui-inputfield{
+			#gradient > .vertical(#f9fbfb, #e8ecee);
+			.box-shadow(0 0 0px rgba(0,0,0,0));
+		}
+		.ui-selectonemenu-trigger{
+			#gradient > .vertical(#f9fbfb, #e8ecee);
+			border-left: none;
+			padding-top: 2px;
+		}
+		.ui-state-default{
+			.box-shadow(0 0 0px rgba(0,0,0,0));
+		}
+	}
+		
+}
+
+.selectonemenu2{
+	.ui-selectonemenu {
+		width: 100px !important;
+		height: 20px !important;
+		.ui-inputfield{
+			#gradient > .vertical(#f9fbfb, #e8ecee);
+			.box-shadow(0 0 0px rgba(0,0,0,0));
+		}
+		.ui-selectonemenu-trigger{
+			#gradient > .vertical(#f9fbfb, #e8ecee);
+			border-left: none;
+			padding-top: 0px;
+		}
+		.ui-state-default{
+			.box-shadow(0 0 0px rgba(0,0,0,0));
+		}
+		.ui-selectonemenu-label {
+			font-size: 0.8em;	
+		}
+		.ui-inputfield {
+			padding-top: 1px;
+		}
+	}
+	.ui-state-focus, .ui-state-hover {
+		.box-shadow(0 0 0px rgba(0,0,0,0));
+		border-color: #78b5d5 !important;
+	}
+}
+
+
+.blue-action {
+	padding-top: 9px; 
+	padding-bottom: 8px;
+	
+	a { color: #2286be !important;
+		font-size: 0.9em;
+	  }
+}
+
+//TODO ??? for all?
+input {
+	margin-bottom: 0px !important;
+	background-color: #fafbfc;
+	.box-shadow(~"inset 0px 1px 1px 0px rgba(0,0,0,.1)");
+}
+
+input:focus {
+	border-color: #78b5d5 !important;
+}
+
+.subscription {
+	border: 2px solid #000;
+	padding: 5px;
+}
+
+.subscription-selected {
+	border: 2px solid #000;
+	background-color: @sidebarSelectedColor;
+}
+
+.acollab-joyride {
+	position: absolute;
+    z-index: 102;
+    -moz-box-shadow: 0px 0px 30px #ffffff;
+    -webkit-box-shadow: 0px 0px 30px #ffffff;
+    box-shadow: 0px 0px 30px #ffffff;
+}
+
+.message-info {
+	color: red;
+	text-shadow: none;
+	margin: 3px 0;
+}
+
+.customRadio label {
+	margin-left: 5px;
+}
+
+// Blockquotes
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 @baseLineHeight;
+  border-left: 5px solid @grayLighter;
+  p {
+    margin-bottom: 0;
+    #font > .shorthand(16px,300,@baseLineHeight * 1.25);
+  }
+  small.access {
+    display: block;
+    line-height: @baseLineHeight;
+    color: @blueDark;
+    &:before {
+      content: '\BB \00A0';
+    }
+   }
+    small.rest {
+    display: block;
+    line-height: @baseLineHeight;
+    color: @red;
+    &:before {
+      content: '\D7 \00A0';
+    }
+  }
+
+  // Float right with text-align: right
+  &.pull-right {
+    float: right;
+    padding-right: 15px;
+    padding-left: 0;
+    border-right: 5px solid @grayLighter;
+    border-left: 0;
+    p,
+    small {
+      text-align: right;
+    }
+  }
+}
+
+//ICON
+.fa-blog-icon:before{
+	content: "\f003";
+	font-family: FontAwesome;
+}
+
+.fa-wiki-icon:before{
+	content: "\f24d";
+	font-family: FontAwesome;
+}
+
+.fa-doc-icon:before{
+	content: "\f0f6";
+	font-family: FontAwesome;
+}
+
+.fa-calendar-icon:before{
+	content: "\f073";
+	font-family: FontAwesome;
+}
+
+.fa-project-icon:before{
+	content: "\f046";
+	font-family: FontAwesome;
+}
+
+.fa-forums-icon:before{
+	content: "\f0e6";
+	font-family: FontAwesome;
+}
+
+.fa-polls-icon:before{
+	content: "\f059";
+	font-family: FontAwesome;
+}
+
+//on supprime les icones des trees view
+.open-folder-aicon{
+	background-image: none !important;
+    text-indent: 0;
+}
+.collapsed-folder-aicon{
+	background-image: none !important;
+    text-indent: 0;
+}
+.page-aicon{
+	background-image: none !important;
+    text-indent: 0;
+}
+
+
+.ui-icon-blank{
+	background-image:none !important;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    left: 0;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.ui-icon-check{
+	.ui-icon-blank;
+	text-indent:0;
+	color: #fff;
+	background-color: @skin-primary-color;
+	text-align:center;
+	font-size:12px;
+    border-color: @skin-primary-color;
+    font-family: "FontAwesome";
+    &:after{
+    	content: "\f00c";
+	}
+}
+
+.ui-icon-close{
+	.ui-icon-blank;
+	text-indent:0;
+	font-size:12px;
+	margin-left:5px;
+	color: #4f4f4F;
+	text-align:center;
+	background-color: transparent;
+    border-color: transparent;
+    font-family: "FontAwesome";
+    opacity:0.2;
+    &:after{
+  		content: "\f00d";	
+  		}
+}
+.ui-icon-close:hover{
+	 opacity:1;
+}
+.ui-icon-pencil{
+	width:auto;
+	height:auto;
+	text-indent:0;
+	background:none !important;
+    font-family: "FontAwesome";
+    &:after{
+ 	 content: "\f040";
+	}
+}
+
+
+.ui-chkbox{
+	height: 16px;
+    margin-bottom: 3px;
+}
+.ui-chkbox .ui-state-default{
+	background:none;
+}
+
+.ui-widget{font-family:"open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+
+//Text align
+.text-align-r{
+	text-align:right;
+}
+
+.text-align-l{
+	text-align:left;
+}
+
+//Pour les icones
+.font-awesome{
+	    font-family: "FontAwesome" !important;
+}
+
+//On retire les effets degradés et les box shadow sur tous les composants primeface en hover
+.ui-state-hover{
+	box-shadow:none !important;
+	background:none !important;
+}
+
+
+//On redefinit le p:calendar pour quil prenne laspect dun input classique
+.hasDatepicker{
+	.form-control !important;
+	 line-height: 1.42857143 !important;
+	 font-weight:normal !important; 
+	
+}
+//Lorsquil es active on change ses bordures
+.hasDatepicker.ui-state-focus{
+	border-color:@skin-primary-color !important;
+	box-shadow:none !important;
+}
+
+.hasDatepicker.ui-state-focus + button{
+	border-top-color:@skin-primary-color !important;
+	border-right-color:@skin-primary-color !important;
+	border-bottom-color:@skin-primary-color !important;
+		
+	
+}
+.input-calendar{
+	padding:0 !important;
+	border:0;
+}
+.input-calendar .ui-state-focus{
+	box-shadow:none !important;
+	border-color: @skin-primary-color !important;
+}
+
+.input-calendar button.ui-state-focus{
+	box-shadow:none !important;
+	border-top-color:@skin-primary-color !important;
+	border-right-color:@skin-primary-color !important;
+	border-bottom-color:@skin-primary-color !important;
+}
+
+//On redefinit le style des titres des dialogues
+.ui-draggable .ui-dialog-titlebar{
+	.ibox-title;
+	background:none !important;
+}
+
+.ui-dialog-content .ibox-content{
+	padding:0;
+}
+
+.o-hidden{
+	overflow:hidden;
+}
+
+.form-control button{
+	border-color:#e5e6e7 !important;
+	background: #F9F9F9 !important;
+}
+
+//Classe permettant de placer correctement le menu dajout de widget dans les space et user dashboard
+.hack-top{
+	top: 30px;
+	position: absolute;
+    right: 15px;
+    left: initial;
+}
+
+//On active le menu selectionne dans les nav tabs
+.nav-tabs li a:hover{
+	color:@skin-primary-color !important;
+}
+
+.nav-tabs > li.active > a{
+	color:@skin-primary-color !important;
+}
+
+//On modifie les padings sur les nav tabs pour que le texte soit centre
+.nav-tabs > li > a {
+  padding: 10px 20px 10px 20px;
+}
+//On modifie la couleur des liens pour eviter davoir des liens bleus partout
+.ui-treenode-content a{
+	color:#4f4f4f;
+}
+.ui-treenode-content a:hover{
+	color:@skin-primary-color;
+}
+
+.cardName a{
+	color: inherit;
+}
+
+.vertical-timeline-content a{
+	color: #337ab7;
+}
+
+.ui-widget-overlay{
+	background-color:black;
+}
+
+//on passe la dialog au premier plan
+.ui-dialog{
+	z-index:2500 !important;
+}
+
+//on passe le datepicker par dessus la dialog
+.ui-datepicker{
+		z-index:2600 !important;
+		text-shadow:none !important;
+}
+//On redefinit ses styles
+.ui-datepicker-header{
+	background:none !important;
+}
+.ui-datepicker .ui-datepicker-calendar .ui-state-default{
+	text-shadow:none !important;
+}
+.ui-datepicker-current-day .ui-state-hover{
+	background: #5F83B9 !important;
+    color: #FFFFFF !important;
+    font-weight: bold !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+//Trick css pour avoir le menu par dessus une table (cf fichiers)
+.dropdown-hack .dropdown-menu{
+    position:fixed;
+}
+.hidden{
+	display:none;
+}
+.mce-tooltip{
+	opacity:1 !important;
+}
+
+//Ajout dune scollbar au dropdown menu
+.scrollable-menu {
+    height: auto;
+    max-height: 150px;
+    overflow-x: hidden;
+}
+.scrollable-menu::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 4px;        
+}    
+.scrollable-menu::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: lightgray;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.75);        
+}
+
+
+//Classe servant pour les images de profil
+.icon-default{
+	border-radius: 50%;
+  	font-size: 16px;
+  	overflow:hidden;
+  	border: 3px solid #f1f1f1;
+  	text-align: center;
+}
+
+.vertical-timeline-icon i {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -9px;
+}
+
+.vertical-timeline-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 52px;
+  .icon-default;
+}
+
+.profile-icon {
+  width: 100px;
+  height: 100px;
+  .icon-default;
+}
+
+.profile-small-icon {
+  width: 48px;
+  height: 48px;
+ .icon-default;
+}
+//Timeline
+.vertical-timeline-block:last-child{
+	margin-bottom:20px;
+}
+.vertical-timeline-content {
+  position: relative;
+  margin-left: 65px;
+  background: white;
+  border-radius: 0.25em;
+  padding-top:5px;
+  padding-left:1em;
+  padding-right:1em;
+  padding-bottom:10px;
+}
+
+#vertical-timeline::before{
+	left:24px;
+}
+
+//Taille des petits cubes pour differencier les categories des events
+.fc-colorBlock{
+	width: 8px;
+	height: 8px;
+	margin-right: 5px;
+	display: inline-block;
+	border-style: solid;
+	border-width: 1px
+}
+
+//Redefinition des messages primeface error, info
+.ui-messages-error-icon, .ui-messages-info-icon,.ui-messages-warn-icon{
+	background:none;
+	float: right;
+}
+.ui-messages ul{
+	margin:0px 0px;
+}
+.ui-messages-error{
+	color: #a94442;
+	border-radius: 4px;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.ui-messages-info{
+	border-radius: 4px;
+	color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.ui-messages ul li span{
+	font-weight:normal;
+}
+//Ajout dun text error
+.text-error{
+	color: red;
+}
+//On ajoute un padding pour les lignes des tables editables
+.ui-cell-editor-output{
+	padding-left:5px;
+}
+
+//On retire les ombres sur les case à cocher
+.ui-chkbox-icon,.checkbox{
+	text-shadow:none;
+}
+table .checkbox{
+	margin:0;
+}
+//On change la couleur de la liste deroulante des espaces
+.dropdown-toggle2 .text-muted{
+	color: #fff;
+    opacity: 0.8;
+}
+//On modifie la taille des boutons
+.ui-widget button,.content-button .btn,.ui-widget a.btn,.fa-hack {
+	font-size:12px !important;
+}
+
+//Taille des select
+select{
+	height:34px !important;
+}
+
+//Btn plus dans project list
+.add-responsable{
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-size: 20px
+}
+
+.navbar-top-links .dropdown-alerts{
+	width: 220px;
+}
+.navbar-top-links .dropdown-lang{
+	width: 150px;
+}
+
+.border-left{
+	 border-left: 1px solid #e7eaec !important;
+}  
+
+//on supprime les margin
+.margin0{
+	margin:0px !important;
+}
+
+//Tooltip dans une dialog
+.ui-tooltip{
+	z-index:3000 !important;
+}
+
+//iframe
+.ibox-content iframe{
+	width:100%;
+	border:none;
+	min-height:600px;
+}
+
+.form-control{
+	font-size:14px !important;
+}
+
+.fa-doc-icon:before{
+	content: "\f15c";
+	font-family: FontAwesome;
+}
+
+.fa-convocation-icon:before{
+	content: "\f073";
+	font-family: FontAwesome;
+}
+
+.fa-telealerte-icon:before{
+	content: "\f0f3";
+	font-family: FontAwesome;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<ui:composition template="/resources/inspinia/template_basic.xhtml">
+	<ui:param name="sidebarRight" value="false" />
+	<ui:param name="sidebarLeft" value="false" />
+	<ui:define name="title">#{config.application} - #{message.error}</ui:define>
+	<ui:define name="content">
+		<h:form id="FormButton">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h1>
+						<h:outputText value="#{message.error}" />
+					</h1>
+				</div>
+			</div>
+		</h:form>
+		<h:form id="FormContent">
+			<div class="wrapper wrapper-content">
+				<div class="ibox">
+					<div class="ibox-content">
+						<div class="text-center">
+							<span class="fa fa-frown-o" style="font-size: 40px;"></span><br />
+							<h:outputText value="#{message.error_message1}"
+								style="font-size:30px;"></h:outputText>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

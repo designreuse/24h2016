@@ -1,0 +1,511 @@
+// NAVBAR (FIXED AND STATIC)
+// -------------------------
+
+
+// COMMON STYLES
+// -------------
+
+.navbar-menu {
+  // Fix for IE7's bad z-indexing so dropdowns don't appear below content that follows the navbar
+  *position: relative;
+  *z-index: 2;
+
+  overflow: visible;
+}
+
+// Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
+.navbar-menu-inner {
+  min-height: @navbarMenuHeight;
+  padding-left:  @pageLeftPadding;
+  padding-right: @pageRightPadding;
+  #gradient > .vertical(@navbarMenuBackgroundBackgroundLight, @navbarMenuBackgroundBackground);
+}
+
+// Set width to auto for default container
+// We then reset it for fixed navbars in the #gridSystem mixin
+.navbar-menu .container {
+  width: auto;
+}
+
+// Override the default collapsed state
+.nav-collapse.collapse {
+  height: auto;
+}
+
+
+// Brand, links, text, and buttons
+.navbar-menu {
+  color: @navbarText;
+  border-bottom: 1px solid @navbarBorderColor;
+  // Hover and active states
+  .brand:hover {
+    text-decoration: none;
+  }
+  // Website or project name
+  .brand {
+    float: left;
+    display: block;
+    // Vertically center the text given @navbarHeight
+    @elementHeight: 20px;
+    padding: ((@navbarHeight - @elementHeight) / 2 - 2) 20px ((@navbarHeight - @elementHeight) / 2 + 2);
+    margin-left: -20px; // negative indent to left-align the text down the page
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1;
+    color: @navbarBrandColor;
+  }
+  // Plain text in topbar
+  .navbar-menu-text {
+    margin-bottom: 0;
+    line-height: @navbarHeight;
+  }
+  // Janky solution for now to account for links outside the .nav
+  .navbar-menu-link {
+    color: @navbarLinkColor;
+    &:hover {
+      color: @navbarLinkColorHover;
+    }
+  }
+  // Buttons in navbar
+  .btn,
+  .btn-group {
+  }
+  .btn-group .btn {
+    margin: 0; // then undo the margin here so we don't accidentally double it
+  }
+}
+
+// Navbar forms
+.navbar-menu-form {
+  margin-bottom: 0; // remove default bottom margin
+  .clearfix();
+  input,
+  select,
+  .radio,
+  .checkbox {
+  }
+  input,
+  select {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  input[type="image"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-top: 3px;
+  }
+  .input-append,
+  .input-prepend {
+    margin-top: 6px;
+    white-space: nowrap; // preven two  items from separating within a .navbar-menu-form that has .pull-left
+    input {
+      margin-top: 0; // remove the margin on top since it's on the parent
+    }
+  }
+}
+
+// Navbar search
+.navbar-menu-search {
+  position: relative;
+  float: left;
+  margin-bottom: 0;
+  .search-query {
+    padding: 4px 9px;
+    color: @white;
+    background-color: @navbarSearchBackground;
+    border: 1px solid @navbarSearchBorder;
+    .box-shadow(~"inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)");
+    .transition(none);
+
+    // Placeholder text gets special styles; can't be a grouped selector
+    &:-moz-placeholder {
+      color: @navbarSearchPlaceholderColor;
+    }
+    &::-webkit-input-placeholder {
+      color: @navbarSearchPlaceholderColor;
+    }
+
+    // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
+    &:focus,
+    &.focused {
+      padding: 5px 10px;
+      color: @grayDark;
+      text-shadow: 0 1px 0 @white;
+      background-color: @navbarSearchBackgroundFocus;
+      border: 0;
+      .box-shadow(0 0 3px rgba(0,0,0,.15));
+      outline: 0;
+    }
+  }
+}
+
+
+
+// FIXED NAVBAR
+// ------------
+
+// Shared (top/bottom) styles
+.navbar-menu-fixed-top,
+.navbar-menu-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: @zindexFixedNavbar;
+  margin-bottom: 0; // remove 18px margin for static navbar
+}
+.navbar-menu-fixed-top .navbar-menu-inner,
+.navbar-menu-fixed-bottom .navbar-menu-inner {
+  padding-left:  0;
+  padding-right: 0;
+  .border-radius(0);
+}
+
+.navbar-menu-fixed-top .container,
+.navbar-menu-fixed-bottom .container {
+  #grid > .core > .span(@gridColumns);
+}
+
+// Fixed to top
+.navbar-menu-fixed-top {
+  top: 0;
+}
+
+// Fixed to bottom
+.navbar-menu-fixed-bottom {
+  bottom: 0;
+}
+
+
+
+// NAVIGATION
+// ----------
+
+.navbar-menu .nav {
+  position: relative;
+  left: 0;
+  display: block;
+  float: left;
+  padding:0;
+  margin:0;
+}
+.navbar-menu .nav.pull-right {
+  float: right; // redeclare due to specificity
+}
+
+.navbar-menu .nav > li {
+  display: block;
+  float: left;
+  text-decoration: none;  
+}
+
+.app-board {
+  background: url("../img/board-icon.png");
+  .app-not-active;
+}
+.app-members {
+  background: url("../img/team-icon.png");
+  .app-not-active;
+}
+.app-settings {
+  background: url("../img/settings-menu-icon.png");
+  .app-not-active;
+}
+.app-blog {
+  background: url("../img/blog-icon.png");
+  .app-not-active;
+}
+.app-forums {
+  background: url("../img/forums-icon.png");
+  .app-not-active;
+}
+.app-polls {
+  background: url("../img/polls-icon.png");
+  .app-not-active;
+}
+.app-calendar {
+  background: url("../img/calendar-icon.png");
+  .app-not-active;
+}
+.app-project {
+  background: url("../img/project-icon.png");
+  .app-not-active
+}
+.app-doc {
+  background: url("../img/doc-icon.png");
+ .app-not-active;
+}
+.app-wiki {
+  background: url("../img/wiki-icon.png");
+ .app-not-active;
+}
+
+.app-active{
+  color:@navbarMenuLinkColorActive;
+  .app;
+}
+
+.app-hover{
+  color:@navbarMenuLinkColorHover;
+  .app;
+}
+
+.app-not-active{
+  color: @navbarMenuLinkColor;
+  .app;
+}
+
+.app{
+  width:76px;
+  padding: 34px 0px 4px 0px;
+  text-shadow: 0 -1px 0 @black;
+  text-align: center;
+  text-decoration: none;
+  background-repeat:no-repeat;
+  background-position:center 27%;
+  font-size: 13px;
+}
+
+// Hover
+.navbar-menu .nav li > a:hover {
+  background-color: @navbarMenuLinkBackgroundHover; // "transparent" is default to differentiate :hover from .active
+  
+  .divider-vertical {
+  	background:none;
+  }
+  
+    .app-board {
+      background: url("../img/board-active-icon.png");
+      .app-hover;
+    }
+    .app-members {
+      background: url("../img/team-active-icon.png");
+      .app-hover;
+    }
+    .app-settings {
+      background: url("../img/settings-menu-active-icon.png");
+      .app-hover;
+    }
+    .app-blog {
+      background: url("../img/blog-active-icon.png");
+      .app-hover;
+    }
+	.app-forums {
+	  background: url("../img/forums-active-icon.png");
+	  .app-hover;
+	}
+	.app-polls {
+	  background: url("../img/polls-active-icon.png");
+	  .app-hover;
+	}
+	.app-calendar {
+	  background: url("../img/calendar-active-icon.png");
+	  .app-hover;
+	}
+	.app-project {
+	  background: url("../img/project-active-icon.png");
+	  .app-hover;
+	}
+	.app-doc {
+	  background: url("../img/doc-active-icon.png");
+	  .app-hover;
+	}
+	.app-wiki {
+	  background: url("../img/wiki-active-icon.png");
+	  .app-hover;
+	}
+}
+
+// Active nav items
+.navbar-menu .nav li > a.active,
+.navbar-menu .nav li > a.active:hover {
+  background-color: @navbarMenuLinkBackgroundActive; // "transparent" is default to differentiate :hover from .active
+  .box-shadow(~"inset 0 0 10px 5px rgba(0,0,0,.2)");
+  color: @navbarMenuLinkColorActive;
+  text-decoration: none;
+	  
+  .divider-vertical {
+  	background:none;
+  }
+  
+  	.app-board {
+      background: url("../img/board-active-icon.png");
+      .app-active;
+    }
+    .app-members {
+      background: url("../img/team-active-icon.png");
+      .app-active;
+    }
+    .app-settings {
+      background: url("../img/settings-menu-active-icon.png");
+      .app-active;
+    }
+	.app-blog {
+      background: url("../img/blog-active-icon.png");
+      .app-active;
+    }
+	.app-forums {
+	  background: url("../img/forums-active-icon.png");
+	  .app-active;
+	}
+	.app-polls {
+	  background: url("../img/polls-active-icon.png");
+	  .app-active;
+	}
+	.app-calendar {
+	  background: url("../img/calendar-active-icon.png");
+	  .app-active;
+	}
+	.app-project {
+	  background: url("../img/project-active-icon.png");
+	  .app-active;
+	}
+	.app-doc {
+	  background: url("../img/doc-active-icon.png");
+	  .app-active;
+	}
+	.app-wiki {
+	  background: url("../img/wiki-active-icon.png");
+	  .app-active;
+	}  
+}
+
+
+
+
+
+// Buttons
+.navbar-menu .btn {
+  display: inline-block;
+  padding: 4px 10px 4px;
+  // Vertically center the button given @navbarHeight
+  @elementHeight: 28px;
+  margin: ((@navbarHeight - @elementHeight) / 2 - 1) 5px ((@navbarHeight - @elementHeight) / 2);
+  line-height: @baseLineHeight;
+}
+.navbar-menu .btn-group {
+  margin: 0;
+  // Vertically center the button given @navbarHeight
+  @elementHeight: 28px;
+  padding: 20px 0px ((@navbarHeight - @elementHeight) / 2);
+}
+
+// Dividers (basically a vertical hr)
+.navbar-menu .divider-vertical {
+  height: @navbarMenuHeight;
+  width: 2px;
+  margin: 0 0px;
+  overflow: hidden;
+  background: @navbarMenuDividerBackground;
+  .pull-left;
+}
+
+// Secondary (floated right) nav in topbar
+.navbar-menu .nav.pull-right {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+// Navbar button for toggling navbar items in responsive layouts
+// These definitions need to come after '.navbar-menu .btn'
+.navbar-menu .btn-navbar {
+  display: none;
+  float: right;
+  padding: 7px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  .buttonBackground(@navbarBackgroundHighlight, @navbarBackground);
+  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)");
+}
+.navbar-menu .btn-navbar .icon-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #f5f5f5;
+  .border-radius(1px);
+  .box-shadow(0 1px 0 rgba(0,0,0,.25));
+}
+.btn-navbar .icon-bar + .icon-bar {
+  margin-top: 3px;
+}
+
+
+// Dropdown menus
+// --------------
+
+// Menu position and menu carets
+.navbar-menu .dropdown-menu {
+  &:before {
+    content: '';
+    display: inline-block;
+    border-left:   7px solid transparent;
+    border-right:  7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-bottom-color: @dropdownBorder;
+    position: absolute;
+    top: -7px;
+    left: 9px;
+  }
+  &:after {
+    content: '';
+    display: inline-block;
+    border-left:   6px solid transparent;
+    border-right:  6px solid transparent;
+    border-bottom: 6px solid @dropdownBackground;
+    position: absolute;
+    top: -6px;
+    left: 10px;
+  }
+}
+// Menu position and menu caret support for dropups via extra dropup class
+.navbar-menu-fixed-bottom .dropdown-menu {
+  &:before {
+    border-top: 7px solid #ccc;
+    border-top-color: @dropdownBorder;
+    border-bottom: 0;
+    bottom: -7px;
+    top: auto;
+  }
+  &:after {
+    border-top: 6px solid @dropdownBackground;
+    border-bottom: 0;
+    bottom: -6px;
+    top: auto;
+  }
+}
+// Dropdown toggle caret
+.navbar-menu .nav li.dropdown .dropdown-toggle .caret,
+.navbar-menu .nav li.dropdown.open .caret {
+  border-top-color: @white;
+  border-bottom-color: @white;
+}
+.navbar-menu .nav li.dropdown.active .caret {
+  .opacity(100);
+}
+
+// Remove background color from open dropdown
+.navbar-menu .nav li.dropdown.open > .dropdown-toggle,
+.navbar-menu .nav li.dropdown.active > .dropdown-toggle,
+.navbar-menu .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: transparent;
+}
+
+// Dropdown link on hover
+.navbar-menu .nav li.dropdown.active > .dropdown-toggle:hover {
+  color: @white;
+}
+
+// Right aligned menus need alt position
+// TODO: rejigger this at some point to simplify the selectors
+.navbar-menu .pull-right .dropdown-menu,
+.navbar-menu .dropdown-menu.pull-right {
+  left: auto;
+  right: 0;
+  &:before {
+    left: auto;
+    right: 12px;
+  }
+  &:after {
+    left: auto;
+    right: 13px;
+  }
+}

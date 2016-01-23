@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="/resources/inspinia/template_basic.xhtml">
+	<ui:param name="selectedMenu" value="user" />
+	<ui:param name="b" value="#{userDetailsView}" />
+	<ui:define name="content">
+		<h:form id="FormTitle">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h1>
+						<h:outputText value="#{message.user}" />
+					</h1>
+				</div>
+				<div class="content-button col-lg-2">
+					<h:link outcome="pretty:viewUserList" styleClass="btn btn-white pull-right">
+						<i class="fa fa-arrow-left m-r-xs"></i>
+						<h:outputText value="#{message.back}" />
+					</h:link>
+				</div>
+			</div>
+		</h:form>
+		<div class="wrapper wrapper-content">
+			<div class="ibox">
+				<div class="ibox-content">
+					<div>
+						<h:outputText value="#{message.user_user_id} : #{b.user.userId}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_first_name} : #{b.user.firstName}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_last_name} : #{b.user.lastName}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_login} : #{b.user.login}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_password} : #{b.user.password}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_tenant_id} : #{b.user.tenantId}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_params} : #{b.user.params}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_date_created} : #{b.user.dateCreated}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_date_updated} : #{b.user.dateUpdated}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_date_deleted} : #{b.user.dateDeleted}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.user_date_disable} : #{b.user.dateDisable}" />
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

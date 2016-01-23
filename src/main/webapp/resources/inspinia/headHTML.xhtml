@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<ui:composition>
+	<h:head>
+		<title><ui:insert name="title">#{config.application}</ui:insert></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="fr" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<ui:insert name="addhead"></ui:insert>
+		<h:outputScript library="primefaces" name="jquery/jquery.js" />
+		<link
+			href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/css/bootstrap.min.css"
+			rel="stylesheet" />
+		<link
+			href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/font-awesome/css/font-awesome.css"
+			rel="stylesheet" />
+		<link
+			href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/css/animate.css"
+			rel="stylesheet" />
+		<link
+			href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css"
+			rel="stylesheet" />
+		<link rel="icon"
+			href="#{facesContext.externalContext.requestContextPath}/images/favicon.ico"
+			type="image/x-icon" />
+		<link rel="SHORTCUT ICON"
+			href="#{facesContext.externalContext.requestContextPath}/images/favicon.ico"
+			type="image/x-icon" />
+		<c:if test="#{initParam['spring.profiles.active'] == 'prod'}">
+			<link rel="stylesheet" type="text/css"
+				href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/css/skinblue.css" />
+		</c:if>
+		<c:if test="#{initParam['spring.profiles.active'] == 'dev'}">
+			<link rel="stylesheet" type="text/css"
+				href="#{facesContext.externalContext.requestContextPath}/wro/skinblue.css" />
+
+		</c:if>
+		<ui:insert name="addheadlast"></ui:insert>
+	</h:head>
+</ui:composition>
+</html>

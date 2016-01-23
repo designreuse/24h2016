@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/resources/inspinia/template_basic.xhtml">
+	<ui:param name="selectedMenu" value="userboard" />
+	<ui:define name="title">#{config.application} - #{message.header_dashboard} #{message.user}</ui:define>
+
+	<ui:define name="content">
+		<h:form id="FormButton">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-7">
+					<h1>
+						<h:outputText value="#{message.header_dashboard}" />
+					</h1>
+				</div>
+			</div>
+		</h:form>
+		<h:form id="FormContent">
+			<div class="wrapper wrapper-content">
+				<div class="ibox">
+					<div class="ibox-content">
+						<div class="row">
+							<div class="col-lg-12">
+								<h:outputText value="En construction" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

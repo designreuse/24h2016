@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<f:loadBundle basename="messages" var="message" />
+	<f:loadBundle basename="application" var="config" />
+	<ui:insert name="head">
+		<ui:include src="headHTML.xhtml" />
+	</ui:insert>
+	<h:body styleClass="skin-acollab">
+		<div id="wrapper">
+			<ui:insert name="header">
+				<ui:include src="menu_admin.xhtml">
+					<ui:param name="applicationMenu" value="#{applicationMenu}" />
+					<ui:param name="selectedMenu" value="#{selectedMenu}" />
+					<ui:param name="selectedMenu2" value="#{selectedMenu2}" />
+					<ui:param name="selectedMenu3" value="#{selectedMenu3}" />
+				</ui:include>
+			</ui:insert>
+			<div id="page-wrapper" class="gray-bg">
+				<div class="row border-bottom">
+					<nav class="navbar navbar-static-top" role="navigation"
+						style="margin-bottom: 0">
+					<div class="navbar-header">
+						<a class="navbar-minimalize minimalize-styl-2 btn btn-primary"
+							href="#"><i class="fa fa-bars"></i></a>
+					</div>
+					<h:form id="FormTopNav">
+						<ul class="nav navbar-top-links navbar-right">
+							<li class="dropdown"><a class="dropdown-toggle count-info"
+								data-toggle="dropdown" href="#" aria-expanded="true"><i
+									class="fa fa-user m-r-sm"></i>#{headerView.user.name}<b
+									class="caret"></b> </a>
+								<ul class="dropdown-menu dropdown-alerts">
+									<li><a
+										href="#{facesContext.externalContext.requestContextPath}/logout">
+											<i class="fa fa-sign-out m-r-sm"></i> <h:outputText
+												value="#{message.header_logout}" />
+									</a></li>
+								</ul></li>
+						</ul>
+					</h:form> </nav>
+				</div>
+				<ui:insert name="content">
+				</ui:insert>
+				<ui:include src="footer.xhtml" />
+			</div>
+			<ui:insert name="beforeEndBody">
+			</ui:insert>
+			<script
+				src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/js/bootstrap.min.js"></script>
+			<script
+				src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+			<script
+				src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+			<script
+				src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/js/inspinia.js"></script>
+			<script
+				src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/js/plugins/pace/pace.min.js"></script>
+			<script type="text/javascript">
+				jQuery(document).on('pfAjaxError', function(xhr, ajaxObj, error) {
+					window.location.href = '/clovys/bo/index';
+					return;
+				});
+			</script>
+		</div>
+	</h:body>
+</f:view>
+</html>

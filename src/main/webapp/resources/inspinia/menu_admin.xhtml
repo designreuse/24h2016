@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition>
+	<ui:param name="b" value="#{headerView}" />
+	<h:form id="FormHeader">
+		<nav class="navbar-default navbar-static-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav metismenu" id="side-menu">
+				<li class="nav-header">
+					<div class="dropdown profile-element">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span
+							class="clear"> <span class="block m-t-xs"> <strong
+									class="font-bold">#{message.header_curspace}</strong>
+							</span> <span class="text-muted text-xs block">Administration</span>
+						</span>
+						</a>
+					</div>
+					<div class="logo-element">Clov+</div>
+				</li>
+				<li class="#{(selectedMenu.equals('tenant'))?'active':''}"><h:link
+						outcome="pretty:viewTenantList">
+						<i class="fa fa-users"></i>
+						<span class="nav-label"><h:outputText
+								value="#{message.tenants}" /></span>
+					</h:link></li>
+				<li class="#{(selectedMenu.equals('app'))?'active':''}"><h:link
+						outcome="pretty:viewApplicationList">
+						<i class="fa fa-sitemap"></i>
+						<span class="nav-label"><h:outputText
+								value="#{message.space_applications}" /></span>
+					</h:link></li>
+				<li class="#{(selectedMenu.equals('permission'))?'active':''}"><h:link
+						outcome="pretty:viewPermissionList">
+						<i class="fa fa-lock"></i>
+						<span class="nav-label"><h:outputText
+								value="#{message.permissions}" /></span>
+					</h:link></li>
+				<li class="#{(selectedMenu.equals('op'))?'active':''}"><h:link
+						outcome="pretty:viewOperationPage">
+						<i class="fa fa-refresh"></i>
+						<span class="nav-label"><h:outputText
+								value="#{message.admin}" /></span>
+					</h:link></li>
+			</ul>
+		</div>
+		</nav>
+	</h:form>
+</ui:composition>
+</html>

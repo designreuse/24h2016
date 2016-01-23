@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="2.0">
+	<wb-module deploy-name="puzzle">
+		<property name="context-root" value="puzzle"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.2.1.RELEASE/5bf6dec08e77755c2ec913fde1b8e29083e70a76/spring-context-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.2.1.RELEASE/97a7ff5ec8a070722d0809098a9964347130466c/spring-core-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.1.RELEASE/6f8db100285e16eff3e413d2fba4f3557c09a07a/spring-webmvc-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.2.1.RELEASE/a30e0b1e2bce0928788abb42e8bae2eb71698aeb/spring-jdbc-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.2.1.RELEASE/f05b4465be1aab3493e83cb529f191cb7834b222/spring-tx-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.2.1.RELEASE/e5e199d175497a895dcdc7e3531e32fea6fbbbee/spring-aop-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.0.2.RELEASE/86f6306aa201a69d37e84fa556bd15cf79752591/spring-security-web-4.0.2.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-config/4.0.2.RELEASE/882132ed6a3282493145eb8c05b92c086af1b0f4/spring-security-config-4.0.2.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jdbc-core/1.1.0.RELEASE/fdf92650da0808e70e46a4c8ab35fad964e7752c/spring-data-jdbc-core-1.1.0.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.7/f753e78bbe484e58b3b4e5ce3cc1751e50d11f6c/aspectjweaver-1.8.7.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/javax.enterprise/cdi-api/1.2/53bba91dc3968adf411e076df020cf207283d7dc/cdi-api-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-api/2.2.12/ce128695d40fb6bb5969039c29bb44e36253a293/jsf-api-2.2.12.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.sun.faces/jsf-impl/2.2.12/b15a7a27a82024cfaa7b16453451f2d072bd3c48/jsf-impl-2.2.12.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.primefaces/primefaces/5.2/491fefae8f5e45a05f1f8e431f216558407cd99a/primefaces-5.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.primefaces.themes/bootstrap/1.0.10/f5de3f59380e672983c5de3d27f926df580aafb6/bootstrap-1.0.10.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.rewrite/rewrite-servlet/2.0.12.Final/3ec3964edf4fe05a67598c9f2c86d96bb078aaff/rewrite-servlet-2.0.12.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.rewrite/rewrite-config-prettyfaces/2.0.12.Final/934d889d6b59b4a906c95a967adcb389c6076965/rewrite-config-prettyfaces-2.0.12.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/jstl/jstl/1.2/74aca283cd4f4b4f3e425f5820cda58f44409547/jstl-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.36/6bb5861f44c21c775ee713a438e5bc493c095f7a/mysql-connector-java-5.1.36.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jdbc/8.0.26/e49b8ef9bbedc0e87899f83119a9ddc35b4efdc5/tomcat-jdbc-8.0.26.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.3/e3c02049f2dbbc764681b40094ecf0dcbc99b157/logback-core-1.1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.3/d90276fff414f06cb375f2057f6778cd63c6082f/logback-classic-1.1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.12/8e20852d05222dc286bf1c71d78d0531e177c317/slf4j-api-1.7.12.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy/2.4.5/4c7cd3b294af0a32609402c9d12ccc4218890e12/groovy-2.4.5.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.4/5fe28b9518e58819180a43a850fbc0dd24b7c050/commons-lang3-3.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-email/1.4/3b3c527990f7f288a3a9b23a8c7307bbf7e75965/commons-email-1.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-validator/commons-validator/1.4.1/2231238e391057a53f92bde5bbc588622c1956c3/commons-validator-1.4.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-fileupload/commons-fileupload/1.3.1/c621b54583719ac0310404463d6d99db27e1052c/commons-fileupload-1.3.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.4/b1b6ea3b7e4aa4f492509a4952029cd8e48019ad/commons-io-2.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.goldmansachs/gs-collections/6.2.0/dc11dc5674743983fedeef265d5c4fb847a7548d/gs-collections-6.2.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.8.2/d27c24204c5e507b16fec01006b3d0f1ec42aed4/joda-time-2.8.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/ro.isdc.wro4j/wro4j-core/1.7.8/8f47cd9b3f328203c41bb2b454109a43680d3476/wro4j-core-1.7.8.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/ro.isdc.wro4j/wro4j-extensions/1.7.8/f93a51da7301c611a18bcb9ef14672782f7092b5/wro4j-extensions-1.7.8.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.google.code.spring-crypto-utils/spring-crypto-utils/1.4.0/14af2a41ee07a72183a6fe1c10f8d1a4dedba61/spring-crypto-utils-1.4.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.2.1.RELEASE/6d39786b9f7b2a79897a0a83495f30002d9f8de3/spring-beans-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.2.1.RELEASE/f6f34581b94a03bf39c5c88d1286bee76afe90a7/spring-expression-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.1.RELEASE/e37e34274768989bae9470b6eaffe51e09bd1e44/spring-web-4.2.1.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.0.2.RELEASE/10684511bee0456c5c111bb16b2dee138d33d2d6/spring-security-core-4.0.2.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.springframework.retry/spring-retry/1.0.3.RELEASE/33b967f6abaa0a496318bff2ce96e6da6285a54d/spring-retry-1.0.3.RELEASE.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/javax.el/javax.el-api/3.0.0/60a59edc89f93d57541da31ee1c83428ab1cdcb3/javax.el-api-3.0.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/javax.interceptor/javax.interceptor-api/1.2/a5c058610aebacc1eb89c89e8fde2a978090e374/javax.interceptor-api-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.rewrite/rewrite-annotations-impl/2.0.12.Final/2ed7e4f24e1446f2f3d53b46561e7d06bd2c928c/rewrite-annotations-impl-2.0.12.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.rewrite/rewrite-integration-faces/2.0.12.Final/f4189cc4c5763a08db15c99d64883e819db399eb/rewrite-integration-faces-2.0.12.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.0.26/5df75626ee396da008a1969661dadc2bee82f72d/tomcat-juli-8.0.26.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.sun.mail/javax.mail/1.5.2/ad1027a3d832bb7f34b4b9afeed760ca8eaa12f/javax.mail-1.5.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1.1/485de3a253e23f645037828c07f1d7f1af40763a/activation-1.1.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-beanutils/commons-beanutils/1.8.3/686ef3410bcf4ab8ce7fd0b899e832aaba5facf7/commons-beanutils-1.8.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-digester/commons-digester/1.8.1/3dec9b9c7ea9342d4dbe8c38560080d85b44a015/commons-digester-1.8.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.1/761ea405b9b37ced573d2df0d1e3a4e0f9edc668/commons-collections-3.2.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.goldmansachs/gs-collections-api/6.2.0/1de0631e4b185dde67bc085db0caedc84d31e055/gs-collections-api-6.2.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.mozilla/rhino/1.7.6/a2ce88a3ce55249cd2f0c7d12ce7ef49c14a11d1/rhino-1.7.6.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-exec/1.1/7dfdf16fade726000564386825ed6d911a44ba1/commons-exec-1.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-pool/commons-pool/1.6/4572d589699f09d866a226a14b7f4323c6d8f040/commons-pool-1.6.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.google.javascript/closure-compiler/v20150505/4078b23fd07d9c40b99a3996519666e935905103/closure-compiler-v20150505.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.lltyk/dojo-shrinksafe/1.7.2/21beb7ec670715bde98ae4114b48792f9b3309d2/dojo-shrinksafe-1.7.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.jruby/jruby-core/1.7.14/d24549bfdd816c0619fd7f855f2e79ba955c3f7f/jruby-core-1.7.14.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.jruby/jruby-stdlib/1.7.14/7fd802b3607e83a673358d9c0540a243ff7dbb8b/jruby-stdlib-1.7.14.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/me.n4u.sass/sass-gems/3.2.1/e90133afd6b8a6443146d64fc07d905ce183c0ce/sass-gems-3.2.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/nz.co.edmi/bourbon-gem-jar/2.1.0/cefdc51dd8e22fd08d8e0592ce097a3ce9c573e5/bourbon-gem-jar-2.1.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.sommeri/less4j/1.11.0/8caa6684624109e3994c891bbc79652649dde219/less4j-1.11.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.codehaus.gmaven.runtime/gmaven-runtime-1.7/1.3/175f0d67db5dceff7b250596758c47b0e627b65b/gmaven-runtime-1.7-1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/webjars-locator/0.21/1ce9bf0f86e5a310b8c87d5433e7194536609146/webjars-locator-0.21.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/jshint/2.6.3-2/221726b96a4199c26eecd16b18967c330f33fe5f/jshint-2.6.3-2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/less/1.3.3/3abcaf588f96814e745147b9bfc35d92e1bc8c9f/less-1.3.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/emberjs/1.9.0-1/18a412c8759b496448389577f250fb976e85f708/emberjs-1.9.0-1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/handlebars/3.0.0-1/5fd9d4e98d86e5165b22485264f13f4db01f2867/handlebars-3.0.0-1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/coffee-script/1.9.2-1/81ba0dad4ac5fbd22e7b1e52b724c235adbcfc8f/coffee-script-1.9.2-1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/jslint/20140708-394bf29/1b3b959b9414b4d507f4307f26dad5bc5f54eae4/jslint-20140708-394bf29.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/json2/20110223/531a6f8f9081e86a40120228948b93e0224db6fc/json2-20110223.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.rewrite/rewrite-api/2.0.12.Final/4db9ea33b8ac1b8aa21f691b0adea6aa1c2c7ce/rewrite-api-2.0.12.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.rewrite/rewrite-api-servlet/2.0.12.Final/9b8ee6890d3bb1d786d18e851fbb2ce4c34b12e5/rewrite-api-servlet-2.0.12.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.rewrite/rewrite-annotations-api/2.0.12.Final/4f55e978f4e852061709cc45222b2cfcd0054d41/rewrite-annotations-api-2.0.12.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.google.javascript/closure-compiler-externs/v20150505/3e981d603ed898a7babc49fb16dec4fe5bc12c17/closure-compiler-externs-v20150505.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/args4j/args4j/2.0.26/1ebb18ebb3b379a74207d5af4ea7c8338ebd78b/args4j-2.0.26.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/2.5.0/a10732c76bfacdbd633a7eb0f7968b1059a65dfa/protobuf-java-2.5.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/4.0/659add6efc75a4715d738e73f07505246edf4d66/asm-4.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/4.0/a839ec6737d2b5ba7d1878e1a596b8f58aa545d9/asm-commons-4.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/4.0/1c45d52b6f6c638db13cf3ac12adeb56b254cdd7/asm-analysis-4.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/4.0/d7a65f54cda284f9706a750c23d64830bb740c39/asm-util-4.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.jruby.joni/joni/2.1.1/c87bb0a7e8fa6e55a3d5589552af63720ffd709/joni-2.1.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jnr-netdb/1.1.2/a6e3c355845885c58078b5b98f26022f20258e8a/jnr-netdb-1.1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jnr-enxio/0.4/671445f2bd56f5e583dcea3a5c8c99b10ed77ca0/jnr-enxio-0.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jnr-x86asm/1.0.2/6936bbd6c5b235665d87bd450f5e13b52d4b48/jnr-x86asm-1.0.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jnr-unixsocket/0.3/ccd6a2ac78d0990ccc731a45ad16226071b9e59/jnr-unixsocket-0.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jnr-posix/3.0.3/1296b974792cb96bb7af282c550688eb89016b4d/jnr-posix-3.0.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.jruby.extras/bytelist/1.0.11/922b99c627f639f26f8c20f3720673acec71a38d/bytelist-1.0.11.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jnr-constants/0.8.5/f84cca9e21f1f763a9eaf33de3d6a66a20ed7af0/jnr-constants-0.8.5.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.jruby.jcodings/jcodings/1.0.10/6ed6198bcc291ae4375da82992d956f765d98eec/jcodings-1.0.10.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jffi/1.2.7/acda5c46140404e08b3526f39db1504874b34b4c/jffi-1.2.7.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jffi/1.2.7/4e8c876383acb37da4347902a0a775aefd51de09/jffi-1.2.7-native.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.13/73cbb494a912866c4c831a178c3a2a9169f4eaad/snakeyaml-1.13.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.jcraft/jzlib/1.1.2/a7d1993e6362271999be944b143352825cb5d966/jzlib-1.1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.headius/invokebinder/1.2/63f9ee6a2688a2f94915d0264398e511bc929ac4/invokebinder-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.martiansoftware/nailgun-server/0.9.1/d57ea0a6f6c1bb1b616c5b3b311b3726c6ff35ad/nailgun-server-0.9.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.jruby/yecht/1.0/9e479036b222bca6f27c369bf3268589d97aa711/yecht-1.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.headius/options/1.2/983d158bdc6588a32eb619d50a1787bd0833a335/options-1.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.antlr/antlr-runtime/3.5.2/cd9cd41361c155f3af0f653009dcecb08d8b4afd/antlr-runtime-3.5.2.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.json/json/20090211/c183aa3a2a6250293808bba12262c8920ce5a51c/json-20090211.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.codehaus.gmaven.feature/gmaven-feature-support/1.3/7451adffa9e6c96ed949065a29425b7ab3d756fe/gmaven-feature-support-1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.codehaus.gmaven.runtime/gmaven-runtime-support/1.3/da4de0979e34971861de3ab4e2d86680c6a10c8/gmaven-runtime-support-1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/1.7.4/54ebf39b7b76f736253fc14159c868bcecef1d39/groovy-all-1.7.4.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.apache.ant/ant/1.8.1/5d7093b80b8893e04cbd776064f31c95bfd7a9d8/ant-1.8.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/jline/jline/0.9.94/99a18e9a44834afdebc467294e1138364c207402/jline-0.9.94.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.3.3/63b77400b5f1cf83a81823562c48d3120ef5518e/jackson-databind-2.3.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.webjars/jquery/1.10.2-1/96e5028f74173b9affe5855f428d76ac5f746ac3/jquery-1.10.2-1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.common/common-api/1.0.5.Final/40b9e3d43a197ed77d9bf3dc1b63181614676089/common-api-1.0.5.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.logging/logging-api/1.0.2.Final/626cb35e67b02e4c479b613cf1d54832c9231332/logging-api-1.0.2.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ocpsoft.rewrite/rewrite-addressbuilder/2.0.12.Final/68f9773555d241bf3e4f8c20b15387813ab000a9/rewrite-addressbuilder-2.0.12.Final.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/4.0/67bd266cd17adcee486b76952ece4cc85fe248b8/asm-tree-4.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.codehaus.gmaven.feature/gmaven-feature-api/1.3/73d11a4f479d64f74d73a2ed59c013621d2ec76b/gmaven-feature-api-1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.codehaus.gmaven.runtime/gmaven-runtime-api/1.3/8f9095d2fbda16af984889a088e52b32e0a035e6/gmaven-runtime-api-1.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.sonatype.gshell/gshell-io/2.0/88f75203f00514a589d50b4de371206f9f9b21af/gshell-io-2.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/2.0.1/47f967db31c191f805eb835a510e9b128a37cacb/plexus-utils-2.0.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.thoughtworks.qdox/qdox/1.10/86a8cb529b0a8f524b7f8fc7f519883fea7ff212/qdox-1.10.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/org.apache.ant/ant-launcher/1.8.1/c99d018fcc43a1540e465b9a097508b19075198c/ant-launcher-1.8.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/junit/junit/3.8.1/99129f16442844f6a4a11ae22fbbee40b14d774f/junit-3.8.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.3.0/f5e853a20b60758922453d56f9ae1e64af5cb3da/jackson-annotations-2.3.0.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.3.3/7d8c5d79cc99995e21e6f955857312d8409f02a1/jackson-core-2.3.3.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Guillaume/.gradle/caches/modules-2/files-2.1/com.github.jnr/jnr-ffi/1.0.10/646428e83a0e2ab4743091781ea98e3164c6d707/jnr-ffi-1.0.10.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+	</wb-module>
+</project-modules>

@@ -1,0 +1,346 @@
+//For primefaces generic dropdown menus with bootstrap style
+.dropdown-menu [class^="icon-"], .dropdown-menu [class*=" icon-"] {
+	margin-right: 5px;
+}
+
+.btn-menu{
+	.ui-button{
+		.btn;
+		.border-radius(0px);
+		border-right-width: 0px;
+		.ui-button-text{
+			padding:0;
+			line-height: 18px;
+		}
+	}
+	.ui-button.ui-corner-left{
+		.border-radius(4px 0 0 4px);
+	}
+	.ui-button.ui-corner-right{
+		.border-radius(0 4px 4px 0);
+		border-right-width: 1px;
+	}
+	.ui-button.ui-state-active{
+		.btn-primary;
+	}
+}
+
+.btn-empty {
+  padding: 3px 3px 4px 4px;
+  
+	[class^="icon-"],
+	[class*=" icon-"] {
+		margin:1px 1px 1px 1px;
+	}
+}
+
+.btn-little{
+  padding:0px;
+  .border-radius(5px);
+}
+
+.buttons-zone{
+	.btn{
+		margin-left:5px;
+		margin-bottom:0px;
+	}
+	.btn-group{
+		margin-left:5px;
+	}
+}
+
+[class^="top-link-"]{
+  display: inline-block;
+  background-position: 12px 10px;
+  width: 23px;
+  height: 23px;
+  .ie7-restore-right-whitespace();
+  line-height: 23px;
+  vertical-align: text-top;
+  background-repeat: no-repeat;
+}
+
+.top-link-home{
+	background-image: url("../img/home-icon.png");
+}
+.top-link-home:hover{
+	background-image: url("../img/home-active-icon.png");
+}
+.top-link-people{
+	background-image: url("../img/people-icon.png");
+}
+.top-link-people:hover{
+	background-image: url("../img/people-active-icon.png");
+}
+.top-link-profile{
+	background-image: url("../img/profile-icon.png");
+}
+.top-link-profile:hover{
+	background-image: url("../img/profile-active-icon.png");
+}
+.top-link-calendar{
+	background-image: url("../img/mycalendar-icon.png");
+}
+.top-link-calendar:hover{
+	background-image: url("../img/mycalendar-active-icon.png");
+}
+.top-link-settings{
+	background-image: url("../img/settings-icon.png");
+}
+.top-link-settings:hover{
+	background-image: url("../img/settings-active-icon.png");
+}
+.top-link-logout:hover{
+	background-image: url("../img/logout-active-icon.png");
+}
+.top-link-logout{
+	background-image: url("../img/logout-icon.png");
+}
+.top-link-help{
+	background-image: url("../img/help-icon.png");
+}
+.top-link-help:hover{
+	background-image: url("../img/help-active-icon.png");
+}
+
+.btn-space{
+	color: @white;
+	text-shadow: 0 -1px 0 @black;
+  	text-align: center;
+  	text-decoration: none;
+  	font-size:14px;
+  	font-weight: bold;
+	.arrows-icon {
+	  padding:10px;
+	  background: url("../img/arrows-icon.png");
+      background-position: 6px 14px;
+  	  background-repeat: no-repeat;
+	  margin-top: 7px;
+	  margin-left: 0;
+	}
+}
+
+[class^="-aicon"],
+[class*="-aicon"] {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  .ie7-restore-right-whitespace();
+  line-height: 16px;
+  vertical-align: middle;
+  background-position: 16px 16px;
+  background-repeat: no-repeat;
+}
+
+.comments-aicon 	  {  background-position: 0      0; }
+.settings-aicon    {  background-position: -16px     0; }
+.tag-aicon    	  {  background-position: -32px     0; }
+.file-aicon    	  {  background-position: -48px     0; }
+.page-aicon    	  {  background-position: -64px     0; }
+.open-folder-aicon {  background-position: -80px     0; }
+.collapsed-folder-aicon {  background-position: -80px     0; }
+.plus-aicon 		  {  background-position: -96px    0; }
+.pencil-aicon 	  {  background-position: -112px    0; }
+.bullet-aicon 	  {  background-position: -128px    0; }
+.bullet-gray-aicon {  background-position: -144px    0; }
+.plus-gray-aicon  {  background-position: 0    -16px; }
+.clip-aicon  {  background-position: -16px    -16px; }
+.mover-aicon  {  background-position: -32px    -16px; }
+.company-aicon  {  background-position: -48px    -16px; }
+.phone-aicon  {  background-position: -64px    -16px; }
+.email-aicon  {  background-position: -80px    -16px; }
+.parmalink-aicon {  background-position: -96px    -16px; }
+.left-aicon {  background-position: -128px    -16px; }
+.right-aicon {  background-position: -144px    -16px; }
+.ok-aicon {  background-position: 0    -32px; }
+.cross-aicon {  background-position: -16px    -32px; }
+.open-folder-aicon {  background-position: -144px    -32px; }
+.root-folder-aicon {  background-position: 0    -48px; }
+.rights-aicon {  background-position: -16px    -48px; }
+.preferences-aicon {  background-position: -32px    -48px; }
+.users-aicon {  background-position: -48px    -48px; }
+.spaces-aicon {  background-position: -64px    -48px; }
+.administration-aicon {  background-position: -80px    -48px; }
+.help-aicon {  background-position: -96px    -48px; }
+
+//For dynamic search result
+.blogentry-aicon {background-position: -32px -32px;}
+.wikidoc-aicon {background-position: -48px -32px;}
+.fic-aicon {background-position: -64px -32px;}
+.event-aicon {background-position: -80px -32px;}
+.task-aicon {background-position: -96px -32px;}
+.topic-aicon {background-position: -112px -32px;}
+.post-aicon {background-position: -112px -32px;}
+.comment-aicon {background-position: -128px -32px;}
+
+.togglebox	{	
+	display:none;
+}
+
+.open .dropdown-toggle.btn-primary{
+	background-color: @skin-primary-color; 
+    border-color: @skin-primary-color;
+    color:white !important;
+}
+
+
+.btn-tabs{
+	.btn.active,
+	.btn:active {
+	  color: @white;
+	  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+	  background-color: #74787c;
+	  background-image: none;
+	  outline: 0;
+	  .box-shadow(~"inset 0 0 3px 1px rgba(0,0,0,.15), 1px 1px 1px #ccc");
+	}
+}
+
+
+.i-xs{
+	font-size:13px;
+}
+
+.i-sm{
+	font-size:18px;
+}
+
+.i-m{
+	font-size:30px;
+}
+
+.i-xl{
+	font-size:42px;
+}
+
+.form-group .ui-selectonebutton .ui-state-default{
+	padding:5px;
+	text-shadow:none;
+	background:none !important;
+		font-weight:normal;
+}
+
+.form-group .ui-selectonebutton .ui-state-active{
+	background-color: @skin-primary-color !important;
+	color: @white;
+	border: 1px solid @skin-primary-color;
+	text-shadow:none;
+}
+
+.form-group .ui-selectonebutton .ui-state-hover{
+	border: 1px solid @skin-primary-color;
+}
+
+.ui-picklist-buttons-cell .ui-state-hover{
+		border: 1px solid @skin-primary-color;
+}
+
+.tag-list{
+	float:left;
+	font-size: 12px;
+    background-color: white;
+    padding: 1px 5px;
+    color: #4f4f4f;
+    border-radius: 2px;
+    border: 1px solid #e7eaec;
+    margin-right: 5px;
+    margin-top: 5px;
+    display: block;
+}
+.tag-list a{
+	    color: #4f4f4f;
+}
+.tag-list a:hover,.tag-list:hover{
+	color:@skin-primary-color;
+	border-color:@skin-primary-color;
+}
+.ui-button-icon-only{
+	.btn-white;
+}
+
+.input-calendar .ui-icon-calendar{
+	background:none !important;
+	text-indent:0;
+	.font-awesome;
+	overflow:inherit !important;
+	&:after{
+  		content: "\f073";	
+  		}
+}
+
+
+.input-calendar .ui-button-icon-only{ 
+	    float: right;
+    position: relative;
+    top: -34px;
+    height: 34px;
+    left: 2px;
+}
+
+.input-calendar  .ui-button-icon-only .ui-icon{
+	
+   left: 50%;
+   margin-left: -8px;
+   position: absolute;
+   top: 50%;
+   margin-top: -9px;
+}
+
+.btn-white:hover{
+	border-color:@skin-primary-color;
+	color:@skin-primary-color;
+}
+
+.radio label{
+	.m-r-xl;
+}
+
+.btn:active{
+	box-shadow:none !important;
+	outine:none !important;
+}
+
+.btn-primary:active{
+	background-color:@skin-primary-color !important;
+	border-color:@skin-primary-color !important;
+}
+
+.btn-primary.btn-outline{
+	background:none;
+	color:@skin-primary-color !important;
+}
+.btn-primary.btn-outline.back-white{
+	background-color:white;
+}
+.btn-outline:hover{
+	background-color:@skin-primary-color !important;
+	color:white !important;
+}
+.btn-xxs{
+    padding: 1px 2px;
+    font-size: 10px;
+    line-height: 1;
+    text-transform:initial;
+}
+.dropdown-toggle{
+		box-shadow:none !important;
+}
+.label-success-outline:active{
+	box-shadow:none !important;
+}
+
+.btn-group>.btn:first-child:not(:last-child){
+	     border-top-right-radius: 3px !important; 
+     border-bottom-right-radius: 3px !important; 
+}
+
+input[type=file]:focus,input[type=file]:active{
+	outline:none !important;
+	outline-offset:0px !important;
+	box-shadow:none !important;
+}
+
+.btn-primary:active,.btn-primary:focus{
+	color:white;
+}
+

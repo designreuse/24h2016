@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+	<f:loadBundle basename="messages" var="message" />
+	<f:loadBundle basename="application" var="config" />
+	<h:head>
+		<title>#{config.application}</title>
+		<h:outputScript library="primefaces" name="jquery/jquery.js" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Language" content="fr" />
+		<link href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="SHORTCUT ICON" href="#{facesContext.externalContext.requestContextPath}/images/favicon.gif" />
+
+		<link href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+		<c:if test="#{initParam['spring.profiles.active'] == 'prod'}">
+			<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/inspinia/css/skinblue.css" />
+		</c:if>
+		<c:if test="#{initParam['spring.profiles.active'] == 'dev'}">
+			<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/wro/skinblue.css" />
+
+		</c:if>
+	</h:head>
+
+	<h:body styleClass=" skin-acollab gray-bg">
+		<div class="row m-t-lg">
+			<div class="col-lg-4 col-lg-offset-4">
+
+				<div class="ibox-content text-error">
+					<div class="text-center">
+						<div>
+							<h:outputText value="Votre session est expirée. Vous devez vous reconnecter : " />
+							<a href="#{facesContext.externalContext.requestContextPath}/faces/index.xhtml">Cliquez ici</a>
+						</div>
+						<br />
+						<div>
+							<h:outputText value="Your session has expired. You have to login : " />
+							<a href="#{facesContext.externalContext.requestContextPath}/faces/index.xhtml">Click here</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</h:body>
+</f:view>
+</html>

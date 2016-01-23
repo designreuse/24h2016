@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition template="/resources/inspinia/template_basic.xhtml">
+	<ui:param name="selectedMenu" value="space" />
+	<ui:param name="b" value="#{spaceDetailsView}" />
+	<ui:define name="content">
+		<h:form id="FormTitle">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<h1>
+						<h:outputText value="#{message.space}" />
+					</h1>
+				</div>
+				<div class="content-button col-lg-2">
+					<h:link outcome="pretty:viewSpaceList" styleClass="btn btn-white pull-right">
+						<i class="fa fa-arrow-left m-r-xs"></i>
+						<h:outputText value="#{message.back}" />
+					</h:link>
+				</div>
+			</div>
+		</h:form>
+		<div class="wrapper wrapper-content">
+			<div class="ibox">
+				<div class="ibox-content">
+					<div>
+						<h:outputText value="#{message.space_space_id} : #{b.space.spaceId}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.space_tenant_id} : #{b.space.tenantId}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.space_name} : #{b.space.name}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.space_description} : #{b.space.description}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.space_params} : #{b.space.params}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.space_date_created} : #{b.space.dateCreated}" />
+					</div>
+					<div>
+						<h:outputText value="#{message.space_date_updated} : #{b.space.dateUpdated}" />
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

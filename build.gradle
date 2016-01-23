@@ -1,0 +1,110 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+def jsfApi = '2.2.12'
+def primefaces = '5.2'
+def prettyFace = "2.0.12.Final"
+def groovyVersion = '2.4.5'
+
+def springVersion = '4.2.1.RELEASE'
+def springSession = "1.0.2.RELEASE"
+def springSecurityVersion = '4.0.2.RELEASE'
+
+sourceSets {
+	main {
+		java { srcDir 'src/java' }
+		resources { srcDir 'src/resources' }
+	}
+}
+
+eclipse {
+	project { natures 'org.springsource.ide.eclipse.gradle.core.nature', 'org.eclipse.jdt.groovy.core.groovyNature', 'org.eclipse.wst.common.project.facet.core.nature' }
+	classpath {
+		containers 'org.springsource.ide.eclipse.gradle.classpathcontainer'
+		containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+		containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	}
+	wtp {
+		facet {
+			facet name: 'jst.web', version: '3.1'
+			facet name: 'java', version: '1.8'
+		}
+	}
+	jdt {
+		sourceCompatibility = 1.8
+		targetCompatibility = 1.8
+	}
+}
+
+war {
+	baseName = 'puzzle'
+	version = '1.0'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven {
+		url "http://repo.spring.io/libs-snapshot"
+		url "http://repository.primefaces.org"
+	}
+}
+
+configurations { providedRuntime }
+
+dependencies {
+	// Dependences pour la compilation uniquement du projet
+	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+
+	// Dependences Spring
+	compile "org.springframework:spring-context:$springVersion"
+	compile "org.springframework:spring-core:$springVersion"
+	compile "org.springframework:spring-webmvc:$springVersion"
+	compile "org.springframework:spring-jdbc:$springVersion"
+	compile "org.springframework:spring-tx:$springVersion"
+	compile "org.springframework:spring-aop:$springVersion"
+	compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+	compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+	compile 'org.springframework.data:spring-data-releasetrain:Gosling-RELEASE'
+	compile 'org.springframework.data:spring-data-jdbc-core:1.1.0.RELEASE'
+	compile 'org.aspectj:aspectjweaver:1.8.7'
+	
+	// Dependences JSF
+	compile 'javax.enterprise:cdi-api:1.2'
+	compile 'javax.inject:javax.inject:1'
+	compile "com.sun.faces:jsf-api:$jsfApi"
+	compile "com.sun.faces:jsf-impl:$jsfApi"
+	compile "org.primefaces:primefaces:$primefaces"
+	compile "org.primefaces.themes:bootstrap:1.0.10"
+	compile "org.ocpsoft.rewrite:rewrite-servlet:$prettyFace"
+	compile "org.ocpsoft.rewrite:rewrite-config-prettyfaces:$prettyFace"
+	compile 'jstl:jstl:1.2'
+
+	// Dependences MySQL / JDBC
+	compile "mysql:mysql-connector-java:5.1.36"
+	compile 'org.apache.tomcat:tomcat-jdbc:8.0.26' // Pool de connexion
+
+	// Dependences Logging
+	compile 'ch.qos.logback:logback-core:1.1.3'
+	compile 'ch.qos.logback:logback-classic:1.1.3'
+	compile 'org.slf4j:slf4j-api:1.7.12'
+
+	// Dependences Utilitaires
+	compile "org.codehaus.groovy:groovy:$groovyVersion"
+	compile 'org.apache.commons:commons-lang3:3.4'
+	compile 'org.apache.commons:commons-email:1.4'
+	compile 'commons-validator:commons-validator:1.4.1'
+	compile 'commons-fileupload:commons-fileupload:1.3.1'
+	compile 'commons-io:commons-io:2.4'
+	compile 'com.google.guava:guava:18.0'
+	compile 'com.goldmansachs:gs-collections:6.2.0'
+	compile 'joda-time:joda-time:2.8.2'
+	compile 'ro.isdc.wro4j:wro4j-core:1.7.8'
+	compile 'ro.isdc.wro4j:wro4j-extensions:1.7.8'
+	compile 'com.google.code.spring-crypto-utils:spring-crypto-utils:1.4.0'
+
+}
+

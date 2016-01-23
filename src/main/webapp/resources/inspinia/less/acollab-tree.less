@@ -1,0 +1,54 @@
+.folder-tree {
+	background: none;
+	border:none;
+	width:100%;
+	
+	.ui-state-default {
+		.box-shadow(~"none");
+	}
+	
+	.ui-treenode-label{
+		margin: 0 0 0 0.5em !important;
+	}
+	.ui-icon{
+		.border-radius(0px);
+	}
+	.ui-tree-node{
+		width:100%;
+	}
+	.ui-state-hover{
+		color:@skin-primary-color;
+	}
+	.ui-state-highlight{
+		color:@skin-primary-color;
+		text-shadow:none;
+		background:none;
+	}
+	.ui-treenode-label:hover{
+			color:@skin-primary-color;
+	}
+	.ui-tree-node-content{
+		.sidebar-action;
+		padding: 3px 3px 3px 100px !important;
+		border-left:none;
+		border-right:none;
+		.border-radius(0px);
+		margin-left: -100px;
+		width:100%;
+	}
+}
+
+.ui-treenode-content:hover{
+	color:@skin-primary-color;
+}
+.ui-treenode-selected{
+	color:@skin-primary-color !important;
+	.ui-state-highlight a{
+		color:@skin-primary-color !important;
+	}
+}
+
+.ui-treenode-selected .ui-treenode-children{
+		color:#4f4f4f;
+	
+}
