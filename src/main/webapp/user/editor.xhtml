@@ -67,6 +67,11 @@
 						<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mur.png" />
 					</p:outputPanel>
 					<p:draggable for="wall" revert="true" opacity="0.5" helper="clone" />
+					
+					<p:outputPanel styleClass="case" id="checkpoint" layout="inline">
+						<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/checkpoint.png" />
+					</p:outputPanel>
+					<p:draggable for="checkpoint" revert="true" opacity="0.5" helper="clone" />
 
 					<p:droppable for="sac" tolerance="pointer">
 						<p:ajax listener="#{b.releaseObject}" update="@form" />
