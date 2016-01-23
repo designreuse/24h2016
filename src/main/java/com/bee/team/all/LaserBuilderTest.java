@@ -1,5 +1,7 @@
 package com.bee.team.all;
 
+import com.bee.team.app.board.entity.Board;
+
 public class LaserBuilderTest {
 
 	public static void main(String[] args) {

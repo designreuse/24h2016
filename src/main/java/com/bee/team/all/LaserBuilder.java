@@ -1,6 +1,7 @@
 package com.bee.team.all;
 
 import java.util.List;
+import com.bee.team.app.board.entity.Board;
 
 public class LaserBuilder {
 	

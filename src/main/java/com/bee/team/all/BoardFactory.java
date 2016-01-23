@@ -1,6 +1,7 @@
 package com.bee.team.all;
 
 import org.apache.commons.lang3.NotImplementedException;
+import com.bee.team.app.board.entity.Board;
 
 public class BoardFactory {
 
