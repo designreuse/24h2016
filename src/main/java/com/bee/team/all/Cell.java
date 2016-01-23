@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class Cell implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	public static final String CELL_EMPTY       = "empty";
 	public static final String CELL_WALL        = "wall";
 	public static final String CELL_MIRROR       = "mirror";
@@ -138,4 +140,5 @@ public class Cell implements Serializable {
 	public void rotate() {
 		angle = (angle+1)%4;
 	}
+
 }
