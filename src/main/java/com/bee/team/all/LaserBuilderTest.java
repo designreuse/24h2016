@@ -8,6 +8,10 @@ public class LaserBuilderTest {
 		
 		Board board = BoardFactory.create("DEBUG");
 		Laser laser = board.getLaser();
+		
+		System.out.println("start point: "+laser.getStart());
+		System.out.println("start direction: "+laser.getStartDirection());
+		
 		new LaserBuilder().compute(laser, board);
 		
 		System.out.println("path-length: "+laser.getPath().size());

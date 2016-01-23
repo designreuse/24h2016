@@ -1,34 +1,35 @@
 package com.bee.team.all;
 
 public class Point {
-	int	x;
-	int	y;
+	
+	private int row;
+	private int column;
 	
 	public Point() {
 	}
 	
 	public Point(int x, int y) {
-		this.x = x;
-		this.y = y;
+		this.row = x;
+		this.column = y;
 	}
 
-	public int getX() {
-		return x;
+	public int getRow() {
+		return row;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public void setRow(int row) {
+		this.row = row;
 	}
 
-	public int getY() {
-		return y;
+	public int getColumn() {
+		return column;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+	public void setColumn(int column) {
+		this.column = column;
 	}
 
 	public String toString() {
-		return "["+x+","+y+"]";
+		return "["+row+","+column+"]";
 	}
 }

@@ -22,13 +22,18 @@ public class LaserBuilder {
 	private void handleDirection(Board board, List<Point> path, Point point, int direction) {
 		
 		Point nextPoint = findNextPoint(point,direction);
+		System.out.println("nextPoint: "+nextPoint);
 		Cell nextCell = board.getCellFromPoint(nextPoint);
+		System.out.println("nextCell: "+nextCell);
 		if(nextCell==null) return;
 		
 		String type = nextCell.getType();
+		System.out.println("type: "+type);
 		int angle = nextCell.getAngle();
+		System.out.println("angle: "+angle);
 		
 		int nextDirection = findNextDirection(type,direction,angle);
+		System.out.println("nextDirection: "+nextDirection);
 		
 		path.add(nextPoint);
 		nextCell.setLaserOrigin(nextDirection);
@@ -39,8 +44,8 @@ public class LaserBuilder {
 	
 	private Point findNextPoint(Point p, int direction) {
 		
-		int x = p.getX();
-		int y = p.getY();
+		int x = p.getRow();
+		int y = p.getColumn();
 		
 		switch(direction) {
 		case Cell.N:x--;break;
