@@ -36,13 +36,17 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		String level = getParam("boardId");
 		if (level.equals("1")) {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
+			board.setLevel("1");
 		} else if (level.equals("2")) {
 			board = BoardFactory.create(BoardFactory.DEBUG_WITH_LASER);
+			board.setLevel("2");
 		} else if (level.equals("3")) {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER_2);
+			board.setLevel("3");
 			rebuildLaser();
 		} else {
 			board = BoardFactory.create(BoardFactory.DEBUG_NO_LASER);
+			board.setLevel("4");
 			rebuildLaser();
 		}
 
@@ -104,6 +108,12 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		}
 	}
 	
+	
+	
+	public Board getBoard() {
+		return board;
+	}
+
 	private void rebuildLaser() {
 		complete = laserBuilder.compute(board);
 	}

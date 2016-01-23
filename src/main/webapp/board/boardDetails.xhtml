@@ -12,7 +12,7 @@
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-10">
 					<h1>
-						<h:outputText value="#{message.board}" />
+						<h:outputText value="LEVEL #{b.board.level}" />
 					</h1>
 				</div>
 				<div class="content-button col-lg-2">
@@ -29,7 +29,6 @@
 				<div class="ibox">
 					<div class="ibox-content">
 						<div>
-							<h:outputText value="LEVEL : " />
 						</div>
 	
 						<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
@@ -48,7 +47,19 @@
 					</div>
 				</div>
 			</div>
+			
+			<h:panelGroup rendered="#{b.isComplete()}">
+				<h1>LEVEL COMPLETED!!</h1>
+				<h:link outcome="pretty:viewBoardDetails">
+					<f:param name="boardId" value="#{b.board.level+1}" />
+					<h:outputText value="Suivant" />
+				</h:link>
+			</h:panelGroup>
 		</h:form>
+		
+		
+		
+		
 	</ui:define>
 </ui:composition>
 </html>
