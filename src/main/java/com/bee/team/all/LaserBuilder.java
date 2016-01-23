@@ -14,9 +14,9 @@ public class LaserBuilder {
 		Point start = laser.getStart();
 		int direction = laser.getStartDirection();
 		
-		path.clear();
+		board.resetLaser();
 		
-		return handleDirection(board, path,start,direction);
+		return handleDirection(board,path,start,direction);
 	}
 	
 	
