@@ -14,16 +14,16 @@
 			<p></p>
 			<p:dataList value="#{b.list}" var="var" type="none">
 				<div class="ligne">
-					<p:dataList value="#{var}" var="var2" type="none">
-						<span class="case">
-							<ui:fragment rendered="#{var2.type == 'lstart'}">
+					<p:dataList value="#{var}" var="cell" type="none">
+						<span class="case rotate#{cell.angle}">
+							<ui:fragment rendered="#{cell.type == 'lstart'}">
 								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" /> 
 							</ui:fragment>
-							<ui:fragment rendered="#{var2.type == 'wall'}">
+							<ui:fragment rendered="#{cell.type == 'wall'}">
 								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mur.png" /> 
 							</ui:fragment>
-							<ui:fragment rendered="#{var2.type == 'wall'}">
-								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mur.png" /> 
+							<ui:fragment rendered="#{cell.laserOrigin != -1}">
+								<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser_v.png" /> 
 							</ui:fragment>
 						 </span>
 					</p:dataList>
@@ -33,8 +33,8 @@
 			<p></p>
 
 			<div class="ligne">
-				<span class="case"> </span><span class="case"><img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" /> </span><span class="case"><img
-					src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser.png" /> </span><span class="case rotate90"><img
+				<span class="case"> </span><span class="case rotate1"><img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/start.png" /> </span><span class="case"><img
+					src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/laser_h.png" /> </span><span class="case rotate2"><img
 					src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mirroir.png" /> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span
 					class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span
 					class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"> </span><span class="case"></span>
