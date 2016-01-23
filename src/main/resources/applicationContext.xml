@@ -18,7 +18,7 @@
 		<sec:csrf disabled="true" />
 		<sec:intercept-url pattern="/faces/index.xhtml" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<sec:intercept-url pattern="/public/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<sec:intercept-url pattern="/**" access="ROLE_USER" />
+		<sec:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<sec:form-login login-page="/faces/index.xhtml" />
 		<sec:logout success-handler-ref="logoutSuccessHandler" />
 	</sec:http>
