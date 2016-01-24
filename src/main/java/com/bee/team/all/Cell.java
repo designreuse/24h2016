@@ -85,6 +85,10 @@ public class Cell implements Serializable {
 		return laserH!=UNDEFINED;
 	}
 	
+	public boolean hasDoubleLaser() {
+		return laserH!=UNDEFINED && laserV!=UNDEFINED;
+	}
+	
 	public boolean hasLaser() {
 		return laserH!=UNDEFINED || laserV!=UNDEFINED;
 	}
@@ -112,7 +116,9 @@ public class Cell implements Serializable {
 			return "mirroir";
 		}
 		if (type.equals(CELL_CHECKPOINT)) {
-			if (hasLaser()) return "checkpoint_actif";
+			if(hasDoubleLaser()) return "checkpoint_double";
+			if(hasVerticalLaser()) return "checkpoint_v";
+			if(hasHorizontalLaser()) return "checkpoint_h";
 			return "checkpoint";
 		}
 		
