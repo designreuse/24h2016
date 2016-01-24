@@ -5,8 +5,8 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <ui:composition template="/resources/inspinia/template_basic.xhtml">
-	<ui:param name="selectedMenu" value="board" />
 	<ui:param name="b" value="#{boardDetailsView}" />
+	<ui:param name="selectedMenu" value="#{b.board.boardId}" />
 	<ui:define name="content">
 		<h:form id="FormTitle">
 			<div class="row wrapper border-bottom white-bg page-heading">
