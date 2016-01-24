@@ -241,6 +241,17 @@ public class editorView extends BaseView {
 			Jsf.error("Le numéro est obligatoire");
 			return "";
 		}
+
+		if (boardService.findBoardByLevelName(levelName) != null) {
+			Jsf.error("Un level avec ce nom existe déjà.");
+			return "";
+		}
+
+		if (boardService.findBoardByLevelNumber(levelNumber) != null) {
+			Jsf.error("Un level avec ce numéro existe déjà.");
+			return "";
+		}
+
 		Point laserStart = null;
 		Point laserEnd = null;
 		int direction = 0;
@@ -263,8 +274,12 @@ public class editorView extends BaseView {
 		Laser l = new Laser(laserStart, laserEnd, direction);
 		board.setLaser(l);
 		board.setLevelName(levelName);
+		board.setLevelNumber(levelNumber);
 		board.setHeight(height);
 		board.setWidth(width);
+		for (Cell c : pioche) {
+			c.setFixed(false);
+		}
 		board.setPioche(pioche);
 
 		boardService.createBoard(null, board);
