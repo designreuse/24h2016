@@ -37,9 +37,17 @@ public class LaserBuilder implements Serializable {
 		if (type.equals(Cell.CELL_LASER_END)) return true;
 		if (nextDirection == Cell.UNDEFINED) return false;
 		
-		if (type.equals(Cell.CELL_GATE) && nextDirection==angle) {
+		if (type.equals(Cell.CELL_GATE)) {
+			
+			if(nextDirection!=angle) {
+				nextCell.resetLaser();
+				return false;
+			}
 			Cell otherGate = board.findOtherGate(nextCell);
-			if(otherGate==null) return false;
+			if(otherGate==null){
+				nextCell.resetLaser();
+				return false;
+			}
 			
 			nextPoint = board.getPointFromCell(otherGate);
 			nextDirection = (otherGate.getAngle()+2)%4;
