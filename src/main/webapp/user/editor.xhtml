@@ -86,8 +86,11 @@
 					</p:outputPanel>
 
 					<p:droppable for="poubelle" tolerance="pointer">
-						<p:ajax listener="#{b.releaseObject}" update="FormContent:ligne" />
+						<p:ajax listener="#{b.releaseObject}" update="@form" />
 					</p:droppable>
+					
+					<p:commandLink action="#{b.testLaser}" update="@form" styleClass="btn btn-primary m-r-xs m-l-md">Tester</p:commandLink>
+					<p:commandLink action="#{b.save}" update="@form" styleClass="btn btn-primary m-l-md">Enregistrer</p:commandLink>
 				</p:outputPanel>
 			</div>
 			<div class="row">
@@ -96,7 +99,7 @@
 						<div class="ligne">
 							<p:dataList value="#{var}" var="cell" type="none" id="cases" rowIndexVar="colonne">
 								<p:commandLink action="#{b.rotateCell(ligne,colonne)}" update="FormContent:ligne">
-									<p:outputPanel styleClass="case rotate#{b.getOrientation(cell)} colonne_#{colonne} ligne_#{ligne}" id="drop" layout="inline">
+									<p:outputPanel styleClass="case rotate#{b.getOrientation(cell)} colonne_#{colonne} ligne_#{ligne} id_#{cell.type}" id="drop" layout="inline">
 										<ui:fragment rendered="#{b.getImage(cell) != null}">
 											<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
 										</ui:fragment>
@@ -106,7 +109,7 @@
 								<p:droppable for="drop" tolerance="pointer">
 									<f:param name="ligne" value="#{ligne}" />
 									<f:param name="colonne" value="#{colonne}" />
-									<p:ajax listener="#{b.dropObject}" update="FormContent:ligne" />
+									<p:ajax listener="#{b.dropObject}" update="@form" />
 								</p:droppable>
 								<p:draggable for="drop" opacity="0.5" helper="clone" />
 
@@ -114,18 +117,32 @@
 						</div>
 					</p:dataList>
 
-					<div class="pioche pull-left m-l-md"></div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					<p:commandLink action="#{b.testLaser}" update="FormContent:ligne" styleClass="btn btn-primary m-r-xs">Tester</p:commandLink>
-					<p:commandLink action="#{b.save}" update="@form" styleClass="btn btn-primary">Enregistrer</p:commandLink>
+					<p:outputPanel id="pioche" styleClass="pioche pull-left m-l-md">
+						<p:outputPanel>
+							<p:dataList value="#{b.pioche}" var="cell" type="none" rowIndexVar="item" styleClass="scroll-pioche" emptyMessage="">
+								<p:outputPanel styleClass="case rotate#{b.getOrientation(cell)} m-t-xs m-l-xs position_#{item} id_#{cell.type}" id="pioche-item" layout="inline">
+									<ui:fragment rendered="#{b.getImage(cell) != null}">
+										<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
+									</ui:fragment>
+								</p:outputPanel>
+								<ui:fragment rendered="#{b.pioche.size()>0}">
+									<p:draggable for="pioche-item" opacity="0.5" helper="clone" />
+								</ui:fragment>
+							</p:dataList>
+						</p:outputPanel>
+						<p:droppable for="pioche" tolerance="pointer">
+							<p:ajax listener="#{b.putInPioche}" update="@form" />
+						</p:droppable>
+
+
+
+					</p:outputPanel>
 				</div>
 			</div>
 			
+
 			<div class="ligne"></div>
-			
+
 		</h:form>
 		<script>
 			//<![CDATA[
