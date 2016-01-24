@@ -83,6 +83,16 @@
 					</div>
 				</div>
 			</h:panelGroup>
+			
+			<h:panelGroup rendered="#{b.isGameover()}">
+				<div class="wrapper">
+					<div class="ibox">
+						<div class="ibox-content">
+							<h1>VOUS AVEZ PERDU!!</h1>
+						</div>
+					</div>
+				</div>
+			</h:panelGroup>
 		</h:form>
 
 		<h:panelGroup rendered="#{b.notFind}">

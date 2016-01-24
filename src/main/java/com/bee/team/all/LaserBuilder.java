@@ -5,10 +5,15 @@ import java.util.List;
 import com.bee.team.app.board.entity.Board;
 
 public class LaserBuilder implements Serializable {
+	
+	public final int GAME_OVER = -1;
+	public final int INCOMPLETE = 0; 
+	public final int COMPLETE = 1;
+	
 
 	private static final long serialVersionUID = 1L;
 
-	public boolean compute(Board board) {
+	public int compute(Board board) {
 
 		Laser laser = board.getLaser();
 		List<Point> path = laser.getPath();
@@ -20,11 +25,11 @@ public class LaserBuilder implements Serializable {
 		return handleDirection(board, path, start, direction);
 	}
 
-	private boolean handleDirection(Board board, List<Point> path, Point point, int direction) {
+	private int handleDirection(Board board, List<Point> path, Point point, int direction) {
 
 		Point nextPoint = findNextPoint(point, direction);
 		Cell nextCell = board.getCellFromPoint(nextPoint);
-		if (nextCell == null) return false;
+		if (nextCell == null) return INCOMPLETE;
 
 		String type = nextCell.getType();
 		int angle = nextCell.getAngle();
@@ -34,19 +39,19 @@ public class LaserBuilder implements Serializable {
 		path.add(nextPoint);
 		nextCell.addLaser(nextDirection);
 
-		if (type.equals(Cell.CELL_LASER_END)) return true;
-		if (nextDirection == Cell.UNDEFINED) return false;
+		if (type.equals(Cell.CELL_LASER_END)) return COMPLETE;
+		if (nextDirection == Cell.UNDEFINED) return INCOMPLETE;
 		
 		if (type.equals(Cell.CELL_GATE)) {
 			
 			if(nextDirection!=angle) {
 				nextCell.resetLaser();
-				return false;
+				return INCOMPLETE;
 			}
 			Cell otherGate = board.findOtherGate(nextCell);
 			if(otherGate==null){
 				nextCell.resetLaser();
-				return false;
+				return INCOMPLETE;
 			}
 			
 			nextPoint = board.getPointFromCell(otherGate);

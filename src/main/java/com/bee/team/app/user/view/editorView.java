@@ -37,7 +37,7 @@ public class editorView extends BaseView {
 
 	private LaserBuilder	laserBuilder	= new LaserBuilder();
 
-	private boolean			complete;
+	private int			complete;
 	private Board			board;
 	private String			levelNumber;
 	private String			levelName;

@@ -30,6 +30,7 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	private LaserBuilder			laserBuilder	= new LaserBuilder();
 
 	private boolean					complete;
+	private boolean					gameover;
 	private List<List<Cell>>		list;
 	public boolean					notFind;
 
@@ -213,6 +214,10 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		return complete;
 	}
 
+	public boolean isGameover() {
+		return gameover;
+	}
+
 	public void rotateCell(int ligne, int colonne) {
 		Cell cell = list.get(ligne).get(colonne);
 		if (cell.isMirror() && !cell.isFixed()) {
@@ -226,9 +231,10 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	}
 
 	private void updateState() {
-		boolean endReached = laserBuilder.compute(board);
+		int laserResult = laserBuilder.compute(board);
 		boolean checkPointsReached = board.checkPointsReached();
-		complete = endReached && checkPointsReached;
+		complete = laserResult==1 && checkPointsReached;
+		gameover = laserResult==-1;
 	}
 
 	public boolean isNotFind() {
