@@ -1,13 +1,10 @@
 package com.bee.team.app.user.view;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import com.bee.team.all.BoardFactory;
 import com.bee.team.all.Cell;
-import com.bee.team.app.board.entity.Board;
 import com.bee.team.base.BaseView;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
@@ -28,18 +25,6 @@ public class UserDashboardView extends BaseView {
 
 	@URLAction(mappingId = "viewUserDashboard", onPostback = false)
 	public void viewUserDashboardOnLoad() {
-		Board board = BoardFactory.create("DEBUG");
-		
-		cells = board.getCells();
-		
-		list = new ArrayList<List<Cell>>();
-		for (Cell[] cells2 : cells) {
-			List<Cell> l1 = new ArrayList<Cell>();
-			for (int i = 0; i < cells2.length; i++) {
-				l1.add(cells2[i]);
-			}
-			list.add(l1);
-		}
 	}
 
 	public Cell[][] getCells() {

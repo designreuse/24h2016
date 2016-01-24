@@ -44,6 +44,14 @@ public class Cell implements Serializable {
 		this.angle = angle;
 		addLaser(laser);
 	}
+	
+	public Cell(String type, int angle, int laserV, int laserH) {
+		super();
+		this.type = type;
+		this.angle = angle;
+		this.laserV = laserV;
+		this.laserH = laserH;
+	}
 
 	public boolean isEmpty() {
 		return type.equals(CELL_EMPTY);
