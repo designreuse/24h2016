@@ -64,14 +64,15 @@ public class editorView extends BaseView {
 		String boardId = getParam("editorId");
 		if (StringUtils.isEmpty(boardId)) {
 			board = BoardFactory.createEmptyBoard(Integer.parseInt(height), Integer.parseInt(width));
+			pioche = new ArrayList<Cell>();
 		} else {
 			board = boardService.findBoardById(getUser(), getParam("editorId"));
+			pioche = board.getPioche();
 			levelName = board.getLevelName();
 			levelNumber = board.getLevelNumber();
 			height = board.getHeight();
 			width = board.getWidth();
 		}
-		pioche = new ArrayList<Cell>();
 		cells = board.getCells();
 		list = new ArrayList<List<Cell>>();
 		for (Cell[] cells2 : cells) {
