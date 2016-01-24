@@ -12,6 +12,7 @@ public class Cell implements Serializable {
 	public static final String CELL_CHECKPOINT   = "checkpoint";
 	public static final String CELL_LASER_START = "lstart";
 	public static final String CELL_LASER_END   = "lend";
+	public static final String CELL_GATE 		= "gate";
 
 	public static final int UNDEFINED = -1;
 	public static final int N = 0;
@@ -63,6 +64,10 @@ public class Cell implements Serializable {
 
 	public boolean isWall() {
 		return type.equals(CELL_WALL);
+	}
+
+	public boolean isGate() {
+		return type.equals(CELL_GATE);
 	}
 
 	public boolean isCheckpoint() {
@@ -121,6 +126,10 @@ public class Cell implements Serializable {
 			if(hasVerticalLaser()) return "checkpoint_v";
 			if(hasHorizontalLaser()) return "checkpoint_h";
 			return "checkpoint";
+		}
+		if(type.equals(CELL_GATE)) {
+			if(hasLaser()) return "gate_laser";
+			return "gate";
 		}
 		
 		return null;
