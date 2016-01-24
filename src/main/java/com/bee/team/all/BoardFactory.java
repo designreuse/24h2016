@@ -1,5 +1,8 @@
 package com.bee.team.all;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.NotImplementedException;
 
 import com.bee.team.app.board.entity.Board;
@@ -32,6 +35,8 @@ public class BoardFactory {
 
 	private static Board createDebugBoard(boolean withLaserDrawn, int levelId) {
 		Board board = new Board();
+		board.setWidth("10");
+		board.setHeight("10");
 		board.resetCells(10, 10);
 		Cell[][] cells = board.getCells();
 
@@ -62,6 +67,13 @@ public class BoardFactory {
 
 			Laser laser = new Laser(startPoint, endPoint, Cell.E);
 			board.setLaser(laser);
+
+			List<Cell> pioche = new ArrayList<>();
+			pioche.add(new Cell(Cell.CELL_MIRROR));
+			pioche.add(new Cell(Cell.CELL_MIRROR));
+			pioche.add(new Cell(Cell.CELL_MIRROR));
+			board.setPioche(pioche);
+
 			return board;
 		} else if (levelId == 2) {
 			cells[2][3] = new Cell(Cell.CELL_WALL);

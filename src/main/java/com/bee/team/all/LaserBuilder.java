@@ -42,7 +42,10 @@ public class LaserBuilder implements Serializable {
 			if(otherGate==null) return false;
 			
 			nextPoint = board.getPointFromCell(otherGate);
-			nextDirection = otherGate.getAngle();
+			nextDirection = (otherGate.getAngle()+2)%4;
+			
+			path.add(nextPoint);
+			otherGate.addLaser(nextDirection);
 		}
 
 		return handleDirection(board, path, nextPoint, nextDirection);
@@ -73,6 +76,7 @@ public class LaserBuilder implements Serializable {
 	private int findNextDirection(String type, int direction, int angle) {
 
 		if (type.equals(Cell.CELL_EMPTY)) return direction;
+		if (type.equals(Cell.CELL_GATE)) return direction;
 		if (type.equals(Cell.CELL_CHECKPOINT)) return direction;
 		if (type.equals(Cell.CELL_LASER_END)) return direction;
 		if (type.equals(Cell.CELL_LASER_START)) return Cell.UNDEFINED;
