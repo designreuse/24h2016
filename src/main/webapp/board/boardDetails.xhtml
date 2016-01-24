@@ -75,10 +75,10 @@
 					<div class="ibox">
 						<div class="ibox-content">
 							<h1>LEVEL COMPLETED!!</h1>
-							<h:link outcome="pretty:viewBoardDetails" styleClass="btn btn-primary">
-								<f:param name="boardId" value="#{b.board.levelNumber+1}" />
+							<h:link outcome="" styleClass="btn btn-primary playSound">
 								<h:outputText value="Suivant" />
 							</h:link>
+							
 						</div>
 					</div>
 				</div>
@@ -123,6 +123,22 @@
 			}
 			// ]]>
 		</script>
+		<script>
+ 
+    jQuery(document).ready(function() {
+        var obj = document.createElement("audio");
+        obj.src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/win.mp3";
+        obj.volume=0.10;
+        obj.autoPlay=false;
+        obj.preLoad=true;       
+ 
+        jQuery(".playSound").click(function() {
+            obj.play();
+        });
+ 
+    });
+ 
+</script>
 
 	</ui:define>
 </ui:composition>
