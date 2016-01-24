@@ -54,8 +54,8 @@ public class editorView extends BaseView {
 		refresh();
 	}
 
-	private void refresh() {
-		board = BoardFactory.create("EMPTY_BOARD");
+	public void refresh() {
+		board = BoardFactory.createEmptyBoard(Integer.parseInt(height), Integer.parseInt(width));
 		pioche = new ArrayList<Cell>();
 		cells = board.getCells();
 		list = new ArrayList<List<Cell>>();
@@ -210,8 +210,8 @@ public class editorView extends BaseView {
 		Point laserStart = null;
 		Point laserEnd = null;
 		int direction = 0;
-		for (int i = 0; i < 10; i++) {
-			for (int y = 0; y < 10; y++) {
+		for (int i = 0; i < cells.length; i++) {
+			for (int y = 0; y < cells[i].length; y++) {
 				Cell c = cells[i][y];
 				if (c.isLaserStart()) {
 					laserStart = new Point(i, y);
@@ -244,8 +244,8 @@ public class editorView extends BaseView {
 		Point laserStart = null;
 		Point laserEnd = null;
 		int direction = 0;
-		for (int i = 0; i < 10; i++) {
-			for (int y = 0; y < 10; y++) {
+		for (int i = 0; i < cells.length; i++) {
+			for (int y = 0; y < cells[i].length; y++) {
 				Cell c = cells[i][y];
 				if (c.isLaserStart()) {
 					laserStart = new Point(i, y);
@@ -265,6 +265,7 @@ public class editorView extends BaseView {
 		board.setLevelName(levelName);
 		board.setHeight(height);
 		board.setWidth(width);
+		board.setPioche(pioche);
 
 		boardService.createBoard(null, board);
 		Jsf.info("Le niveau a été créé.");
