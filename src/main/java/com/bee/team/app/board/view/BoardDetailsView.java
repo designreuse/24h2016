@@ -131,7 +131,7 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		if(cell.isWall()) return "";
 		if(cell.isCheckpoint()) return "";
 		
-		if (cell.getType().equals(Cell.CELL_LASER_END)) {
+		if (cell.isLaserEnd()) {
 			if (cell.getLaserV() == Cell.N) { return String.valueOf(Cell.S); }
 			if (cell.getLaserV() == Cell.S) { return String.valueOf(Cell.N); }
 			if (cell.getLaserH() == Cell.E) { return String.valueOf(Cell.W); }

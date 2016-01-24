@@ -47,6 +47,15 @@ public class Board extends BaseEntity implements Serializable {
 			return null;
 		return cells[p.getRow()][p.getColumn()];
 	}
+	
+	public Point getPointFromCell(Cell c) {
+		for(int i=0;i<cells.length;i++)
+		for(int j=0;j<cells[0].length;j++) {
+			if(cells[i][j]==c) return new Point(i,j);
+		}
+		return null;
+	}
+	
 
 	public String getId() {
 		return boardId;
@@ -127,6 +136,14 @@ public class Board extends BaseEntity implements Serializable {
 				if(cell.isCheckpoint() && !cell.hasLaser()) return false;
 			}
 		return true;
+	}
+	
+	public Cell findOtherGate(Cell gate) {
+		for (Cell[] line : cells)
+			for (Cell cell : line) {
+				if(cell.isGate() && cell!=gate) return cell;
+			}
+		return null;
 	}
 
 	@Override
