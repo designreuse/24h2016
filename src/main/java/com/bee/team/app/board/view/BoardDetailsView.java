@@ -116,8 +116,10 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		}
 		if (colTmp != -1) {
 			Cell c = list.get(ligneTmp).get(colTmp);
-			c.setType(Cell.CELL_EMPTY);
-			c.setAngle(-1);
+			if (!c.isFixed()) {
+				c.setType(Cell.CELL_EMPTY);
+				c.setAngle(-1);
+			}
 		}
 		if (idTmp.equals(Cell.CELL_MIRROR)) {
 			Cell c = new Cell(idTmp);
@@ -176,13 +178,15 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			}
 		} else {
 			Cell c = list.get(ligneTmp).get(colTmp);
-			if (!c.isFixed() && c.getType().isEmpty()) {
+			if (!c.isFixed()) {
 				Cell newCell = list.get(x).get(y);
-				newCell.setType(c.getType());
-				newCell.setAngle(c.getAngle());
-				newCell.setFixed(c.isFixed());
-				c.setType(Cell.CELL_EMPTY);
-				c.setAngle(-1);
+				if (newCell.isEmpty()) {
+					newCell.setType(c.getType());
+					newCell.setAngle(c.getAngle());
+					newCell.setFixed(c.isFixed());
+					c.setType(Cell.CELL_EMPTY);
+					c.setAngle(-1);
+				}
 			}
 		}
 		updateState();
@@ -237,8 +241,8 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	private void updateState() {
 		int laserResult = laserBuilder.compute(board);
 		boolean checkPointsReached = board.checkPointsReached();
-		complete = laserResult==1 && checkPointsReached;
-		gameover = laserResult==-1;
+		complete = laserResult == 1 && checkPointsReached;
+		gameover = laserResult == -1;
 	}
 
 	public boolean isNotFind() {
