@@ -306,7 +306,7 @@ public class editorView extends BaseView {
 		levelNumber = "";
 
 		refresh();
-		return "";
+		return "pretty:viewEditor";
 	}
 
 	private void rebuildLaser() {
