@@ -123,8 +123,19 @@ public class Cell implements Serializable {
 			return "end_point";
 		}
 		if (type.equals(CELL_MIRROR)) {
-			if(hasLaser()) return "mirroir_laser";
-			return "mirroir";
+			if(hasLaser()){
+				if(isFixed()){
+					return "mirroir_fixed_laser";
+				}else{
+					return "mirroir_laser";
+				}
+			}else{
+				if(isFixed()){
+					return "mirroir_fixed";
+				}else{
+					return "mirroir";
+				}
+			}
 		}
 		if (type.equals(CELL_CHECKPOINT)) {
 			if(hasDoubleLaser()) return "checkpoint_double";
