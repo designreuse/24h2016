@@ -140,7 +140,7 @@ public class editorView extends BaseView {
 		String[] sClass = left.split(" ");
 		int colTmp = -1;
 		int ligneTmp = 0;
-		int item = 0;
+		int item = -1;
 		String idTmp = "";
 		for (String s : sClass) {
 			if (StringUtils.startsWith(s, "colonne_")) {
@@ -168,7 +168,7 @@ public class editorView extends BaseView {
 			id = id.replaceAll("FormContent:", "");
 		} else {
 			id = idTmp;
-			pioche.remove(item);
+			if (item != -1) pioche.remove(item);
 		}
 		if (colTmp == -1) {
 			Cell newCell = list.get(x).get(y);
