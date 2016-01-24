@@ -30,6 +30,14 @@ public class BoardDAO extends BaseDAO<Board> {
 	public Board findBoardById(String boardId) {
 		return getOne("select " + fields() + " from board where board_id = ? ", new BoardMapper(), boardId);
 	}
+	
+	public Board findBoardByLevelName(String name) {
+		return getOne("select " + fields() + " from board where level_name = ? ", new BoardMapper(), name);
+	}
+	
+	public Board findBoardByLevelNumber(String num) {
+		return getOne("select " + fields() + " from board where level_number = ? ", new BoardMapper(), num);
+	}
 
 	public List<Board> findAllBoard() {
 		return getList("select " + fields() + " from board", new BoardMapper());
