@@ -78,7 +78,7 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		Cell c = list.get(ligne).get(col);
 		c.setType(Cell.CELL_EMPTY);
 		c.setAngle(-1);
-		System.out.println("drop");
+		updateState();
 	}
 
 	public void dropObject(DragDropEvent ddEvent) {
@@ -123,7 +123,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			}
 		}
 		updateState();
-
 	}
 
 	public String getOrientation(Cell cell) {
