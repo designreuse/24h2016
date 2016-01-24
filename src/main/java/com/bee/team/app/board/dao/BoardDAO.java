@@ -93,15 +93,24 @@ public class BoardDAO extends BaseDAO<Board> {
 			Cell[][] cells = new Cell[height][width];
 			for (int row = 0; row < height; row++) {
 				for (int column = 0; column < width; column++) {
+/*
 					Map<String,Object> values = (Map<String,Object>) cellsArrays.get(row).get(column);
 					String type = (String) values.get("type");
 					Integer angle = (Integer) values.get("angle");
 					Integer laserV = (Integer) values.get("laserV");
 					Integer laserH = (Integer) values.get("laserH");
 					cells[row][column] = new Cell(type, angle, laserV, laserH);
+*/					cells[row][column] = unmarshalCell((Map<String,Object>) cellsArrays.get(row).get(column));
 				}
 			}
 			board.setCells(cells);
+
+			List<Cell> bag = new ArrayList<>();
+			ArrayList<Map<String,Object>> cellsBag = (ArrayList<Map<String,Object>>) storage.get("bag");
+			for (Map<String,Object> values : cellsBag) {
+				bag.add(unmarshalCell(values));
+			}
+			board.setPioche(bag);
 
 			Map<String,Map<String,Object>> points = (Map<String,Map<String,Object>>) storage.get("laser");
 			Point start = new Point((Integer) points.get("start").get("row"), (Integer) points.get("start").get("column"));
@@ -111,9 +120,18 @@ public class BoardDAO extends BaseDAO<Board> {
 		}
 	}
 
+	private static Cell unmarshalCell(Map<String,Object> values) {
+		String type = (String) values.get("type");
+		Integer angle = (Integer) values.get("angle");
+		Integer laserV = (Integer) values.get("laserV");
+		Integer laserH = (Integer) values.get("laserH");
+		return new Cell(type, angle, laserV, laserH);
+	}
+
 	private static void mapAttributesToParams(Board board) {
 		Map<String, Object> storage = new HashMap<>();
 		storage.put("cells", board.getCells());
+		storage.put("bag", board.getPioche());
 		storage.put("laser", board.getLaser());
 		String json = JsonUtil.getJsonFromMap(storage);
 		board.setParams(json);

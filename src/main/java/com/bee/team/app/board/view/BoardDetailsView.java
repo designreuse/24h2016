@@ -43,7 +43,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		updateState();
 
 		if (board != null) {
-			board.setPioche(new ArrayList<Cell>());
 			Cell[][] cells = board.getCells();
 
 			list = new ArrayList<List<Cell>>();
@@ -66,7 +65,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		String[] sClass = left.split(" ");
 		int col = 0;
 		int ligne = 0;
-		int item = 0;
 		for (String s : sClass) {
 			if (StringUtils.startsWith(s, "colonne_")) {
 				String c = s.replace("colonne_", "");
@@ -76,52 +74,10 @@ public class BoardDetailsView extends BaseView implements Serializable {
 				String c = s.replace("ligne_", "");
 				ligne = Integer.valueOf(c);
 			}
-			if (StringUtils.startsWith(s, "position_")) {
-				String c = s.replace("position_", "");
-				item = Integer.valueOf(c);
-			}
 		}
-		if (col == 0 && ligne == 0) {
-			board.getPioche().remove(item);
-		} else {
-			Cell c = list.get(ligne).get(col);
-			c.setType(Cell.CELL_EMPTY);
-			c.setAngle(-1);
-		}
-
-		System.out.println("drop");
-	}
-
-	public void putInPioche(DragDropEvent ddEvent) {
-		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		String left = params.get("class");
-		String[] sClass = left.split(" ");
-		String idTmp = "";
-		int colTmp = -1;
-		int ligneTmp = 0;
-		for (String s : sClass) {
-			if (StringUtils.startsWith(s, "colonne_")) {
-				String c = s.replace("colonne_", "");
-				colTmp = Integer.valueOf(c);
-			}
-			if (StringUtils.startsWith(s, "ligne_")) {
-				String c = s.replace("ligne_", "");
-				ligneTmp = Integer.valueOf(c);
-			}
-			if (StringUtils.startsWith(s, "id_")) {
-				idTmp = s.replace("id_", "");
-			}
-		}
-		if (colTmp != -1) {
-			Cell c = list.get(ligneTmp).get(colTmp);
-			c.setType(Cell.CELL_EMPTY);
-			c.setAngle(-1);
-		}
-		if (idTmp.equals(Cell.CELL_MIRROR)) {
-			Cell c = new Cell(idTmp);
-			c.setAngle(0);
-			board.getPioche().add(c);
-		}
+		Cell c = list.get(ligne).get(col);
+		c.setType(Cell.CELL_EMPTY);
+		c.setAngle(-1);
 		updateState();
 	}
 
@@ -133,8 +89,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		String[] sClass = left.split(" ");
 		int colTmp = -1;
 		int ligneTmp = 0;
-		int item = -1;
-		String idTmp = "";
 		for (String s : sClass) {
 			if (StringUtils.startsWith(s, "colonne_")) {
 				String c = s.replace("colonne_", "");
@@ -144,46 +98,39 @@ public class BoardDetailsView extends BaseView implements Serializable {
 				String c = s.replace("ligne_", "");
 				ligneTmp = Integer.valueOf(c);
 			}
-			if (StringUtils.startsWith(s, "id_")) {
-				idTmp = s.replace("id_", "");
-			}
-
-			if (StringUtils.startsWith(s, "position_")) {
-				String c = s.replace("position_", "");
-				item = Integer.valueOf(c);
-			}
 		}
 		int x = Integer.valueOf(ligne);
 		int y = Integer.valueOf(colonne);
-		String id;
-		if (StringUtils.isEmpty(idTmp)) {
-			id = params.get("dragId");
-			id = id.replaceAll("FormContent:", "");
-		} else {
-			id = idTmp;
-			if (item != -1) board.getPioche().remove(item);
-		}
+		String id = params.get("dragId");
+		id = id.replaceAll("FormContent:", "");
 		if (colTmp == -1) {
 			Cell newCell = list.get(x).get(y);
-			newCell.setType(id);
-			newCell.setAngle(0);
+			if (newCell.getType().equals(Cell.CELL_EMPTY)) {
+				newCell.setType(id);
+				newCell.setAngle(0);
+				newCell.setFixed(false);
+			}
 		} else {
 			Cell c = list.get(ligneTmp).get(colTmp);
-			Cell newCell = list.get(x).get(y);
-			newCell.setType(c.getType());
-			newCell.setAngle(c.getAngle());
-			c.setType(Cell.CELL_EMPTY);
-			c.setAngle(-1);
+			if (!c.isFixed()) {
+				Cell newCell = list.get(x).get(y);
+				newCell.setType(c.getType());
+				newCell.setAngle(c.getAngle());
+				newCell.setFixed(false);
+				c.setType(Cell.CELL_EMPTY);
+				c.setAngle(-1);
+				c.setFixed(true);
+			}
 		}
 		updateState();
 	}
 
 	public String getOrientation(Cell cell) {
-		if (cell.isEmpty()) return "";
-		if (cell.isWall()) return "";
-		if (cell.isCheckpoint()) return "";
-
-		if (cell.getType().equals(Cell.CELL_LASER_END)) {
+		if(cell.isEmpty()) return "";
+		if(cell.isWall()) return "";
+		if(cell.isCheckpoint()) return "";
+		
+		if (cell.isLaserEnd()) {
 			if (cell.getLaserV() == Cell.N) { return String.valueOf(Cell.S); }
 			if (cell.getLaserV() == Cell.S) { return String.valueOf(Cell.N); }
 			if (cell.getLaserH() == Cell.E) { return String.valueOf(Cell.W); }
