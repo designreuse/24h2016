@@ -16,10 +16,10 @@ public class Board extends BaseEntity implements Serializable {
 	private String boardId;
 	private String params;
 
-	private int levelNumber;
+	private String levelNumber;
 	private String levelName;
-	private int width;
-	private int height;
+	private String width;
+	private String height;
 
 	private Laser laser;
 	private Cell[][] cells;
@@ -72,11 +72,11 @@ public class Board extends BaseEntity implements Serializable {
 		this.levelName = levelName;
 	}
 
-	public int getLevelNumber() {
+	public String getLevelNumber() {
 		return levelNumber;
 	}
 
-	public void setLevelNumber(int levelNumber) {
+	public void setLevelNumber(String levelNumber) {
 		this.levelNumber = levelNumber;
 	}
 
@@ -88,19 +88,19 @@ public class Board extends BaseEntity implements Serializable {
 		this.params = params;
 	}
 
-	public int getWidth() {
+	public String getWidth() {
 		return width;
 	}
 
-	public void setWidth(int width) {
+	public void setWidth(String width) {
 		this.width = width;
 	}
 
-	public int getHeight() {
+	public String getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(String height) {
 		this.height = height;
 	}
 

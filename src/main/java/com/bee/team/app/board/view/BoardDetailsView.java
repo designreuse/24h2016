@@ -105,9 +105,11 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		id = id.replaceAll("FormContent:", "");
 		if (colTmp == -1) {
 			Cell newCell = list.get(x).get(y);
-			newCell.setType(id);
-			newCell.setAngle(0);
-			newCell.setFixed(false);
+			if (newCell.getType().equals(Cell.CELL_EMPTY)) {
+				newCell.setType(id);
+				newCell.setAngle(0);
+				newCell.setFixed(false);
+			}
 		} else {
 			Cell c = list.get(ligneTmp).get(colTmp);
 			if (!c.isFixed()) {

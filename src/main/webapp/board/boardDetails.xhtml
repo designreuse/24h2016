@@ -24,7 +24,7 @@
 					<div class="ibox-content">
 						<div class="row">
 							<div class="col-xs-6">
-								<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne">
+								<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne" id="lignes">
 									<div class="ligne">
 										<p:dataList value="#{var}" var="cell" type="none" rowIndexVar="colonne">
 											<p:commandLink class="case rotate#{b.getOrientation(cell)} colonne_#{colonne} ligne_#{ligne}" action="#{b.rotateCell(ligne,colonne)}" id="drop" update="@form">
@@ -49,7 +49,7 @@
 								<p:outputPanel styleClass="case" id="mirror" layout="inline">
 									<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/mirroir.png" />
 								</p:outputPanel>
-								<p:draggable for="mirror" revert="true" opacity="0.5" helper="clone" />
+								<p:draggable for="mirror" revert="true" opacity="0.5" />
 
 								<p:droppable for="sac" tolerance="pointer">
 									<p:ajax listener="#{b.releaseObject}" update="@form" />

@@ -203,8 +203,8 @@ public class editorView extends BaseView {
 		Laser l = new Laser(laserStart, laserEnd, direction);
 		board.setLaser(l);
 		board.setLevelName(levelName);
-		board.setHeight(Integer.valueOf(height));
-		board.setWidth(Integer.valueOf(width));
+		board.setHeight(height);
+		board.setWidth(width);
 
 		boardService.createBoard(null, board);
 		Jsf.info("Le niveau a été créé.");

@@ -80,9 +80,11 @@ public class BoardDAO extends BaseDAO<Board> {
 			Map<String, Object> storage = JsonUtil.getMapFromJson(board.getParams());
 
 			ArrayList<ArrayList<Cell>> cellsArrays = (ArrayList<ArrayList<Cell>>) storage.get("cells");
-			Cell[][] cells = new Cell[10][10];
-			for (int row = 0; row < 10; row++) {
-				for (int column = 0; column < 10; column++) {
+			int height = Integer.valueOf(board.getHeight());
+			int width=Integer.valueOf(board.getWidth());
+			Cell[][] cells = new Cell[height][width];
+			for (int row = 0; row < height; row++) {
+				for (int column = 0; column < width; column++) {
 					Map<String,Object> values = (Map<String,Object>) cellsArrays.get(row).get(column);
 					String type = (String) values.get("type");
 					Integer angle = (Integer) values.get("angle");
