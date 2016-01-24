@@ -209,6 +209,12 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		return String.valueOf(cell.getAngle());
 	}
 
+	public String deleteBoard() {
+		String boardId = getParam("level");
+		boardService.deleteBoard(getUser(), boardId);
+		return "pretty:viewEditor";
+	}
+
 	public String getImage(Cell cell) {
 		return cell.getImage();
 	}

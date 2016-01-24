@@ -10,10 +10,20 @@
 	<ui:define name="content">
 		<h:form id="FormTitle">
 			<div class="row wrapper border-bottom white-bg page-heading">
-				<div class="col-lg-10">
-					<h1>
-						<h:outputText value="LEVEL #{b.board.levelName}" />
-					</h1>
+				<div class="row">
+					<div class="col-lg-10">
+						<h1>
+							<h:outputText value="LEVEL #{b.board.levelName}" />
+						</h1>
+					</div>
+					<div class="col-lg-2">
+						<h:link outcome="pretty:viewEditorUpdate" update="@form" value="Modifier" styleClass="btn">
+							<f:param name="editorId" value="#{b.board.boardId}"></f:param>
+						</h:link>
+						<h:commandLink action="#{b.deleteBoard}" value="Supprimer" styleClass="btn btn-danger">
+							<f:param name="level" value="#{b.board.boardId}"></f:param>
+						</h:commandLink>
+					</div>
 				</div>
 			</div>
 		</h:form>
@@ -78,12 +88,12 @@
 							<h:link outcome="" styleClass="btn btn-primary playSound">
 								<h:outputText value="Suivant" />
 							</h:link>
-							
+
 						</div>
 					</div>
 				</div>
 			</h:panelGroup>
-			
+
 			<h:panelGroup rendered="#{b.isGameover()}">
 				<div class="wrapper">
 					<div class="ibox">
@@ -134,21 +144,21 @@
 			// ]]>
 		</script>
 		<script>
- 
-    jQuery(document).ready(function() {
-        var obj = document.createElement("audio");
-        obj.src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/win.mp3";
-        obj.volume=0.10;
-        obj.autoPlay=false;
-        obj.preLoad=true;       
- 
-        jQuery(".playSound").click(function() {
-            obj.play();
-        });
- 
-    });
- 
-</script>
+			jQuery(document)
+					.ready(
+							function() {
+								var obj = document.createElement("audio");
+								obj.src = "#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/win.mp3";
+								obj.volume = 0.10;
+								obj.autoPlay = false;
+								obj.preLoad = true;
+
+								jQuery(".playSound").click(function() {
+									obj.play();
+								});
+
+							});
+		</script>
 
 	</ui:define>
 </ui:composition>

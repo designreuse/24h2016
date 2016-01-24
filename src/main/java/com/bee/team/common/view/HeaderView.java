@@ -31,8 +31,4 @@ public class HeaderView extends BaseView implements Serializable {
 		return boardService.findAllBoard(null);
 	}
 
-	public void deleteBoard() {
-		String boardId = getParam("level");
-		boardService.deleteBoard(getUser(), boardId);
-	}
 }
