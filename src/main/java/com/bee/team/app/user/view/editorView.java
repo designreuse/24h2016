@@ -28,6 +28,8 @@ import com.ocpsoft.pretty.faces.annotation.URLMappings;
 @URLMappings(mappings = { @URLMapping(id = "viewEditor", pattern = "/editor", viewId = "/faces/user/editor.xhtml") })
 public class editorView extends BaseView {
 
+	private static final long serialVersionUID = 1L;
+
 	@Autowired
 	transient BoardService	boardService;
 	Cell[][]				cells;
@@ -150,8 +152,8 @@ public class editorView extends BaseView {
 		Point laserStart = null;
 		Point laserEnd = null;
 		int direction = 0;
-		for (int i = 0; i < 10; i++) {
-			for (int y = 0; y < 10; y++) {
+		for (int i = 0; i < cells.length; i++) {
+			for (int y = 0; y < cells[i].length; y++) {
 				Cell c = cells[i][y];
 				if (c.isLaserStart()) {
 					laserStart = new Point(i, y);
@@ -184,8 +186,8 @@ public class editorView extends BaseView {
 		Point laserStart = null;
 		Point laserEnd = null;
 		int direction = 0;
-		for (int i = 0; i < 10; i++) {
-			for (int y = 0; y < 10; y++) {
+		for (int i = 0; i < cells.length; i++) {
+			for (int y = 0; y < cells[i].length; y++) {
 				Cell c = cells[i][y];
 				if (c.isLaserStart()) {
 					laserStart = new Point(i, y);
