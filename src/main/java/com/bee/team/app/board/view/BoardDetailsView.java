@@ -37,7 +37,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	@PostConstruct
 	public void init() {
 		initBean();
-		// userTmp = boardService.findBoardById(getUser(), getParam("boardId"));
 		String level = getParam("boardId");
 
 		board = boardService.findBoardById(null, level);
