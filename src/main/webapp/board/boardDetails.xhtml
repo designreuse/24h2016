@@ -27,7 +27,7 @@
 								<p:dataList value="#{b.list}" var="var" type="none" rowIndexVar="ligne" id="ligne" styleClass="pull-left">
 									<div class="ligne">
 										<p:dataList value="#{var}" var="cell" type="none" id="cases" rowIndexVar="colonne">
-											<p:commandLink action="#{b.rotateCell(ligne,colonne)}" update="FormContent:ligne">
+											<p:commandLink action="#{b.rotateCell(ligne,colonne)}" update="@form">
 												<p:outputPanel styleClass="case rotate#{b.getOrientation(cell)} colonne_#{colonne} ligne_#{ligne} id_#{cell.type}" id="drop" layout="inline">
 													<ui:fragment rendered="#{b.getImage(cell) != null}">
 														<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
@@ -54,7 +54,7 @@
 													<img src="#{facesContext.externalContext.requestContextPath}/resources/inspinia/images/#{b.getImage(cell)}.png" />
 												</ui:fragment>
 											</p:outputPanel>
-											<ui:fragment rendered="#{b.pioche.size()>0}">
+											<ui:fragment rendered="#{b.board.pioche.size()>0}">
 												<p:draggable for="pioche-item" opacity="0.5" helper="clone" />
 											</ui:fragment>
 										</p:dataList>

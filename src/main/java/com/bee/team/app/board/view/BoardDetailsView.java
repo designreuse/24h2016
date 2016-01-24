@@ -43,9 +43,10 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		updateState();
 
 		if (board != null) {
-			board.setPioche(new ArrayList<Cell>());
 			Cell[][] cells = board.getCells();
-
+			for (Cell c : board.getPioche()) {
+				c.setFixed(false);
+			}
 			list = new ArrayList<List<Cell>>();
 			for (Cell[] cells2 : cells) {
 				List<Cell> l1 = new ArrayList<Cell>();
@@ -167,12 +168,14 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			Cell newCell = list.get(x).get(y);
 			newCell.setType(id);
 			newCell.setAngle(0);
+			if (item != -1) newCell.setFixed(false);
 		} else {
 			Cell c = list.get(ligneTmp).get(colTmp);
 			if (!c.isFixed()) {
 				Cell newCell = list.get(x).get(y);
 				newCell.setType(c.getType());
 				newCell.setAngle(c.getAngle());
+				newCell.setFixed(c.isFixed());
 				c.setType(Cell.CELL_EMPTY);
 				c.setAngle(-1);
 			}
@@ -225,7 +228,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	private void updateState() {
 		boolean endReached = laserBuilder.compute(board);
 		boolean checkPointsReached = board.checkPointsReached();
-
 		complete = endReached && checkPointsReached;
 	}
 
