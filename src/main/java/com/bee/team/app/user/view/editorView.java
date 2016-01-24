@@ -55,8 +55,8 @@ public class editorView extends BaseView {
 		refresh();
 	}
 
-	private void refresh() {
-		board = BoardFactory.create("EMPTY_BOARD");
+	public void refresh() {
+		board = BoardFactory.createEmptyBoard(Integer.parseInt(height), Integer.parseInt(width));
 		cells = board.getCells();
 		list = new ArrayList<List<Cell>>();
 		for (Cell[] cells2 : cells) {
