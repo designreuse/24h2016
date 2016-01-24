@@ -127,7 +127,10 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	}
 
 	public String getOrientation(Cell cell) {
-		if (cell.getType().equals(Cell.CELL_EMPTY) || cell.getType().equals(Cell.CELL_WALL)) { return ""; }
+		if(cell.isEmpty()) return "";
+		if(cell.isWall()) return "";
+		if(cell.isCheckpoint()) return "";
+		
 		if (cell.getType().equals(Cell.CELL_LASER_END)) {
 			if (cell.getLaserV() == Cell.N) { return String.valueOf(Cell.S); }
 			if (cell.getLaserV() == Cell.S) { return String.valueOf(Cell.N); }

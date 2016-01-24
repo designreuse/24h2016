@@ -32,7 +32,12 @@
 					<div class="form-group">
 						<label> <h:outputText value="Nombre de lignes : " /> <h:outputText styleClass="requiredField" value=" *" />
 						</label>
-						<h:inputText value="#{b.height}" styleClass="form-control" />
+						<h:selectOneMenu value="#{b.height}" styleClass="form-control">
+							<f:selectItem itemLabel="10" itemValue="10" />
+							<f:selectItem itemLabel="15" itemValue="15" />
+							<f:selectItem itemLabel="20" itemValue="20" />
+							<p:ajax listener="#{b.refresh()}" update="FormContent:ligne" />
+						</h:selectOneMenu>
 					</div>
 				</div>
 			</div>
@@ -48,7 +53,12 @@
 					<div class="form-group">
 						<label> <h:outputText value="Nombre de colonnes : " /> <h:outputText styleClass="requiredField" value=" *" />
 						</label>
-						<h:inputText value="#{b.width}" styleClass="form-control" />
+						<h:selectOneMenu value="#{b.width}" styleClass="form-control">
+							<f:selectItem itemLabel="10" itemValue="10" />
+							<f:selectItem itemLabel="15" itemValue="15" />
+							<f:selectItem itemLabel="20" itemValue="20" />
+							<p:ajax listener="#{b.refresh()}" update="FormContent:ligne" />
+						</h:selectOneMenu>
 					</div>
 				</div>
 			</div>
