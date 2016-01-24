@@ -40,6 +40,7 @@ public class LaserBuilder implements Serializable {
 		nextCell.addLaser(nextDirection);
 
 		if (type.equals(Cell.CELL_LASER_END)) return COMPLETE;
+		if(type.equals(Cell.CELL_BOMB)) return GAME_OVER;
 		if (nextDirection == Cell.UNDEFINED) return INCOMPLETE;
 		
 		if (type.equals(Cell.CELL_GATE)) {

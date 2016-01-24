@@ -41,7 +41,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		String level = getParam("boardId");
 
 		board = boardService.findBoardById(null, level);
-		updateState();
 
 		if (board != null) {
 			Cell[][] cells = board.getCells();
@@ -60,6 +59,7 @@ public class BoardDetailsView extends BaseView implements Serializable {
 		} else {
 			notFind = true;
 		}
+		updateState();
 	}
 
 	public void releaseObject(DragDropEvent ddEvent) {
@@ -90,8 +90,6 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			c.setType(Cell.CELL_EMPTY);
 			c.setAngle(-1);
 		}
-
-		System.out.println("drop");
 	}
 
 	public void putInPioche(DragDropEvent ddEvent) {
