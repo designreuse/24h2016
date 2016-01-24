@@ -30,6 +30,14 @@ public class BoardDAO extends BaseDAO<Board> {
 	public Board findBoardById(String boardId) {
 		return getOne("select " + fields() + " from board where board_id = ? ", new BoardMapper(), boardId);
 	}
+	
+	public Board findBoardByLevelName(String name) {
+		return getOne("select " + fields() + " from board where level_name = ? ", new BoardMapper(), name);
+	}
+	
+	public Board findBoardByLevelNumber(String num) {
+		return getOne("select " + fields() + " from board where level_number = ? ", new BoardMapper(), num);
+	}
 
 	public List<Board> findAllBoard() {
 		return getList("select " + fields() + " from board", new BoardMapper());
@@ -85,14 +93,7 @@ public class BoardDAO extends BaseDAO<Board> {
 			Cell[][] cells = new Cell[height][width];
 			for (int row = 0; row < height; row++) {
 				for (int column = 0; column < width; column++) {
-/*
-					Map<String,Object> values = (Map<String,Object>) cellsArrays.get(row).get(column);
-					String type = (String) values.get("type");
-					Integer angle = (Integer) values.get("angle");
-					Integer laserV = (Integer) values.get("laserV");
-					Integer laserH = (Integer) values.get("laserH");
-					cells[row][column] = new Cell(type, angle, laserV, laserH);
-*/					cells[row][column] = unmarshalCell((Map<String,Object>) cellsArrays.get(row).get(column));
+					cells[row][column] = unmarshalCell((Map<String,Object>) cellsArrays.get(row).get(column));
 				}
 			}
 			board.setCells(cells);
