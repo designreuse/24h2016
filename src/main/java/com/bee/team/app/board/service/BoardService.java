@@ -31,6 +31,10 @@ public class BoardService extends BaseService {
 	public Board findBoardByLevelNumber(String number) {
 		return boardDAO.findBoardByLevelNumber(number);
 	}
+	
+	public Board findNextBoard(String levelNumber) {
+		return boardDAO.findNextBoard(levelNumber);
+	}
 
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 	public void createBoard(User currentUser, Board board) {

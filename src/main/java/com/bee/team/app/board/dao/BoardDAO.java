@@ -38,9 +38,13 @@ public class BoardDAO extends BaseDAO<Board> {
 	public Board findBoardByLevelNumber(String num) {
 		return getOne("select " + fields() + " from board where level_number = ? ", new BoardMapper(), num);
 	}
+	
+	public Board findNextBoard(String number) {
+		return getOne("select " + fields() + " from board where level_number > ? order by level_number LIMIT 1 ", new BoardMapper(), number);
+	}
 
 	public List<Board> findAllBoard() {
-		return getList("select " + fields() + " from board", new BoardMapper());
+		return getList("select " + fields() + " from board order by level_number", new BoardMapper());
 	}
 
 	public void createBoard(Board board) {

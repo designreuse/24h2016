@@ -84,11 +84,14 @@
 				<div class="wrapper">
 					<div class="ibox">
 						<div class="ibox-content">
-							<h1>LEVEL COMPLETED!!</h1>
-							<h:link outcome="" styleClass="btn btn-primary playSound">
+							<h1>BRAVO VOUS AVEZ TERMINE CE NIVEAU !!</h1>
+							<h:link outcome="pretty:viewBoardDetails" styleClass="btn btn-primary playSound  btn-lg" rendered="#{b.nextBoard != null}">
+								<f:param name="boardId" value="#{b.nextBoard}" />
 								<h:outputText value="Suivant" />
 							</h:link>
-
+							<h1>
+								<h:outputText value="BRAVO VOUS AVEZ TERMINE TOUS LES NIVEAUX !!! FAITES VOS PROPRES NIVEAUX" rendered="#{b.nextBoard == null}" />
+							</h1>
 						</div>
 					</div>
 				</div>
