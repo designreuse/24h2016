@@ -40,6 +40,8 @@ public class editorView extends BaseView {
 	private Board			board;
 	private String			levelNumber;
 	private String			levelName;
+	private String			height			= "10";
+	private String			width			= "10";
 
 	@PostConstruct
 	public void init() {
@@ -50,7 +52,7 @@ public class editorView extends BaseView {
 	public void viewUserDashboardOnLoad() {
 		refresh();
 	}
-	
+
 	private void refresh() {
 		board = BoardFactory.create("EMPTY_BOARD");
 		cells = board.getCells();
@@ -201,10 +203,14 @@ public class editorView extends BaseView {
 		Laser l = new Laser(laserStart, laserEnd, direction);
 		board.setLaser(l);
 		board.setLevelName(levelName);
+		board.setHeight(Integer.valueOf(height));
+		board.setWidth(Integer.valueOf(width));
+
 		boardService.createBoard(null, board);
 		Jsf.info("Le niveau a été créé.");
 		levelName = "";
 		levelNumber = "";
+
 		refresh();
 		return "";
 	}
@@ -251,6 +257,22 @@ public class editorView extends BaseView {
 
 	public void setLevelName(String levelName) {
 		this.levelName = levelName;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
+	}
+
+	public String getWidth() {
+		return width;
+	}
+
+	public void setWidth(String width) {
+		this.width = width;
 	}
 
 }

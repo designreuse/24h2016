@@ -23,20 +23,34 @@
 			<p></p>
 			<p:messages closable="true" />
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-6">
 					<div class="form-group">
 						<label> <h:outputText value="Nom : " /> <h:outputText styleClass="requiredField" value=" *" />
 						</label>
 						<h:inputText value="#{b.levelName}" styleClass="form-control" />
 					</div>
 				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+						<label> <h:outputText value="Nombre de lignes : " /> <h:outputText styleClass="requiredField" value=" *" />
+						</label>
+						<h:inputText value="#{b.height}" styleClass="form-control" />
+					</div>
+				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-6">
 					<div class="form-group">
 						<label> <h:outputText value="Numéro : " /> <h:outputText styleClass="requiredField" value=" *" />
 						</label>
 						<h:inputText value="#{b.levelNumber}" styleClass="form-control" />
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="form-group">
+						<label> <h:outputText value="Nombre de colonnes : " /> <h:outputText styleClass="requiredField" value=" *" />
+						</label>
+						<h:inputText value="#{b.width}" styleClass="form-control" />
 					</div>
 				</div>
 			</div>
