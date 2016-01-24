@@ -116,7 +116,7 @@ public class Board extends BaseEntity implements Serializable {
 	public void resetLaser() {
 		for (Cell[] line : cells)
 			for (Cell cell : line) {
-				cell.setLaserOrigin(Cell.UNDEFINED);
+				cell.resetLaser();
 			}
 		laser.getPath().clear();
 	}

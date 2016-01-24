@@ -128,10 +128,10 @@ public class editorView extends BaseView {
 	public String getOrientation(Cell cell) {
 		if (cell.getType().equals(Cell.CELL_EMPTY) || cell.getType().equals(Cell.CELL_WALL)) { return ""; }
 		if (cell.getType().equals(Cell.CELL_LASER_END)) {
-			if (cell.getLaserOrigin() == Cell.N) { return String.valueOf(Cell.S); }
-			if (cell.getLaserOrigin() == Cell.S) { return String.valueOf(Cell.N); }
-			if (cell.getLaserOrigin() == Cell.E) { return String.valueOf(Cell.W); }
-			if (cell.getLaserOrigin() == Cell.W) { return String.valueOf(Cell.E); }
+			if (cell.getLaserV() == Cell.N) { return String.valueOf(Cell.S); }
+			if (cell.getLaserV() == Cell.S) { return String.valueOf(Cell.N); }
+			if (cell.getLaserH() == Cell.E) { return String.valueOf(Cell.W); }
+			if (cell.getLaserH() == Cell.W) { return String.valueOf(Cell.E); }
 		}
 		return String.valueOf(cell.getAngle());
 	}

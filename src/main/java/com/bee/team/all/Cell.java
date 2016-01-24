@@ -21,7 +21,8 @@ public class Cell implements Serializable {
 
 	private String type = CELL_EMPTY;
 	private int angle = UNDEFINED;
-	private int laserOrigin = UNDEFINED;
+	private int laserV = UNDEFINED;
+	private int laserH = UNDEFINED;
 	
 	private boolean fixed = true;
 	
@@ -36,12 +37,12 @@ public class Cell implements Serializable {
 		this.type = type;
 		this.angle = angle;
 	}
-
-	public Cell(String type, int angle, int laserOrigin) {
+	
+	public Cell(String type, int angle, int laser) {
 		super();
 		this.type = type;
 		this.angle = angle;
-		this.laserOrigin = laserOrigin;
+		addLaser(laser);
 	}
 
 	public boolean isEmpty() {
@@ -68,8 +69,16 @@ public class Cell implements Serializable {
 		return type.equals(CELL_LASER_END);
 	}
 	
+	public boolean hasVerticalLaser() {
+		return laserV!=UNDEFINED;
+	}
+	
+	public boolean hasHorizontalLaser() {
+		return laserH!=UNDEFINED;
+	}
+	
 	public boolean hasLaser() {
-		return laserOrigin!=UNDEFINED;
+		return laserH!=UNDEFINED || laserV!=UNDEFINED;
 	}
 	
 	
@@ -79,33 +88,23 @@ public class Cell implements Serializable {
 			return "mur";
 		}
 		if (type.equals(CELL_EMPTY)) {
-			if (laserOrigin == UNDEFINED) {
-					return null;
-			} 
-			if (laserOrigin == N || laserOrigin == S) {
-				return "laser_v";
-			}
-			return "laser_h";
+			if(hasVerticalLaser()) return "laser_v";
+			if(hasHorizontalLaser()) return "laser_h";
+			return null;
 		}
 		if (type.equals(CELL_LASER_START)) {
 			return "start";
 		}
 		if (type.equals(CELL_LASER_END)) {
-			if (laserOrigin != UNDEFINED) {
-				return "end";
-			}
+			if(hasLaser()) return "end";
 			return "end_point";
 		}
 		if (type.equals(CELL_MIRROR)) {
-			if (laserOrigin != UNDEFINED) {
-				return "mirroir_laser";
-			}
+			if(hasLaser()) return "mirroir_laser";
 			return "mirroir";
 		}
 		if (type.equals(CELL_CHECKPOINT)) {
-			if (hasLaser()) {
-				return "checkpoint_actif";
-			}
+			if (hasLaser()) return "checkpoint_actif";
 			return "checkpoint";
 		}
 		
@@ -130,13 +129,32 @@ public class Cell implements Serializable {
 		this.angle = angle;
 	}
 
-	public int getLaserOrigin() {
-		return laserOrigin;
+	public int getLaserH() {
+		return laserH;
 	}
 
-	public void setLaserOrigin(int laserOrigin) {
-		this.laserOrigin = laserOrigin;
+	public void setLaserH(int laserH) {
+		this.laserH = laserH;
 	}
+
+	public int getLaserV() {
+		return laserV;
+	}
+
+	public void setLaserV(int laserV) {
+		this.laserV = laserV;
+	}
+	
+	public void addLaser(int laser) {
+		if(laser==N || laser==S) laserV = laser;
+		else laserH = laser;
+	}
+	
+	public void resetLaser() {
+		laserH = UNDEFINED;
+		laserV = UNDEFINED;
+	}
+	
 	
 	public boolean isFixed() {
 		return fixed;

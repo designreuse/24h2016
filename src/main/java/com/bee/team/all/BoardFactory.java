@@ -42,16 +42,16 @@ public class BoardFactory {
 			cells[startPoint.getRow()][startPoint.getColumn()] = new Cell(Cell.CELL_LASER_START, Cell.E);
 
 			if (withLaserDrawn) {
-				cells[9][4].setLaserOrigin(Cell.W);
-				cells[9][5].setLaserOrigin(Cell.W);
-				cells[9][6].setLaserOrigin(Cell.W);
+				cells[9][4].addLaser(Cell.W);
+				cells[9][5].addLaser(Cell.W);
+				cells[9][6].addLaser(Cell.W);
 
-				cells[8][7].setLaserOrigin(Cell.S);
-				cells[7][7].setLaserOrigin(Cell.S);
-				cells[6][7].setLaserOrigin(Cell.S);
-				cells[5][7].setLaserOrigin(Cell.S);
-				cells[4][7].setLaserOrigin(Cell.S);
-				cells[3][7].setLaserOrigin(Cell.S);
+				cells[8][7].addLaser(Cell.S);
+				cells[7][7].addLaser(Cell.S);
+				cells[6][7].addLaser(Cell.S);
+				cells[5][7].addLaser(Cell.S);
+				cells[4][7].addLaser(Cell.S);
+				cells[3][7].addLaser(Cell.S);
 			}
 
 			cells[9][7] = new Cell(Cell.CELL_MIRROR, Cell.W, withLaserDrawn ? Cell.W : Cell.UNDEFINED);
