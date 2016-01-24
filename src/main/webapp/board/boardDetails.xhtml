@@ -11,18 +11,22 @@
 		<h:form id="FormTitle">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="row">
-					<div class="col-lg-10">
+					<div class="col-lg-8">
 						<h1>
 							<h:outputText value="LEVEL #{b.board.levelName}" />
 						</h1>
 					</div>
-					<div class="col-lg-2">
-						<h:link outcome="pretty:viewEditorUpdate" update="@form" value="Modifier" styleClass="btn">
+					<div class="content-button col-lg-4">
+					<div class="pull-right">
+						<h:link outcome="pretty:viewEditorUpdate" update="@form" styleClass="btn btn-outline btn-primary">
 							<f:param name="editorId" value="#{b.board.boardId}"></f:param>
+							<span class="fa fa-pencil m-r-xs"/><span>Modifier</span>
 						</h:link>
-						<h:commandLink action="#{b.deleteBoard}" value="Supprimer" styleClass="btn btn-danger">
+						<h:commandLink action="#{b.deleteBoard}" styleClass="btn btn-danger m-l-sm">
 							<f:param name="level" value="#{b.board.boardId}"></f:param>
+							<span class="fa fa-trash m-r-xs"/><span>Supprimer</span>
 						</h:commandLink>
+					</div>
 					</div>
 				</div>
 			</div>
