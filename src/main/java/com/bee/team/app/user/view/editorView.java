@@ -28,12 +28,11 @@ import com.ocpsoft.pretty.faces.annotation.URLMappings;
 @URLMappings(mappings = { @URLMapping(id = "viewEditor", pattern = "/editor", viewId = "/faces/user/editor.xhtml") })
 public class editorView extends BaseView {
 
-	private static final long serialVersionUID = 1L;
-
 	@Autowired
 	transient BoardService	boardService;
 	Cell[][]				cells;
 	List<List<Cell>>		list;
+	List<Cell>				pioche;
 	Cell					cell;
 
 	private LaserBuilder	laserBuilder	= new LaserBuilder();
@@ -55,8 +54,9 @@ public class editorView extends BaseView {
 		refresh();
 	}
 
-	private void refresh() {
-		board = BoardFactory.create("EMPTY_BOARD");
+	public void refresh() {
+		board = BoardFactory.createEmptyBoard(Integer.parseInt(height), Integer.parseInt(width));
+		pioche = new ArrayList<Cell>();
 		cells = board.getCells();
 		list = new ArrayList<List<Cell>>();
 		for (Cell[] cells2 : cells) {
@@ -74,6 +74,7 @@ public class editorView extends BaseView {
 		String[] sClass = left.split(" ");
 		int col = 0;
 		int ligne = 0;
+		int item = 0;
 		for (String s : sClass) {
 			if (StringUtils.startsWith(s, "colonne_")) {
 				String c = s.replace("colonne_", "");
@@ -83,19 +84,27 @@ public class editorView extends BaseView {
 				String c = s.replace("ligne_", "");
 				ligne = Integer.valueOf(c);
 			}
+			if (StringUtils.startsWith(s, "position_")) {
+				String c = s.replace("position_", "");
+				item = Integer.valueOf(c);
+			}
 		}
-		Cell c = list.get(ligne).get(col);
-		c.setType(Cell.CELL_EMPTY);
-		c.setAngle(-1);
+		if (col == 0 && ligne == 0) {
+			pioche.remove(item);
+		} else {
+			Cell c = list.get(ligne).get(col);
+			c.setType(Cell.CELL_EMPTY);
+			c.setAngle(-1);
+		}
+
 		System.out.println("drop");
 	}
 
-	public void dropObject(DragDropEvent ddEvent) {
+	public void putInPioche(DragDropEvent ddEvent) {
 		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-		String ligne = getParam("ligne");
-		String colonne = getParam("colonne");
 		String left = params.get("class");
 		String[] sClass = left.split(" ");
+		String idTmp = "";
 		int colTmp = -1;
 		int ligneTmp = 0;
 		for (String s : sClass) {
@@ -107,11 +116,60 @@ public class editorView extends BaseView {
 				String c = s.replace("ligne_", "");
 				ligneTmp = Integer.valueOf(c);
 			}
+			if (StringUtils.startsWith(s, "id_")) {
+				idTmp = s.replace("id_", "");
+			}
+		}
+		if (colTmp != -1) {
+			Cell c = list.get(ligneTmp).get(colTmp);
+			c.setType(Cell.CELL_EMPTY);
+			c.setAngle(-1);
+		}
+		if (idTmp.equals(Cell.CELL_MIRROR)) {
+			Cell c = new Cell(idTmp);
+			c.setAngle(0);
+			pioche.add(c);
+		}
+	}
+
+	public void dropObject(DragDropEvent ddEvent) {
+		Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		String ligne = getParam("ligne");
+		String colonne = getParam("colonne");
+		String left = params.get("class");
+		String[] sClass = left.split(" ");
+		int colTmp = -1;
+		int ligneTmp = 0;
+		int item = 0;
+		String idTmp = "";
+		for (String s : sClass) {
+			if (StringUtils.startsWith(s, "colonne_")) {
+				String c = s.replace("colonne_", "");
+				colTmp = Integer.valueOf(c);
+			}
+			if (StringUtils.startsWith(s, "ligne_")) {
+				String c = s.replace("ligne_", "");
+				ligneTmp = Integer.valueOf(c);
+			}
+			if (StringUtils.startsWith(s, "id_")) {
+				idTmp = s.replace("id_", "");
+			}
+
+			if (StringUtils.startsWith(s, "position_")) {
+				String c = s.replace("position_", "");
+				item = Integer.valueOf(c);
+			}
 		}
 		int x = Integer.valueOf(ligne);
 		int y = Integer.valueOf(colonne);
-		String id = params.get("dragId");
-		id = id.replaceAll("FormContent:", "");
+		String id;
+		if (StringUtils.isEmpty(idTmp)) {
+			id = params.get("dragId");
+			id = id.replaceAll("FormContent:", "");
+		} else {
+			id = idTmp;
+			pioche.remove(item);
+		}
 		if (colTmp == -1) {
 			Cell newCell = list.get(x).get(y);
 			newCell.setType(id);
@@ -207,6 +265,7 @@ public class editorView extends BaseView {
 		board.setLevelName(levelName);
 		board.setHeight(height);
 		board.setWidth(width);
+		board.setPioche(pioche);
 
 		boardService.createBoard(null, board);
 		Jsf.info("Le niveau a été créé.");
@@ -275,6 +334,14 @@ public class editorView extends BaseView {
 
 	public void setWidth(String width) {
 		this.width = width;
+	}
+
+	public List<Cell> getPioche() {
+		return pioche;
+	}
+
+	public void setPioche(List<Cell> pioche) {
+		this.pioche = pioche;
 	}
 
 }

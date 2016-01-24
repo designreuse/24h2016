@@ -1,6 +1,7 @@
 package com.bee.team.app.board.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -23,6 +24,7 @@ public class Board extends BaseEntity implements Serializable {
 
 	private Laser laser;
 	private Cell[][] cells;
+	private List<Cell> pioche;
 
 	public Laser getLaser() {
 		return laser;
@@ -144,6 +146,14 @@ public class Board extends BaseEntity implements Serializable {
 				if(cell.isGate() && cell!=gate) return cell;
 			}
 		return null;
+	}
+
+	public List<Cell> getPioche() {
+		return pioche;
+	}
+
+	public void setPioche(List<Cell> pioche) {
+		this.pioche = pioche;
 	}
 
 	@Override
