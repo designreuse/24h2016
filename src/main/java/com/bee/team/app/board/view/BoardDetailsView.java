@@ -169,11 +169,13 @@ public class BoardDetailsView extends BaseView implements Serializable {
 			newCell.setAngle(0);
 		} else {
 			Cell c = list.get(ligneTmp).get(colTmp);
-			Cell newCell = list.get(x).get(y);
-			newCell.setType(c.getType());
-			newCell.setAngle(c.getAngle());
-			c.setType(Cell.CELL_EMPTY);
-			c.setAngle(-1);
+			if (!c.isFixed()) {
+				Cell newCell = list.get(x).get(y);
+				newCell.setType(c.getType());
+				newCell.setAngle(c.getAngle());
+				c.setType(Cell.CELL_EMPTY);
+				c.setAngle(-1);
+			}
 		}
 		updateState();
 	}

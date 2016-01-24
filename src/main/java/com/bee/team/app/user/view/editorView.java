@@ -265,6 +265,7 @@ public class editorView extends BaseView {
 		board.setLevelName(levelName);
 		board.setHeight(height);
 		board.setWidth(width);
+		
 		board.setPioche(pioche);
 
 		boardService.createBoard(null, board);
