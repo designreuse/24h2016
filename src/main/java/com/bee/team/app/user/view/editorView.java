@@ -141,7 +141,7 @@ public class editorView extends BaseView {
 			c.setType(Cell.CELL_EMPTY);
 			c.setAngle(-1);
 		}
-		if (idTmp.equals(Cell.CELL_MIRROR)) {
+		if (idTmp.equals(Cell.CELL_MIRROR) || idTmp.equals(Cell.CELL_SPLIT)) {
 			Cell c = new Cell(idTmp);
 			c.setAngle(0);
 			pioche.add(c);

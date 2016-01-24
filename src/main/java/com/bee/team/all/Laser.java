@@ -8,7 +8,7 @@ public class Laser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private List<Point> path;
+	private List<List<Point>> path;
 	private int startDirection;
 	private Point start;
 	private Point end;
@@ -20,8 +20,15 @@ public class Laser implements Serializable {
 		this.path = new ArrayList<>();
 	}
 
-	public List<Point> getPath() {
+	public List<List<Point>> getPath() {
 		return path;
+	}
+	
+	public ArrayList<Point> createNewPath(List<Point> oldPath){
+		ArrayList<Point> newPath = new ArrayList<>();
+		newPath.addAll(oldPath);
+		path.add(newPath);
+		return newPath;
 	}
 
 	public Point getStart() {
@@ -38,8 +45,10 @@ public class Laser implements Serializable {
 
 	public String toString() {
 		StringBuffer b = new StringBuffer();
-		for (Point p : path) {
-			b.append(p);
+		for (List<Point> subpath:path){
+			for (Point p : subpath) {
+				b.append(p);
+			}
 		}
 		return b.toString();
 	}
