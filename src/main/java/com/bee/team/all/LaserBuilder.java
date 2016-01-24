@@ -6,13 +6,12 @@ import java.util.List;
 import com.bee.team.app.board.entity.Board;
 
 public class LaserBuilder implements Serializable {
-	
-	public final int GAME_OVER = -1;
-	public final int INCOMPLETE = 0; 
-	public final int COMPLETE = 1;
-	
 
-	private static final long serialVersionUID = 1L;
+	public final int			GAME_OVER			= -1;
+	public final int			INCOMPLETE			= 0;
+	public final int			COMPLETE			= 1;
+
+	private static final long	serialVersionUID	= 1L;
 
 	public int compute(Board board) {
 
@@ -27,76 +26,68 @@ public class LaserBuilder implements Serializable {
 	}
 
 	private int handleDirection(Board board, List<Point> path, Point point, int direction) {
-		
-		
 
-		Point nextPoint = findNextPoint(point, direction);
+		Point nextPoint = findNextPoint(point, direction,board);
+		if (nextPoint == null) { return INCOMPLETE; }
 		Cell nextCell = board.getCellFromPoint(nextPoint);
 		if (nextCell == null) return INCOMPLETE;
-		
-		
 
 		String type = nextCell.getType();
 		int angle = nextCell.getAngle();
-		
-		
-		if(type.equals(Cell.CELL_SPLIT)){
-			
-			
-			if(direction!=angle) {
+
+		if (type.equals(Cell.CELL_SPLIT)) {
+
+			if (direction != angle) {
 				nextCell.resetLaser();
 				return INCOMPLETE;
 			}
-			
+
 			ArrayList<Point> newPath = (ArrayList<Point>) board.getLaser().createNewPath(path);
-			
 
 			int res = -10;
-			
-			
-					int nextDirection1 = (direction+3)%4;
-					nextCell.addLaser(nextDirection1);
 
-					Point nextPoint1 = findNextPoint(nextPoint, nextDirection1);
-					Cell nextCell1 = board.getCellFromPoint(nextPoint1);
-					
-					path.add(nextPoint1);
-					nextCell1.addLaser(nextDirection1);
-					
-					int res1 = handleDirection(board, path, nextPoint1, nextDirection1);
-					
-					 if(res1==COMPLETE){
-						res = res1;
-					}
-					else if(res1==GAME_OVER && res != COMPLETE){
-						res = res1;
-					}
-					else if(res1==INCOMPLETE && res != COMPLETE && res!=GAME_OVER){
-						res = res1;
-					}
-					int nextDirection2 = (direction+1)%4;
+			int nextDirection1 = (direction + 3) % 4;
+			nextCell.addLaser(nextDirection1);
 
-					Point nextPoint2 = findNextPoint(nextPoint, nextDirection2);
-					Cell nextCell2 = board.getCellFromPoint(nextPoint2);
-					
-					newPath.add(nextPoint2);
-					nextCell2.addLaser(nextDirection2);
-					
-					res1 = handleDirection(board, newPath, nextPoint2, nextDirection2);
-					if(res1==COMPLETE){
-						res = res1;
-					}
-					else if(res1==GAME_OVER  && res != COMPLETE){
-						res = res1;
-					}
-					else if(res1==INCOMPLETE && res != COMPLETE && res!=GAME_OVER){
-						res = res1;
-					}
-					
-					
-				
+			Point nextPoint1 = findNextPoint(nextPoint, nextDirection1,board);
+			if(nextPoint1!=null){
+				Cell nextCell1 = board.getCellFromPoint(nextPoint1);
+				path.add(nextPoint1);
+				nextCell1.addLaser(nextDirection1);
+
+				int res1 = handleDirection(board, path, nextPoint1, nextDirection1);
+
+				if (res1 == COMPLETE) {
+					res = res1;
+				} else if (res1 == GAME_OVER && res != COMPLETE) {
+					res = res1;
+				} else if (res1 == INCOMPLETE && res != COMPLETE && res != GAME_OVER) {
+					res = res1;
+				}
+			}
+			
+			int nextDirection2 = (direction + 1) % 4;
+
+			Point nextPoint2 = findNextPoint(nextPoint, nextDirection2,board);
+			if(nextPoint2!=null){
+				Cell nextCell2 = board.getCellFromPoint(nextPoint2);
+
+				newPath.add(nextPoint2);
+				nextCell2.addLaser(nextDirection2);
+
+				int res1 = handleDirection(board, newPath, nextPoint2, nextDirection2);
+				if (res1 == COMPLETE) {
+					res = res1;
+				} else if (res1 == GAME_OVER && res != COMPLETE) {
+					res = res1;
+				} else if (res1 == INCOMPLETE && res != COMPLETE && res != GAME_OVER) {
+					res = res1;
+				}
+
+			}
+			
 			return res;
-		}	
+		}
 
 		int nextDirection = findNextDirection(type, direction, angle);
 
@@ -104,34 +95,32 @@ public class LaserBuilder implements Serializable {
 		nextCell.addLaser(nextDirection);
 
 		if (type.equals(Cell.CELL_LASER_END)) return COMPLETE;
-		if(type.equals(Cell.CELL_BOMB)) return GAME_OVER;
+		if (type.equals(Cell.CELL_BOMB)) return GAME_OVER;
 		if (nextDirection == Cell.UNDEFINED) return INCOMPLETE;
-		
+
 		if (type.equals(Cell.CELL_GATE)) {
-			
-			if(nextDirection!=angle) {
+
+			if (nextDirection != angle) {
 				nextCell.resetLaser();
 				return INCOMPLETE;
 			}
 			Cell otherGate = board.findOtherGate(nextCell);
-			if(otherGate==null){
+			if (otherGate == null) {
 				nextCell.resetLaser();
 				return INCOMPLETE;
 			}
-			
+
 			nextPoint = board.getPointFromCell(otherGate);
-			nextDirection = (otherGate.getAngle()+2)%4;
-			
+			nextDirection = (otherGate.getAngle() + 2) % 4;
+
 			path.add(nextPoint);
 			otherGate.addLaser(nextDirection);
 		}
 
-		
-		
 		return handleDirection(board, path, nextPoint, nextDirection);
 	}
 
-	private Point findNextPoint(Point p, int direction) {
+	private Point findNextPoint(Point p, int direction,Board board) {
 
 		int x = p.getRow();
 		int y = p.getColumn();
@@ -150,6 +139,8 @@ public class LaserBuilder implements Serializable {
 				y--;
 				break;
 		}
+		if (y < 0 || y >= Integer.parseInt(board.getHeight())) { return null; }
+		if (x < 0 || x >= Integer.parseInt(board.getWidth())) { return null; }
 		return new Point(x, y);
 	}
 
@@ -198,6 +189,4 @@ public class LaserBuilder implements Serializable {
 		return Cell.UNDEFINED;
 	}
 
-	
-	
 }
