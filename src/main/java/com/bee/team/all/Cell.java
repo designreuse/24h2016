@@ -9,6 +9,7 @@ public class Cell implements Serializable {
 	public static final String CELL_EMPTY       = "empty";
 	public static final String CELL_WALL        = "wall";
 	public static final String CELL_MIRROR       = "mirror";
+	public static final String CELL_SPLIT       = "split";
 	public static final String CELL_CHECKPOINT   = "checkpoint";
 	public static final String CELL_BOMB   = "bomb";
 	public static final String CELL_LASER_START = "lstart";
@@ -79,6 +80,10 @@ public class Cell implements Serializable {
 		return type.equals(CELL_CHECKPOINT);
 	}
 	
+	public boolean isSplit() {
+		return type.equals(CELL_SPLIT);
+	}
+	
 	public boolean isLaserStart() {
 		return type.equals(CELL_LASER_START);
 	}
@@ -137,6 +142,10 @@ public class Cell implements Serializable {
 			return "gate";
 		}
 		if(type.equals(CELL_BOMB)) {
+			if(getLaserH()==W) return "laser_bomb_2";
+			if(getLaserH()==E) return "laser_bomb_3";
+			if(getLaserV()==N) return "bomb_actif_laser";
+			if(getLaserV()==S) return "bomb_laser_1";
 			return "bomb";
 		}
 		
