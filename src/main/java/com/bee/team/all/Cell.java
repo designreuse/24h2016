@@ -149,8 +149,14 @@ public class Cell implements Serializable {
 		
 		if (type.equals(CELL_SPLIT)) {
 			if (hasLaser()) {
-				return "split_actif";
+				if(isFixed()){
+					return "split_fixed_laser";
+				}
+				return "split_laser";
 			} else {
+				if(isFixed()){
+					return "split_fixed";
+				}
 				return "split";
 			}
 		}

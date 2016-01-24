@@ -33,13 +33,20 @@ public class BoardDetailsView extends BaseView implements Serializable {
 	private boolean					gameover;
 	private List<List<Cell>>		list;
 	public boolean					notFind;
+	private String					nextBoard;
 
 	@PostConstruct
 	public void init() {
 		initBean();
-		String level = getParam("boardId");
+		String boardId = getParam("boardId");
+		board = boardService.findBoardById(null, boardId);
+		Board next = boardService.findNextBoard(board.getLevelNumber());
+		if (next == null) {
+			nextBoard = null;
+		} else {
+			nextBoard = next.getBoardId();
+		}
 
-		board = boardService.findBoardById(null, level);
 
 		if (board != null) {
 			Cell[][] cells = board.getCells();
@@ -263,5 +270,13 @@ public class BoardDetailsView extends BaseView implements Serializable {
 
 	public void setNotFind(boolean notFind) {
 		this.notFind = notFind;
+	}
+
+	public String getNextBoard() {
+		return nextBoard;
+	}
+
+	public void setNextBoard(String nextBoard) {
+		this.nextBoard = nextBoard;
 	}
 }
