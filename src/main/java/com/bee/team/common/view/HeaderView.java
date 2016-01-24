@@ -19,18 +19,20 @@ public class HeaderView extends BaseView implements Serializable {
 
 	@Autowired
 	private transient BoardService	boardService;
-	
+
 	@PostConstruct
 	public void init() {
 		WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext()).getAutowireCapableBeanFactory().autowireBean(this);
 		HttpSession session = (HttpSession) getFacesContext().getExternalContext().getSession(false);
-		if((session==null || getVisit()==null) && !getFacesContext().getPartialViewContext().isAjaxRequest()){
-			throw new ViewExpiredException();
-		}
+		if ((session == null || getVisit() == null) && !getFacesContext().getPartialViewContext().isAjaxRequest()) { throw new ViewExpiredException(); }
 	}
-	
+
 	public List<Board> getBoardList() {
 		return boardService.findAllBoard(null);
 	}
-	
+
+	public void deleteBoard() {
+		String boardId = getParam("level");
+		boardService.deleteBoard(getUser(), boardId);
+	}
 }

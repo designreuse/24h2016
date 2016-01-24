@@ -25,7 +25,8 @@ import com.ocpsoft.pretty.faces.annotation.URLMappings;
 
 @ViewScoped
 @ManagedBean(name = "editorView")
-@URLMappings(mappings = { @URLMapping(id = "viewEditor", pattern = "/editor", viewId = "/faces/user/editor.xhtml") })
+@URLMappings(mappings = { @URLMapping(id = "viewEditor", pattern = "/editor", viewId = "/faces/user/editor.xhtml"),
+		@URLMapping(id = "viewEditorUpdate", pattern = "/editor/#{/\\\\d+/editorId}", viewId = "/faces/user/editor.xhtml") })
 public class editorView extends BaseView {
 
 	@Autowired
@@ -37,7 +38,7 @@ public class editorView extends BaseView {
 
 	private LaserBuilder	laserBuilder	= new LaserBuilder();
 
-	private int			complete;
+	private int				complete;
 	private Board			board;
 	private String			levelNumber;
 	private String			levelName;
@@ -54,8 +55,22 @@ public class editorView extends BaseView {
 		refresh();
 	}
 
+	@URLAction(mappingId = "viewEditorUpdate", onPostback = false)
+	public void viewUserDashboardOnUpdate() {
+		refresh();
+	}
+
 	public void refresh() {
-		board = BoardFactory.createEmptyBoard(Integer.parseInt(height), Integer.parseInt(width));
+		String boardId = getParam("editorId");
+		if (StringUtils.isEmpty(boardId)) {
+			board = BoardFactory.createEmptyBoard(Integer.parseInt(height), Integer.parseInt(width));
+		} else {
+			board = boardService.findBoardById(getUser(), getParam("editorId"));
+			levelName = board.getLevelName();
+			levelNumber = board.getLevelNumber();
+			height = board.getHeight();
+			width = board.getWidth();
+		}
 		pioche = new ArrayList<Cell>();
 		cells = board.getCells();
 		list = new ArrayList<List<Cell>>();
@@ -242,12 +257,12 @@ public class editorView extends BaseView {
 			return "";
 		}
 
-		if (boardService.findBoardByLevelName(levelName) != null) {
+		if (StringUtils.isEmpty(board.getBoardId()) && boardService.findBoardByLevelName(levelName) != null) {
 			Jsf.error("Un level avec ce nom existe déjà.");
 			return "";
 		}
 
-		if (boardService.findBoardByLevelNumber(levelNumber) != null) {
+		if (StringUtils.isEmpty(board.getBoardId()) &&boardService.findBoardByLevelNumber(levelNumber) != null) {
 			Jsf.error("Un level avec ce numéro existe déjà.");
 			return "";
 		}
@@ -281,8 +296,11 @@ public class editorView extends BaseView {
 			c.setFixed(false);
 		}
 		board.setPioche(pioche);
-
-		boardService.createBoard(null, board);
+		if(StringUtils.isEmpty(board.getId())){
+			boardService.createBoard(null, board);
+		}else{
+			boardService.updateBoard(null, board);
+		}
 		Jsf.info("Le niveau a été créé.");
 		levelName = "";
 		levelNumber = "";

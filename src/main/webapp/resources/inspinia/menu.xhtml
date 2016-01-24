@@ -16,16 +16,26 @@
 						</div>
 						<div class="logo-element">Puzzle+</div>
 					</li>
-					<li class="#{(selectedMenu.equals('editor'))?'active':''}"><h:link outcome="pretty:viewEditor">
+
+
+					<li class="m-sm"><h:link outcome="pretty:viewEditor">
 							<i class="fa fa-cog"></i>
 							<span class="nav-label"><h:outputText value="Editeur" /></span>
 						</h:link></li>
 					<ui:repeat value="#{headerView.boardList}" var="var">
-						<li class="#{(selectedMenu.equals(var.boardId))?'active':''}"><h:link outcome="pretty:viewBoardDetails">
+						<li class="m-sm"><h:link outcome="pretty:viewBoardDetails">
 								<f:param name="boardId" value="#{var.boardId}" />
 								<i class="fa fa-cog"></i>
 								<span class="nav-label"><h:outputText value="Level #{var.levelName}" /></span>
-							</h:link></li>
+							</h:link><h:link outcome="pretty:viewEditorUpdate" update="@form">
+								<f:param name="editorId" value="#{var.boardId}"></f:param>
+								<span class="fa fa-pencil pull-right m-t-xxs"></span>
+
+							</h:link><p:commandLink action="#{headerView.deleteBoard}" update="@form">
+								<f:param name="level" value="#{var.boardId}"></f:param>
+								<span class="fa fa-trash pull-right m-t-xxs"></span>
+
+							</p:commandLink> </li>
 					</ui:repeat>
 				</ul>
 			</div>
