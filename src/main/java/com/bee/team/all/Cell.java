@@ -66,6 +66,11 @@ public class Cell implements Serializable {
 		return type.equals(CELL_WALL);
 	}
 
+	public boolean isSplit() {
+		return type.equals(CELL_SPLIT);
+	}
+
+	
 	public boolean isBomb() {
 		return type.equals(CELL_BOMB);
 	}
@@ -141,6 +146,7 @@ public class Cell implements Serializable {
 			return "gate";
 		}
 		if (type.equals(CELL_BOMB)) { return "bomb"; }
+		
 		if (type.equals(CELL_SPLIT)) {
 			if (hasLaser()) {
 				return "split_actif";
