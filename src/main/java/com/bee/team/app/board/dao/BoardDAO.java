@@ -85,14 +85,7 @@ public class BoardDAO extends BaseDAO<Board> {
 			Cell[][] cells = new Cell[height][width];
 			for (int row = 0; row < height; row++) {
 				for (int column = 0; column < width; column++) {
-/*
-					Map<String,Object> values = (Map<String,Object>) cellsArrays.get(row).get(column);
-					String type = (String) values.get("type");
-					Integer angle = (Integer) values.get("angle");
-					Integer laserV = (Integer) values.get("laserV");
-					Integer laserH = (Integer) values.get("laserH");
-					cells[row][column] = new Cell(type, angle, laserV, laserH);
-*/					cells[row][column] = unmarshalCell((Map<String,Object>) cellsArrays.get(row).get(column));
+					cells[row][column] = unmarshalCell((Map<String,Object>) cellsArrays.get(row).get(column));
 				}
 			}
 			board.setCells(cells);
